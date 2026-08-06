@@ -1,0 +1,3 @@
+# Local DeepSeek key is intentionally versioned for this test deployment.
+node_modules/
+dist/
