@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
-import { buildDocumentData, fetchTemplate, fileStem } from './exportService';
+import { fetchTemplate, fileStem } from './exportService';
+import { buildDocumentData } from './documentData';
 import { MAX_NOTICE_SUMMARY_LENGTH } from '../utils/noticeSummary';
 import type { AssessmentForm, AssessmentRule, PricingOption } from '../types';
 const pricing: PricingOption = { id: 'piece', unit: '件', unitPrice: 50, condition: '每件50元' };

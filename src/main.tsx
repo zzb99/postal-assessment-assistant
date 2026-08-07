@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BookOpenIcon, ChevronLeftIcon, ChevronRightIcon, DocumentArrowDownIcon, DocumentTextIcon, ExclamationTriangleIcon, InformationCircleIcon, MagnifyingGlassIcon, PrinterIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import type { AssessmentForm, AssessmentRule, ExportState, FieldErrors, PricingOption } from './types';
 import { loadRules } from './data/rules';
-import { buildDocumentData, exportPdf, exportWord } from './services/exportService';
+import { buildDocumentData } from './services/documentData';
 import { hasErrors, MAX_FACT_LENGTH, validateForm } from './utils/validation';
 import { clearDraft, loadDraft, saveDraft } from './utils/storage';
 import { NoticePreview } from './components/NoticePreview';
@@ -87,6 +87,7 @@ function App() {
     if (!verify() || !documentData) { setStep(2); return; }
     setExportState('loading'); setExportMessage(`正在生成 ${kind === 'word' ? 'Word' : 'PDF'}…`);
     try {
+      const { exportPdf, exportWord } = await import('./services/exportService');
       if (kind === 'word') await exportWord(documentData);
       else await exportPdf(documentData);
       setExportState('success'); setExportMessage(`${kind === 'word' ? 'Word' : 'PDF'} 已生成并开始下载。`);
