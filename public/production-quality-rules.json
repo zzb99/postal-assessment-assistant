@@ -1,6 +1,6 @@
 {
-  "version": "20260701",
-  "source": "《西安邮区中心邮件处理中心生产质量考核办法》（2026年7月1日修订版）",
+  "version": "20260819",
+  "source": "《西安邮区中心邮件处理中心生产质量考核办法》（2026年8月19日修订版）",
   "rules": [
     {
       "id": "official-001",
@@ -19,7 +19,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "办法",
@@ -60,7 +60,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "在设备正常情",
@@ -94,7 +94,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "在设备正常情",
@@ -126,7 +126,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "开拆效率需符",
@@ -153,7 +153,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "格口封发效率",
@@ -180,7 +180,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "人工分拣效率",
@@ -206,7 +206,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "因人为原因造",
@@ -240,7 +240,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "设备效能未达",
@@ -274,7 +274,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "人均效率未达",
@@ -302,7 +302,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "未落实集团公",
@@ -341,7 +341,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "现场",
@@ -375,7 +375,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "生产现场散落",
@@ -401,7 +401,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "人为隐匿毁弃",
@@ -427,7 +427,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "各环节对本区",
@@ -461,7 +461,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "发生抛",
@@ -488,7 +488,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "造成包快邮件",
@@ -514,7 +514,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "普服",
@@ -545,7 +545,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "对专用信箱邮",
@@ -571,7 +571,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "生产现场垃圾",
@@ -604,7 +604,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "未按要求及时",
@@ -636,7 +636,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "对无收寄信息",
@@ -664,7 +664,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "人工稽核人员",
@@ -695,7 +695,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "劣三类",
@@ -722,7 +722,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "未执行压道测",
@@ -754,7 +754,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "各环节发现对",
@@ -786,7 +786,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "所有人员进入",
@@ -819,7 +819,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "因劳动纠纷",
@@ -847,7 +847,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "未报备私自携",
@@ -875,7 +875,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "严禁在各种自",
@@ -908,7 +908,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "不执行调度命",
@@ -944,7 +944,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "卸车时要严格",
@@ -978,7 +978,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "异常车辆必须",
@@ -1014,7 +1014,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "处理能力充足",
@@ -1046,7 +1046,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "卸车环节要对",
@@ -1080,7 +1080,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "外包公司每班",
@@ -1113,7 +1113,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "卸车完毕后",
@@ -1143,7 +1143,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "卸车网格长检",
@@ -1173,7 +1173,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "一级分剔人员",
@@ -1203,7 +1203,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "安全员未核实",
@@ -1234,7 +1234,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "未执行一字长",
@@ -1260,7 +1260,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "车辆接卸完毕",
@@ -1292,7 +1292,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "外包公司对面",
@@ -1335,7 +1335,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "针对车辆信息",
@@ -1354,6 +1354,36 @@
     },
     {
       "id": "official-044",
+      "stage": "卸车环节",
+      "clause": "卸车环节第14条",
+      "name": "卸车未拦截破损、水湿等不合格邮件、未及时加固处理",
+      "original": "卸车未拦截破损、水湿等不合格邮件、未及时加固处理，每件考核责任外包公司100元。并承担后续丢损理赔责任。",
+      "pricingOptions": [
+        {
+          "id": "p1",
+          "unit": "件",
+          "unitPrice": 100,
+          "condition": "原文计费标准：100元",
+          "needsSupervisorReview": false
+        }
+      ],
+      "applicableConditions": "以原文描述、现场事实和适用条件为准。",
+      "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
+      "version": "20260819",
+      "needsSupervisorReview": false,
+      "keywords": [
+        "卸车未拦截破",
+        "水湿等不合格",
+        "邮件",
+        "未及时加固处",
+        "每件考核责任",
+        "外包公司",
+        "并承担后续丢",
+        "损理赔责任"
+      ]
+    },
+    {
+      "id": "official-045",
       "stage": "矩阵环节",
       "clause": "矩阵环节第1条",
       "name": "矩阵收容格口人员落实一小时一清",
@@ -1369,7 +1399,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "矩阵收容格口",
@@ -1386,7 +1416,7 @@
       ]
     },
     {
-      "id": "official-045",
+      "id": "official-046",
       "stage": "矩阵环节",
       "clause": "矩阵环节第2条",
       "name": "矩阵理件岗未按规定理件（含不干预、错干预、不报警、不疏通）造成线",
@@ -1402,7 +1432,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "矩阵理件岗未",
@@ -1417,7 +1447,7 @@
       ]
     },
     {
-      "id": "official-046",
+      "id": "official-047",
       "stage": "小件机环节",
       "clause": "小件机环节第1条",
       "name": "开拆、封发人员禁止将扎带流入胶带机",
@@ -1433,7 +1463,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "开拆",
@@ -1446,7 +1476,7 @@
       ]
     },
     {
-      "id": "official-047",
+      "id": "official-048",
       "stage": "小件机环节",
       "clause": "小件机环节第2条",
       "name": "开拆环节误开拆、批量未按序开拆",
@@ -1462,7 +1492,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "开拆环节误开",
@@ -1474,7 +1504,7 @@
       ]
     },
     {
-      "id": "official-048",
+      "id": "official-049",
       "stage": "小件机环节",
       "clause": "小件机环节第3条",
       "name": "供件台席应拦截面单脱落、破损、内件散落、水湿、油污邮件",
@@ -1490,7 +1520,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "供件台席应拦",
@@ -1506,7 +1536,7 @@
       ]
     },
     {
-      "id": "official-049",
+      "id": "official-050",
       "stage": "小件机环节",
       "clause": "小件机环节第4条",
       "name": "补码、破损、飘落邮件（以邮件供件轨迹为依据",
@@ -1522,7 +1552,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "补码",
@@ -1540,7 +1570,7 @@
       ]
     },
     {
-      "id": "official-050",
+      "id": "official-051",
       "stage": "小件机环节",
       "clause": "小件机环节第5条",
       "name": "未按集团公司《规范化管理手册处理中心生产操作标准》规范供件",
@@ -1570,7 +1600,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "未按集团公司",
@@ -1588,7 +1618,7 @@
       ]
     },
     {
-      "id": "official-051",
+      "id": "official-052",
       "stage": "小件机环节",
       "clause": "小件机环节第6条",
       "name": "供件人员禁止将可正常供件邮件放入异形处理袋内",
@@ -1611,7 +1641,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "供件人员禁止",
@@ -1629,7 +1659,7 @@
       ]
     },
     {
-      "id": "official-052",
+      "id": "official-053",
       "stage": "小件机环节",
       "clause": "小件机环节第7条",
       "name": "封发人员未扫格口码",
@@ -1645,7 +1675,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "封发人员未扫",
@@ -1658,7 +1688,7 @@
       ]
     },
     {
-      "id": "official-053",
+      "id": "official-054",
       "stage": "小件机环节",
       "clause": "小件机环节第8条",
       "name": "封袋未执行三核对（袋牌、格口、邮件）",
@@ -1674,7 +1704,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "封袋未执行三",
@@ -1687,7 +1717,7 @@
       ]
     },
     {
-      "id": "official-054",
+      "id": "official-055",
       "stage": "小件机环节",
       "clause": "小件机环节第9条",
       "name": "封发人员封发总包时必须坚持一袋一封",
@@ -1710,7 +1740,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "封发人员封发",
@@ -1728,7 +1758,7 @@
       ]
     },
     {
-      "id": "official-055",
+      "id": "official-056",
       "stage": "小件机环节",
       "clause": "小件机环节第10条",
       "name": "小件机格口封发、开拆岗位未落实“三角看袋法”检查",
@@ -1758,7 +1788,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "小件机格口封",
@@ -1776,7 +1806,7 @@
       ]
     },
     {
-      "id": "official-056",
+      "id": "official-057",
       "stage": "小件机环节",
       "clause": "小件机环节第11条",
       "name": "因封袋不规范导致的后续任何问题每袋考核500元并承担后续责任",
@@ -1792,7 +1822,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "因封袋不规范",
@@ -1803,7 +1833,7 @@
       ]
     },
     {
-      "id": "official-057",
+      "id": "official-058",
       "stage": "小件机环节",
       "clause": "小件机环节第12条",
       "name": "封发总包漏贴袋牌流入本中心下一环",
@@ -1826,7 +1856,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "封发总包漏贴",
@@ -1838,7 +1868,7 @@
       ]
     },
     {
-      "id": "official-058",
+      "id": "official-059",
       "stage": "小件机环节",
       "clause": "小件机环节第13条",
       "name": "发现超过总包封发时间的漏封邮件",
@@ -1854,7 +1884,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "发现超过总包",
@@ -1867,7 +1897,7 @@
       ]
     },
     {
-      "id": "official-059",
+      "id": "official-060",
       "stage": "小件机环节",
       "clause": "小件机环节第14条",
       "name": "未及时封发造成频次延误",
@@ -1890,7 +1920,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "未及时封发造",
@@ -1908,7 +1938,32 @@
       ]
     },
     {
-      "id": "official-060",
+      "id": "official-061",
+      "stage": "小件机环节",
+      "clause": "小件机环节第15条",
+      "name": "由于人为原因错贴袋牌每袋考核2000元",
+      "original": "由于人为原因错贴袋牌每袋考核2000元。",
+      "pricingOptions": [
+        {
+          "id": "p1",
+          "unit": "袋",
+          "unitPrice": 2000,
+          "condition": "原文计费标准：2000元",
+          "needsSupervisorReview": false
+        }
+      ],
+      "applicableConditions": "以原文描述、现场事实和适用条件为准。",
+      "followUpResponsibility": "无另行载明的后续责任。",
+      "version": "20260819",
+      "needsSupervisorReview": false,
+      "keywords": [
+        "由于人为原因",
+        "错贴袋牌每袋",
+        "考核"
+      ]
+    },
+    {
+      "id": "official-062",
       "stage": "异形处理环节",
       "clause": "异形处理环节第1条",
       "name": "理件人员未规范摆件造成邮件多次回流",
@@ -1924,7 +1979,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "理件人员未规",
@@ -1936,7 +1991,7 @@
       ]
     },
     {
-      "id": "official-061",
+      "id": "official-063",
       "stage": "异形处理环节",
       "clause": "异形处理环节第2条",
       "name": "分拨扫描时锁定路向格口造成邮件错分,每袋件考核责任外包公司30元",
@@ -1952,7 +2007,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "分拨扫描时锁",
@@ -1963,7 +2018,7 @@
       ]
     },
     {
-      "id": "official-062",
+      "id": "official-064",
       "stage": "异形处理环节",
       "clause": "异形处理环节第3条",
       "name": "班次结束后",
@@ -1986,7 +2041,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "班次结束后",
@@ -2003,7 +2058,7 @@
       ]
     },
     {
-      "id": "official-063",
+      "id": "official-065",
       "stage": "异形处理环节",
       "clause": "异形处理环节第4条",
       "name": "异形处理区待分拨邮件未按序处理的",
@@ -2019,7 +2074,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "异形处理区待",
@@ -2032,7 +2087,7 @@
       ]
     },
     {
-      "id": "official-064",
+      "id": "official-066",
       "stage": "异形处理环节",
       "clause": "异形处理环节第5条",
       "name": "异形分拣收容邮件、异形盘驳邮件、已扫描分拨标号邮件",
@@ -2048,7 +2103,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "异形分拣收容",
@@ -2064,7 +2119,7 @@
       ]
     },
     {
-      "id": "official-065",
+      "id": "official-067",
       "stage": "异形处理环节",
       "clause": "异形处理环节第6条",
       "name": "流入异形环节的标准邮件",
@@ -2080,7 +2135,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "流入异形环节",
@@ -2091,7 +2146,32 @@
       ]
     },
     {
-      "id": "official-066",
+      "id": "official-068",
+      "stage": "异形处理环节",
+      "clause": "异形处理环节第7条",
+      "name": "窄带机满格收容超过目标值每件考核10元",
+      "original": "窄带机满格收容超过目标值每件考核10元。",
+      "pricingOptions": [
+        {
+          "id": "p1",
+          "unit": "件",
+          "unitPrice": 10,
+          "condition": "原文计费标准：10元",
+          "needsSupervisorReview": false
+        }
+      ],
+      "applicableConditions": "以原文描述、现场事实和适用条件为准。",
+      "followUpResponsibility": "无另行载明的后续责任。",
+      "version": "20260819",
+      "needsSupervisorReview": false,
+      "keywords": [
+        "窄带机满格收",
+        "容超过目标值",
+        "每件考核"
+      ]
+    },
+    {
+      "id": "official-069",
       "stage": "装车环节",
       "clause": "装车环节第1条",
       "name": "由于装车不及时造成发车晚点",
@@ -2107,7 +2187,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "由于装车不及",
@@ -2123,7 +2203,7 @@
       ]
     },
     {
-      "id": "official-067",
+      "id": "official-070",
       "stage": "装车环节",
       "clause": "装车环节第2条",
       "name": "装车扫描人员对邮件进行复核",
@@ -2139,7 +2219,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "装车扫描人员",
@@ -2155,7 +2235,7 @@
       ]
     },
     {
-      "id": "official-068",
+      "id": "official-071",
       "stage": "装车环节",
       "clause": "装车环节第3条",
       "name": "邮件未按先到先装的原则及时装车（含异形、非直连格口）",
@@ -2171,7 +2251,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "邮件未按先到",
@@ -2184,7 +2264,7 @@
       ]
     },
     {
-      "id": "official-069",
+      "id": "official-072",
       "stage": "装车环节",
       "clause": "装车环节第4条",
       "name": "邮件错发、白送",
@@ -2207,7 +2287,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "邮件错发",
@@ -2218,7 +2298,7 @@
       ]
     },
     {
-      "id": "official-070",
+      "id": "official-073",
       "stage": "装车环节",
       "clause": "装车环节第5条",
       "name": "车辆上位时需核对派车信息",
@@ -2234,7 +2314,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "车辆上位时需",
@@ -2250,7 +2330,7 @@
       ]
     },
     {
-      "id": "official-071",
+      "id": "official-074",
       "stage": "装车环节",
       "clause": "装车环节第6条",
       "name": "装车人员未执行“阶梯码车法”",
@@ -2266,7 +2346,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "装车人员未执",
@@ -2281,7 +2361,7 @@
       ]
     },
     {
-      "id": "official-072",
+      "id": "official-075",
       "stage": "装车环节",
       "clause": "装车环节第7条",
       "name": "在待装车辆未到时",
@@ -2297,7 +2377,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "在待装车辆未",
@@ -2312,7 +2392,7 @@
       ]
     },
     {
-      "id": "official-073",
+      "id": "official-076",
       "stage": "装车环节",
       "clause": "装车环节第8条",
       "name": "对已配发邮件不及时装车",
@@ -2328,7 +2408,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "对已配发邮件",
@@ -2342,7 +2422,7 @@
       ]
     },
     {
-      "id": "official-074",
+      "id": "official-077",
       "stage": "装车环节",
       "clause": "装车环节第9条",
       "name": "配发时因卸交站输入错误造成邮件信实不符",
@@ -2358,7 +2438,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "配发时因卸交",
@@ -2371,7 +2451,7 @@
       ]
     },
     {
-      "id": "official-075",
+      "id": "official-078",
       "stage": "装车环节",
       "clause": "装车环节第10条",
       "name": "未按要求填写装车登记明细表",
@@ -2394,7 +2474,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "未按要求填写",
@@ -2407,7 +2487,7 @@
       ]
     },
     {
-      "id": "official-076",
+      "id": "official-079",
       "stage": "装车环节",
       "clause": "装车环节第11条",
       "name": "装车时未拦截破损、水湿等不合格邮件",
@@ -2423,7 +2503,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "装车时未拦截",
@@ -2441,7 +2521,7 @@
       ]
     },
     {
-      "id": "official-077",
+      "id": "official-080",
       "stage": "装车环节",
       "clause": "装车环节第12条",
       "name": "因邮路配发错误造成邮件信息滞留每次考核外包公司1000元",
@@ -2457,7 +2537,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "因邮路配发错",
@@ -2467,7 +2547,7 @@
       ]
     },
     {
-      "id": "official-078",
+      "id": "official-081",
       "stage": "装车环节",
       "clause": "装车环节第13条",
       "name": "未实施车封、无效施封、不规范施封、车封管理不严现场散落",
@@ -2483,7 +2563,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "未实施车封",
@@ -2496,7 +2576,7 @@
       ]
     },
     {
-      "id": "official-079",
+      "id": "official-082",
       "stage": "装车环节",
       "clause": "装车环节第14条",
       "name": "装发多点、市内邮路时",
@@ -2512,7 +2592,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "装发多点",
@@ -2525,7 +2605,7 @@
       ]
     },
     {
-      "id": "official-080",
+      "id": "official-083",
       "stage": "装车环节",
       "clause": "装车环节第15条",
       "name": "异形邮件、非直连格口邮件无拖笼签或未按规定填写拖笼签",
@@ -2548,7 +2628,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "异形邮件",
@@ -2566,7 +2646,7 @@
       ]
     },
     {
-      "id": "official-081",
+      "id": "official-084",
       "stage": "装车环节",
       "clause": "装车环节第16条",
       "name": "装车时未按车辆实际载重装车",
@@ -2582,7 +2662,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "装车时未按车",
@@ -2595,7 +2675,7 @@
       ]
     },
     {
-      "id": "official-082",
+      "id": "official-085",
       "stage": "装车环节",
       "clause": "装车环节第17条",
       "name": "装车公司对于申要车型与上位车型不符的情况",
@@ -2611,7 +2691,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "装车公司对于",
@@ -2629,7 +2709,7 @@
       ]
     },
     {
-      "id": "official-083",
+      "id": "official-086",
       "stage": "装车环节",
       "clause": "装车环节第18条",
       "name": "人工处理后装车扫描无后续",
@@ -2645,7 +2725,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "人工处理后装",
@@ -2656,7 +2736,7 @@
       ]
     },
     {
-      "id": "official-084",
+      "id": "official-087",
       "stage": "问题件及疑难邮件处理环节",
       "clause": "问题件及疑难邮件处理环节第1条",
       "name": "问题件处理人员未按操作规范处理问题件",
@@ -2672,7 +2752,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "问题件处理人",
@@ -2690,7 +2770,7 @@
       ]
     },
     {
-      "id": "official-085",
+      "id": "official-088",
       "stage": "问题件及疑难邮件处理环节",
       "clause": "问题件及疑难邮件处理环节第2条",
       "name": "裸包邮件未在规定区域处理",
@@ -2706,7 +2786,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "裸包邮件未在",
@@ -2719,7 +2799,7 @@
       ]
     },
     {
-      "id": "official-086",
+      "id": "official-089",
       "stage": "问题件及疑难邮件处理环节",
       "clause": "问题件及疑难邮件处理环节第3条",
       "name": "问题环节待处理邮件无故交班每次考核外包公司100元",
@@ -2742,7 +2822,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "问题环节待处",
@@ -2757,7 +2837,7 @@
       ]
     },
     {
-      "id": "official-087",
+      "id": "official-090",
       "stage": "问题件及疑难邮件处理环节",
       "clause": "问题件及疑难邮件处理环节第4条",
       "name": "改退、撤单、补码批条贴不规范粘贴每件考核外包公司20元",
@@ -2773,7 +2853,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "改退",
@@ -2784,7 +2864,7 @@
       ]
     },
     {
-      "id": "official-088",
+      "id": "official-091",
       "stage": "问题件及疑难邮件处理环节",
       "clause": "问题件及疑难邮件处理环节第5条",
       "name": "外包公司不得私自处理双面单邮件",
@@ -2807,7 +2887,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "外包公司不得",
@@ -2821,7 +2901,7 @@
       ]
     },
     {
-      "id": "official-089",
+      "id": "official-092",
       "stage": "重点指标",
       "clause": "重点指标第1条",
       "name": "全程时限达成率未达到当年省分公司标准",
@@ -2844,7 +2924,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "全程时限达成",
@@ -2858,7 +2938,7 @@
       ]
     },
     {
-      "id": "official-090",
+      "id": "official-093",
       "stage": "重点指标",
       "clause": "重点指标第2条",
       "name": "智能跟单异常发生率",
@@ -2881,7 +2961,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "智能跟单异常",
@@ -2898,7 +2978,7 @@
       ]
     },
     {
-      "id": "official-091",
+      "id": "official-094",
       "stage": "重点指标",
       "clause": "重点指标第3条",
       "name": "错分错发",
@@ -2914,7 +2994,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "错分错发",
@@ -2925,7 +3005,7 @@
       ]
     },
     {
-      "id": "official-092",
+      "id": "official-095",
       "stage": "重点指标",
       "clause": "重点指标第4条",
       "name": "邮件丢失率",
@@ -2941,7 +3021,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "邮件丢失率",
@@ -2955,7 +3035,7 @@
       ]
     },
     {
-      "id": "official-093",
+      "id": "official-096",
       "stage": "重点指标",
       "clause": "重点指标第5条",
       "name": "给据邮件信息断点率：",
@@ -2971,7 +3051,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "给据邮件信息",
@@ -2979,7 +3059,7 @@
       ]
     },
     {
-      "id": "official-094",
+      "id": "official-097",
       "stage": "重点指标",
       "clause": "重点指标第6条",
       "name": "外包人员熟练度：（1）乙方服务人员熟练度未达到当年标准",
@@ -3002,7 +3082,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "外包人员熟练",
@@ -3019,7 +3099,7 @@
       ]
     },
     {
-      "id": "official-095",
+      "id": "official-098",
       "stage": "重点指标",
       "clause": "重点指标第7条",
       "name": "外包人员签到率：乙方服务人员签到率未达到当年标准,甲方按100元",
@@ -3042,7 +3122,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "外包人员签到",
@@ -3060,7 +3140,7 @@
       ]
     },
     {
-      "id": "official-096",
+      "id": "official-099",
       "stage": "重点指标",
       "clause": "重点指标第8条",
       "name": "邮件平衡合拢：对“有进无出”、“有出无进”等问题邮件按件对外包公",
@@ -3083,7 +3163,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "邮件平衡合拢",
@@ -3097,7 +3177,7 @@
       ]
     },
     {
-      "id": "official-097",
+      "id": "official-100",
       "stage": "重点指标",
       "clause": "重点指标第9条",
       "name": "有责丢损：包快邮件有责丢损率达标值为不高于十万分之二",
@@ -3120,7 +3200,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "有责丢损",
@@ -3136,7 +3216,7 @@
       ]
     },
     {
-      "id": "official-098",
+      "id": "official-101",
       "stage": "安全生产",
       "clause": "安全生产第1条",
       "name": "依靠胶带机考核外包公司200元/次",
@@ -3152,7 +3232,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "依靠胶带机考",
@@ -3160,7 +3240,7 @@
       ]
     },
     {
-      "id": "official-099",
+      "id": "official-102",
       "stage": "安全生产",
       "clause": "安全生产第2条",
       "name": "踩踏、下钻、翻越胶带机",
@@ -3176,7 +3256,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "踩踏",
@@ -3186,7 +3266,7 @@
       ]
     },
     {
-      "id": "official-100",
+      "id": "official-103",
       "stage": "安全生产",
       "clause": "安全生产第3条",
       "name": "清理分拣机卡夹邮件时",
@@ -3202,7 +3282,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "清理分拣机卡",
@@ -3218,7 +3298,7 @@
       ]
     },
     {
-      "id": "official-101",
+      "id": "official-104",
       "stage": "安全生产",
       "clause": "安全生产第4条",
       "name": "发生安全事故或未对安全事故及时处理",
@@ -3234,7 +3314,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "发生安全事故",
@@ -3247,7 +3327,7 @@
       ]
     },
     {
-      "id": "official-102",
+      "id": "official-105",
       "stage": "安全生产",
       "clause": "安全生产第5条",
       "name": "矩阵人工分剔岗位、理件岗位在岗期间必须佩戴安全帽、栓挂安全绳",
@@ -3263,7 +3343,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "矩阵人工分剔",
@@ -3278,7 +3358,7 @@
       ]
     },
     {
-      "id": "official-103",
+      "id": "official-106",
       "stage": "安全生产",
       "clause": "安全生产第6条",
       "name": "严禁人员从装、卸车槽口上下",
@@ -3294,7 +3374,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "严禁人员从装",
@@ -3304,7 +3384,7 @@
       ]
     },
     {
-      "id": "official-104",
+      "id": "official-107",
       "stage": "安全生产",
       "clause": "安全生产第7条",
       "name": "发现人员在场院内及生产现场的非吸烟区吸烟",
@@ -3320,7 +3400,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "发现人员在场",
@@ -3332,7 +3412,7 @@
       ]
     },
     {
-      "id": "official-105",
+      "id": "official-108",
       "stage": "安全生产",
       "clause": "安全生产第8条",
       "name": "巡场时发现车辆未放置车阻器",
@@ -3348,7 +3428,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "巡场时发现车",
@@ -3358,7 +3438,7 @@
       ]
     },
     {
-      "id": "official-106",
+      "id": "official-109",
       "stage": "安全生产",
       "clause": "安全生产第9条",
       "name": "外包人员禁止驾驶挪移运邮车辆",
@@ -3374,7 +3454,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "外包人员禁止",
@@ -3392,7 +3472,7 @@
       ]
     },
     {
-      "id": "official-107",
+      "id": "official-110",
       "stage": "安全生产",
       "clause": "安全生产第10条",
       "name": "装、卸车环节未严格执行移车单、挪移牌制度形成安全隐患",
@@ -3408,7 +3488,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "卸车环节未严",
@@ -3420,7 +3500,7 @@
       ]
     },
     {
-      "id": "official-108",
+      "id": "official-111",
       "stage": "安全生产",
       "clause": "安全生产第11条",
       "name": "在装、卸车过程中",
@@ -3436,7 +3516,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "在装",
@@ -3453,7 +3533,7 @@
       ]
     },
     {
-      "id": "official-109",
+      "id": "official-112",
       "stage": "安全生产",
       "clause": "安全生产第12条",
       "name": "生产过程中任何外包人员出现谎报生产信息",
@@ -3469,7 +3549,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "生产过程中任",
@@ -3480,7 +3560,7 @@
       ]
     },
     {
-      "id": "official-110",
+      "id": "official-113",
       "stage": "安全生产",
       "clause": "安全生产第13条",
       "name": "已安检邮件",
@@ -3496,7 +3576,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "已安检邮件",
@@ -3513,7 +3593,7 @@
       ]
     },
     {
-      "id": "official-111",
+      "id": "official-114",
       "stage": "安全生产",
       "clause": "安全生产第14条",
       "name": "在生产现场人员严格执行“三紧”（衣领、袖口、下摆",
@@ -3529,7 +3609,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "在生产现场人",
@@ -3547,7 +3627,7 @@
       ]
     },
     {
-      "id": "official-112",
+      "id": "official-115",
       "stage": "安全生产",
       "clause": "安全生产第15条",
       "name": "设备规范操作是保证生产安全的前提",
@@ -3563,7 +3643,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "设备规范操作",
@@ -3575,7 +3655,7 @@
       ]
     },
     {
-      "id": "official-113",
+      "id": "official-116",
       "stage": "安全生产",
       "clause": "安全生产第16条",
       "name": "各环节在生产过程中误按“急停”开关影响生产效率",
@@ -3591,7 +3671,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "各环节在生产",
@@ -3604,7 +3684,7 @@
       ]
     },
     {
-      "id": "official-114",
+      "id": "official-117",
       "stage": "安全生产",
       "clause": "安全生产第17条",
       "name": "在生产作业过程中",
@@ -3620,7 +3700,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "在生产作业过",
@@ -3636,7 +3716,7 @@
       ]
     },
     {
-      "id": "official-115",
+      "id": "official-118",
       "stage": "安全生产",
       "clause": "安全生产第18条",
       "name": "设备出现故障后应及时上报处理",
@@ -3652,7 +3732,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "设备出现故障",
@@ -3670,7 +3750,7 @@
       ]
     },
     {
-      "id": "official-116",
+      "id": "official-119",
       "stage": "安全生产",
       "clause": "安全生产第19条",
       "name": "传输设备及螺旋（直）滑槽发生卡塞时所属工位要及时疏通",
@@ -3686,7 +3766,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "传输设备及螺",
@@ -3701,7 +3781,7 @@
       ]
     },
     {
-      "id": "official-117",
+      "id": "official-120",
       "stage": "安全生产",
       "clause": "安全生产第20条",
       "name": "禁止将超大、超重或不适宜上分拣机传输的邮件上机传输",
@@ -3717,7 +3797,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "禁止将超大",
@@ -3729,7 +3809,7 @@
       ]
     },
     {
-      "id": "official-118",
+      "id": "official-121",
       "stage": "安全生产",
       "clause": "安全生产第21条",
       "name": "为节约能源和保障安全",
@@ -3745,7 +3825,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "为节约能源和",
@@ -3758,7 +3838,7 @@
       ]
     },
     {
-      "id": "official-119",
+      "id": "official-122",
       "stage": "安全生产",
       "clause": "安全生产第22条",
       "name": "管理不善造成设备丢失",
@@ -3774,7 +3854,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "按原文承担后续连带责任、延误或赔偿责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "管理不善造成",
@@ -3787,7 +3867,7 @@
       ]
     },
     {
-      "id": "official-120",
+      "id": "official-123",
       "stage": "安全生产",
       "clause": "安全生产第23条",
       "name": "严禁在充电柜以外的任何区域私拉充电线进行设备充电",
@@ -3803,7 +3883,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "严禁在充电柜",
@@ -3815,7 +3895,7 @@
       ]
     },
     {
-      "id": "official-121",
+      "id": "official-124",
       "stage": "安全生产",
       "clause": "安全生产第24条",
       "name": "在开启胶带机时应检查胶带机上是否留有邮件",
@@ -3831,7 +3911,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "在开启胶带机",
@@ -3845,7 +3925,7 @@
       ]
     },
     {
-      "id": "official-122",
+      "id": "official-125",
       "stage": "安全生产",
       "clause": "安全生产第25条",
       "name": "在使用PDA时严格按照规定使用生产网络",
@@ -3861,7 +3941,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": false,
       "keywords": [
         "在使用",
@@ -3873,7 +3953,7 @@
       ]
     },
     {
-      "id": "official-123",
+      "id": "official-126",
       "stage": "其他说明事项",
       "clause": "其他说明事项第1条",
       "name": "以上未提及到的质量考核标准",
@@ -3889,7 +3969,7 @@
       ],
       "applicableConditions": "以原文描述、现场事实和适用条件为准。",
       "followUpResponsibility": "无另行载明的后续责任。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "以上未提及到",
@@ -3906,7 +3986,7 @@
       ]
     },
     {
-      "id": "official-124",
+      "id": "official-127",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第1条",
       "name": "违约考核标准（内部处理环节）",
@@ -3922,7 +4002,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "违约考核标准",
@@ -3930,7 +4010,7 @@
       ]
     },
     {
-      "id": "official-125",
+      "id": "official-128",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第2条",
       "name": "考核内容",
@@ -3946,14 +4026,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "考核内容"
       ]
     },
     {
-      "id": "official-126",
+      "id": "official-129",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第3条",
       "name": "指标类别",
@@ -3969,14 +4049,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "指标类别"
       ]
     },
     {
-      "id": "official-127",
+      "id": "official-130",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第4条",
       "name": "指标解释",
@@ -3992,14 +4072,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "指标解释"
       ]
     },
     {
-      "id": "official-128",
+      "id": "official-131",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第5条",
       "name": "考核标准",
@@ -4015,14 +4095,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "考核标准"
       ]
     },
     {
-      "id": "official-129",
+      "id": "official-132",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第6条",
       "name": "运行指标违约考核",
@@ -4038,7 +4118,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "运行指标违约",
@@ -4046,7 +4126,7 @@
       ]
     },
     {
-      "id": "official-130",
+      "id": "official-133",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第7条",
       "name": "分拣差错率",
@@ -4062,14 +4142,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "分拣差错率"
       ]
     },
     {
-      "id": "official-131",
+      "id": "official-134",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第8条",
       "name": "必选指标",
@@ -4085,14 +4165,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "必选指标"
       ]
     },
     {
-      "id": "official-132",
+      "id": "official-135",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第9条",
       "name": "按照当月进出口分拣不准确的邮件数量考核",
@@ -4108,7 +4188,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "按照当月进出",
@@ -4117,7 +4197,7 @@
       ]
     },
     {
-      "id": "official-133",
+      "id": "official-136",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第10条",
       "name": "出口：特快专递0.5元/件、快递包裹0.1元/件",
@@ -4133,7 +4213,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "出口",
@@ -4145,7 +4225,7 @@
       ]
     },
     {
-      "id": "official-134",
+      "id": "official-137",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第11条",
       "name": "内部处理及时率",
@@ -4161,14 +4241,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "内部处理及时"
       ]
     },
     {
-      "id": "official-135",
+      "id": "official-138",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第12条",
       "name": "按照当月内部处理不及时的邮件数量考核",
@@ -4184,7 +4264,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "按照当月内部",
@@ -4193,7 +4273,7 @@
       ]
     },
     {
-      "id": "official-136",
+      "id": "official-139",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第13条",
       "name": "特快专递0.3元/件、快递包裹0.05元/件",
@@ -4209,7 +4289,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "特快专递",
@@ -4217,7 +4297,7 @@
       ]
     },
     {
-      "id": "official-137",
+      "id": "official-140",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第14条",
       "name": "邮件丢失率",
@@ -4233,14 +4313,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "邮件丢失率"
       ]
     },
     {
-      "id": "official-138",
+      "id": "official-141",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第15条",
       "name": "按照当月邮件丢失数量考核（不包括邮件丢失赔偿考核）",
@@ -4256,7 +4336,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "按照当月邮件",
@@ -4268,7 +4348,7 @@
       ]
     },
     {
-      "id": "official-139",
+      "id": "official-142",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第16条",
       "name": "100元/件",
@@ -4284,12 +4364,12 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": []
     },
     {
-      "id": "official-140",
+      "id": "official-143",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第17条",
       "name": "关键信息扫描率",
@@ -4305,14 +4385,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "关键信息扫描"
       ]
     },
     {
-      "id": "official-141",
+      "id": "official-144",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第18条",
       "name": "考核邮件解车、卸车扫描、供件扫描、封发扫描、装车扫描、封车等关键",
@@ -4328,7 +4408,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "考核邮件解车",
@@ -4343,7 +4423,7 @@
       ]
     },
     {
-      "id": "official-142",
+      "id": "official-145",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第19条",
       "name": "特快专递0.05元/件、快递包裹0.01元/件",
@@ -4359,7 +4439,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "特快专递",
@@ -4367,7 +4447,7 @@
       ]
     },
     {
-      "id": "official-143",
+      "id": "official-146",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第20条",
       "name": "邮件逾限量考核",
@@ -4383,14 +4463,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "邮件逾限量考"
       ]
     },
     {
-      "id": "official-144",
+      "id": "official-147",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第21条",
       "name": "考核当月逾限邮件",
@@ -4406,7 +4486,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "考核当月逾限",
@@ -4416,7 +4496,7 @@
       ]
     },
     {
-      "id": "official-145",
+      "id": "official-148",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第22条",
       "name": "快包0.05元/件、特快0.5元/件",
@@ -4432,7 +4512,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "快包",
@@ -4444,7 +4524,7 @@
       ]
     },
     {
-      "id": "official-146",
+      "id": "official-149",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第23条",
       "name": "邮件平衡合拢",
@@ -4460,14 +4540,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "邮件平衡合拢"
       ]
     },
     {
-      "id": "official-147",
+      "id": "official-150",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第24条",
       "name": "对“有进无出”、“有出无进”等问题邮件进行按件考核",
@@ -4483,7 +4563,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "有进无出",
@@ -4493,7 +4573,7 @@
       ]
     },
     {
-      "id": "official-148",
+      "id": "official-151",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第25条",
       "name": "快包0.01元/件、特快0.05元/件",
@@ -4509,7 +4589,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "快包",
@@ -4517,7 +4597,7 @@
       ]
     },
     {
-      "id": "official-149",
+      "id": "official-152",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第26条",
       "name": "邮车超时接卸",
@@ -4533,14 +4613,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "邮车超时接卸"
       ]
     },
     {
-      "id": "official-150",
+      "id": "official-153",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第27条",
       "name": "一干、二干和邮区内邮车从入局起计算",
@@ -4556,7 +4636,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "一干",
@@ -4567,7 +4647,7 @@
       ]
     },
     {
-      "id": "official-151",
+      "id": "official-154",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第28条",
       "name": "一干：超6小时接卸的",
@@ -4583,7 +4663,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "一干",
@@ -4595,7 +4675,7 @@
       ]
     },
     {
-      "id": "official-152",
+      "id": "official-155",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第29条",
       "name": "邮航/民航接发及时率",
@@ -4611,7 +4691,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "邮航",
@@ -4619,7 +4699,7 @@
       ]
     },
     {
-      "id": "official-153",
+      "id": "official-156",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第30条",
       "name": "可选指标",
@@ -4635,14 +4715,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "可选指标"
       ]
     },
     {
-      "id": "official-154",
+      "id": "official-157",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第31条",
       "name": "对问题邮件责任单位按件考核",
@@ -4658,7 +4738,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "对问题邮件责",
@@ -4666,7 +4746,7 @@
       ]
     },
     {
-      "id": "official-155",
+      "id": "official-158",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第32条",
       "name": "0.5元/件",
@@ -4682,12 +4762,12 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": []
     },
     {
-      "id": "official-156",
+      "id": "official-159",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第33条",
       "name": "针对邮航/民航接发局",
@@ -4703,7 +4783,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "针对邮航",
@@ -4711,7 +4791,7 @@
       ]
     },
     {
-      "id": "official-157",
+      "id": "official-160",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第34条",
       "name": "设备效能",
@@ -4727,14 +4807,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "设备效能"
       ]
     },
     {
-      "id": "official-158",
+      "id": "official-161",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第35条",
       "name": "西安邮区中心邮件处理中心港务场地西场矩阵设备效能达标值60%",
@@ -4750,7 +4830,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "西安邮区中心",
@@ -4768,7 +4848,7 @@
       ]
     },
     {
-      "id": "official-159",
+      "id": "official-162",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第36条",
       "name": "作业人员操作不规范或其他人为原因导致的设备效能不达标",
@@ -4784,7 +4864,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "作业人员操作",
@@ -4797,7 +4877,7 @@
       ]
     },
     {
-      "id": "official-160",
+      "id": "official-163",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第37条",
       "name": "西安邮区中心邮件处理中心港务场地西场、东场粗分及细分矩阵设备收容",
@@ -4813,7 +4893,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "西安邮区中心",
@@ -4829,7 +4909,7 @@
       ]
     },
     {
-      "id": "official-161",
+      "id": "official-164",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第38条",
       "name": "作业人员操作不规范或其他人为原因导致的收容率不达标",
@@ -4845,7 +4925,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "作业人员操作",
@@ -4861,7 +4941,7 @@
       ]
     },
     {
-      "id": "official-162",
+      "id": "official-165",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第39条",
       "name": "人员效率",
@@ -4877,14 +4957,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "人员效率"
       ]
     },
     {
-      "id": "official-163",
+      "id": "official-166",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第40条",
       "name": "应将乙方服务人员签到率、乙方服务人员的熟练度、全流程人均效率、各",
@@ -4900,7 +4980,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "应将乙方服务",
@@ -4918,7 +4998,7 @@
       ]
     },
     {
-      "id": "official-164",
+      "id": "official-167",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第41条",
       "name": "1.乙方服务人员签到率低于100%的,甲方按100元/人·次进行",
@@ -4934,7 +5014,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方服务人员",
@@ -4952,7 +5032,7 @@
       ]
     },
     {
-      "id": "official-165",
+      "id": "official-168",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第42条",
       "name": "服务质量违约考核",
@@ -4968,7 +5048,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "服务质量违约",
@@ -4976,7 +5056,7 @@
       ]
     },
     {
-      "id": "official-166",
+      "id": "official-169",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第43条",
       "name": "有责丢损",
@@ -4992,14 +5072,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "有责丢损"
       ]
     },
     {
-      "id": "official-167",
+      "id": "official-170",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第44条",
       "name": "包快邮件有责丢损率",
@@ -5015,7 +5095,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "包快邮件有责",
@@ -5025,7 +5105,7 @@
       ]
     },
     {
-      "id": "official-168",
+      "id": "official-171",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第45条",
       "name": "每高一个十万分点",
@@ -5041,7 +5121,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "每高一个十万",
@@ -5054,7 +5134,7 @@
       ]
     },
     {
-      "id": "official-169",
+      "id": "official-172",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第46条",
       "name": "有责申诉率及申诉处理满意率",
@@ -5070,7 +5150,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "有责申诉率及",
@@ -5078,7 +5158,7 @@
       ]
     },
     {
-      "id": "official-170",
+      "id": "official-173",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第47条",
       "name": "有责申诉率达标值为百万分之0.02",
@@ -5094,7 +5174,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "有责申诉率达",
@@ -5105,7 +5185,7 @@
       ]
     },
     {
-      "id": "official-171",
+      "id": "official-174",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第48条",
       "name": "有责申诉率",
@@ -5121,7 +5201,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "有责申诉率",
@@ -5139,7 +5219,7 @@
       ]
     },
     {
-      "id": "official-172",
+      "id": "official-175",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第49条",
       "name": "无效处理率",
@@ -5155,14 +5235,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "无效处理率"
       ]
     },
     {
-      "id": "official-173",
+      "id": "official-176",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第50条",
       "name": "无效处理率达标值为不高于百分之0.04",
@@ -5178,7 +5258,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "无效处理率达",
@@ -5187,7 +5267,7 @@
       ]
     },
     {
-      "id": "official-174",
+      "id": "official-177",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第51条",
       "name": "每高0.01个百分点",
@@ -5203,7 +5283,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "每高",
@@ -5212,7 +5292,7 @@
       ]
     },
     {
-      "id": "official-175",
+      "id": "official-178",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第52条",
       "name": "问题邮件一次解决率",
@@ -5228,7 +5308,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "问题邮件一次",
@@ -5236,7 +5316,7 @@
       ]
     },
     {
-      "id": "official-176",
+      "id": "official-179",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第53条",
       "name": "问题邮件一次解决率达标值为不低于百分之94",
@@ -5252,7 +5332,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "问题邮件一次",
@@ -5261,7 +5341,7 @@
       ]
     },
     {
-      "id": "official-177",
+      "id": "official-180",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第54条",
       "name": "每低一个百分点",
@@ -5277,7 +5357,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "每低一个百分",
@@ -5285,7 +5365,7 @@
       ]
     },
     {
-      "id": "official-178",
+      "id": "official-181",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第55条",
       "name": "其他服务质量指标",
@@ -5301,7 +5381,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "其他服务质量",
@@ -5309,7 +5389,7 @@
       ]
     },
     {
-      "id": "official-179",
+      "id": "official-182",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第56条",
       "name": "1.判定有责的普通工单（不含邮件有责丢、损）考核2.产生国家邮政",
@@ -5325,7 +5405,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "判定有责的普",
@@ -5343,7 +5423,7 @@
       ]
     },
     {
-      "id": "official-180",
+      "id": "official-183",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第57条",
       "name": "视情况考核200-20000元/件",
@@ -5359,7 +5439,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "视情况考核",
@@ -5368,7 +5448,7 @@
       ]
     },
     {
-      "id": "official-181",
+      "id": "official-184",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第58条",
       "name": "现场管理违约考核",
@@ -5384,7 +5464,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "现场管理违约",
@@ -5392,7 +5472,7 @@
       ]
     },
     {
-      "id": "official-182",
+      "id": "official-185",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第59条",
       "name": "违反进出规定",
@@ -5408,14 +5488,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "违反进出规定"
       ]
     },
     {
-      "id": "official-183",
+      "id": "official-186",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第60条",
       "name": "进出生产现场必须通过门禁闸口并进行安检",
@@ -5431,7 +5511,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "进出生产现场",
@@ -5449,7 +5529,7 @@
       ]
     },
     {
-      "id": "official-184",
+      "id": "official-187",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第61条",
       "name": "50元/次",
@@ -5465,7 +5545,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "不听劝阻或不",
@@ -5476,7 +5556,7 @@
       ]
     },
     {
-      "id": "official-185",
+      "id": "official-188",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第62条",
       "name": "寻衅滋事",
@@ -5492,14 +5572,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "寻衅滋事"
       ]
     },
     {
-      "id": "official-186",
+      "id": "official-189",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第63条",
       "name": "生产现场严禁寻衅滋事、打架斗殴",
@@ -5515,7 +5595,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "生产现场严禁",
@@ -5525,7 +5605,7 @@
       ]
     },
     {
-      "id": "official-187",
+      "id": "official-190",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第64条",
       "name": "一般打架斗殴",
@@ -5541,7 +5621,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "一般打架斗殴",
@@ -5558,7 +5638,7 @@
       ]
     },
     {
-      "id": "official-188",
+      "id": "official-191",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第65条",
       "name": "未执行现场6S管理",
@@ -5574,7 +5654,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未执行现场",
@@ -5582,7 +5662,7 @@
       ]
     },
     {
-      "id": "official-189",
+      "id": "official-192",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第66条",
       "name": "未执行现场6S管理",
@@ -5598,7 +5678,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未执行现场",
@@ -5615,7 +5695,7 @@
       ]
     },
     {
-      "id": "official-190",
+      "id": "official-193",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第67条",
       "name": "视情况考核50-500元/次",
@@ -5631,14 +5711,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "视情况考核"
       ]
     },
     {
-      "id": "official-191",
+      "id": "official-194",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第68条",
       "name": "未落实班会制度",
@@ -5654,14 +5734,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未落实班会制"
       ]
     },
     {
-      "id": "official-192",
+      "id": "official-195",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第69条",
       "name": "未落实班前会、班后会制度",
@@ -5677,7 +5757,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未落实班前会",
@@ -5686,7 +5766,7 @@
       ]
     },
     {
-      "id": "official-193",
+      "id": "official-196",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第70条",
       "name": "考核100元/班次",
@@ -5702,7 +5782,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "考核",
@@ -5710,7 +5790,7 @@
       ]
     },
     {
-      "id": "official-194",
+      "id": "official-197",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第71条",
       "name": "未落实网格化管理",
@@ -5726,7 +5806,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未落实网格化",
@@ -5734,7 +5814,7 @@
       ]
     },
     {
-      "id": "official-195",
+      "id": "official-198",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第72条",
       "name": "生产现场未按要求落实网格化管理",
@@ -5750,7 +5830,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "生产现场未按",
@@ -5761,7 +5841,7 @@
       ]
     },
     {
-      "id": "official-196",
+      "id": "official-199",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第73条",
       "name": "考核500元/次",
@@ -5777,14 +5857,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "考核"
       ]
     },
     {
-      "id": "official-197",
+      "id": "official-200",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第74条",
       "name": "未落实绿色节能管理",
@@ -5800,7 +5880,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未落实绿色节",
@@ -5808,7 +5888,7 @@
       ]
     },
     {
-      "id": "official-198",
+      "id": "official-201",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第75条",
       "name": "乙方未按规定履行绿色环保义务",
@@ -5824,7 +5904,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方未按规定",
@@ -5842,7 +5922,7 @@
       ]
     },
     {
-      "id": "official-199",
+      "id": "official-202",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第76条",
       "name": "视情况考核50-5000元/次",
@@ -5858,14 +5938,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "视情况考核"
       ]
     },
     {
-      "id": "official-200",
+      "id": "official-203",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第77条",
       "name": "着装不规范",
@@ -5881,14 +5961,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "着装不规范"
       ]
     },
     {
-      "id": "official-201",
+      "id": "official-204",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第78条",
       "name": "乙方服务人员上岗必须统一标志服",
@@ -5904,7 +5984,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方服务人员",
@@ -5922,7 +6002,7 @@
       ]
     },
     {
-      "id": "official-202",
+      "id": "official-205",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第79条",
       "name": "50元/人次",
@@ -5938,14 +6018,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "人次"
       ]
     },
     {
-      "id": "official-203",
+      "id": "official-206",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第80条",
       "name": "规范操作违约考核",
@@ -5961,7 +6041,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "规范操作违约",
@@ -5969,7 +6049,7 @@
       ]
     },
     {
-      "id": "official-204",
+      "id": "official-207",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第81条",
       "name": "与标准操作要求不符考核",
@@ -5985,7 +6065,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "与标准操作要",
@@ -5993,7 +6073,7 @@
       ]
     },
     {
-      "id": "official-205",
+      "id": "official-208",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第82条",
       "name": "未按照最新版本《规范化管理手册》执行",
@@ -6009,7 +6089,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未按照最新版",
@@ -6027,7 +6107,7 @@
       ]
     },
     {
-      "id": "official-206",
+      "id": "official-209",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第83条",
       "name": "200元/次",
@@ -6043,7 +6123,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "造成甲方上级",
@@ -6058,7 +6138,7 @@
       ]
     },
     {
-      "id": "official-207",
+      "id": "official-210",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第84条",
       "name": "特殊邮件操作与要求不符",
@@ -6074,7 +6154,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "特殊邮件操作",
@@ -6082,7 +6162,7 @@
       ]
     },
     {
-      "id": "official-208",
+      "id": "official-211",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第85条",
       "name": "特殊邮件未按照相应处理操作要求执行",
@@ -6098,7 +6178,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "特殊邮件未按",
@@ -6116,7 +6196,7 @@
       ]
     },
     {
-      "id": "official-209",
+      "id": "official-212",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第86条",
       "name": "300元/次",
@@ -6132,7 +6212,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "造成造成甲方",
@@ -6143,7 +6223,7 @@
       ]
     },
     {
-      "id": "official-210",
+      "id": "official-213",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第87条",
       "name": "装卸车作业不规范",
@@ -6159,7 +6239,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "装卸车作业不",
@@ -6167,7 +6247,7 @@
       ]
     },
     {
-      "id": "official-211",
+      "id": "official-214",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第88条",
       "name": "1.卸车、解车不规范：卸车不及时",
@@ -6183,7 +6263,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "卸车",
@@ -6201,7 +6281,7 @@
       ]
     },
     {
-      "id": "official-212",
+      "id": "official-215",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第89条",
       "name": "视情况考核200-2000元/次",
@@ -6217,7 +6297,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "视情况考核",
@@ -6229,7 +6309,7 @@
       ]
     },
     {
-      "id": "official-213",
+      "id": "official-216",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第90条",
       "name": "分拣封发作业不规范",
@@ -6245,7 +6325,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "分拣封发作业",
@@ -6253,7 +6333,7 @@
       ]
     },
     {
-      "id": "official-214",
+      "id": "official-217",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第91条",
       "name": "1.禁限寄邮件处理不规范：发现疑似禁止寄递物品未依照规定处理",
@@ -6269,7 +6349,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "禁限寄邮件处",
@@ -6287,7 +6367,7 @@
       ]
     },
     {
-      "id": "official-215",
+      "id": "official-218",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第92条",
       "name": "考核20—1000元/件/次",
@@ -6303,14 +6383,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "考核"
       ]
     },
     {
-      "id": "official-216",
+      "id": "official-219",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第93条",
       "name": "容器操作不规范",
@@ -6326,14 +6406,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "容器操作不规"
       ]
     },
     {
-      "id": "official-217",
+      "id": "official-220",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第94条",
       "name": "1.循环袋绑定率不低于95%",
@@ -6349,7 +6429,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "循环袋绑定率",
@@ -6367,7 +6447,7 @@
       ]
     },
     {
-      "id": "official-218",
+      "id": "official-221",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第95条",
       "name": "循环袋绑定率",
@@ -6383,7 +6463,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "循环袋绑定率",
@@ -6401,7 +6481,7 @@
       ]
     },
     {
-      "id": "official-219",
+      "id": "official-222",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第96条",
       "name": "安全生产违约考核",
@@ -6417,7 +6497,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "安全生产违约",
@@ -6425,7 +6505,7 @@
       ]
     },
     {
-      "id": "official-220",
+      "id": "official-223",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第97条",
       "name": "安全制度",
@@ -6441,14 +6521,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "安全制度"
       ]
     },
     {
-      "id": "official-221",
+      "id": "official-224",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第98条",
       "name": "1.乙方应明确自身和相关人员的安全职责",
@@ -6464,7 +6544,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方应明确自",
@@ -6482,7 +6562,7 @@
       ]
     },
     {
-      "id": "official-222",
+      "id": "official-225",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第99条",
       "name": "5000元/次",
@@ -6498,12 +6578,12 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": []
     },
     {
-      "id": "official-223",
+      "id": "official-226",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第100条",
       "name": "安全管理",
@@ -6519,14 +6599,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "安全管理"
       ]
     },
     {
-      "id": "official-224",
+      "id": "official-227",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第101条",
       "name": "1.乙方对驻甲方生产作业场地安全管理部门和安全管理人员安全生产责",
@@ -6542,7 +6622,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方对驻甲方",
@@ -6560,7 +6640,7 @@
       ]
     },
     {
-      "id": "official-225",
+      "id": "official-228",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第102条",
       "name": "视情况",
@@ -6576,7 +6656,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "视情况",
@@ -6584,7 +6664,7 @@
       ]
     },
     {
-      "id": "official-226",
+      "id": "official-229",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第103条",
       "name": "安全培训学习",
@@ -6600,14 +6680,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "安全培训学习"
       ]
     },
     {
-      "id": "official-227",
+      "id": "official-230",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第104条",
       "name": "乙方应对服务人员进行必要的安全生产教育和培训",
@@ -6623,7 +6703,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方应对服务",
@@ -6641,7 +6721,7 @@
       ]
     },
     {
-      "id": "official-228",
+      "id": "official-231",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第105条",
       "name": "视情况",
@@ -6657,7 +6737,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "视情况",
@@ -6665,7 +6745,7 @@
       ]
     },
     {
-      "id": "official-229",
+      "id": "official-232",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第106条",
       "name": "安全生产操作",
@@ -6681,14 +6761,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "安全生产操作"
       ]
     },
     {
-      "id": "official-230",
+      "id": "official-233",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第107条",
       "name": "1.每班次必须对生产现场进行安全检查",
@@ -6704,7 +6784,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "每班次必须对",
@@ -6722,7 +6802,7 @@
       ]
     },
     {
-      "id": "official-231",
+      "id": "official-234",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第108条",
       "name": "违反上述安全规定",
@@ -6738,7 +6818,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "违反上述安全",
@@ -6747,7 +6827,7 @@
       ]
     },
     {
-      "id": "official-232",
+      "id": "official-235",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第109条",
       "name": "其他安全隐患行为",
@@ -6763,7 +6843,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "其他安全隐患",
@@ -6771,7 +6851,7 @@
       ]
     },
     {
-      "id": "official-233",
+      "id": "official-236",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第110条",
       "name": "可能导致安全事故发生的行为",
@@ -6787,7 +6867,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "可能导致安全",
@@ -6798,7 +6878,7 @@
       ]
     },
     {
-      "id": "official-234",
+      "id": "official-237",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第111条",
       "name": "可能导致安全事故发生的行为",
@@ -6814,7 +6894,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "可能导致安全",
@@ -6828,7 +6908,7 @@
       ]
     },
     {
-      "id": "official-235",
+      "id": "official-238",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第112条",
       "name": "用工规范违约考核",
@@ -6844,7 +6924,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "用工规范违约",
@@ -6852,7 +6932,7 @@
       ]
     },
     {
-      "id": "official-236",
+      "id": "official-239",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第113条",
       "name": "管理制度考核",
@@ -6868,14 +6948,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "管理制度考核"
       ]
     },
     {
-      "id": "official-237",
+      "id": "official-240",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第114条",
       "name": "乙方制定的相关管理制度需提交甲方备案",
@@ -6891,7 +6971,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方制定的相",
@@ -6909,7 +6989,7 @@
       ]
     },
     {
-      "id": "official-238",
+      "id": "official-241",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第115条",
       "name": "劳动关系考核",
@@ -6925,14 +7005,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "劳动关系考核"
       ]
     },
     {
-      "id": "official-239",
+      "id": "official-242",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第116条",
       "name": "1.乙方未按照报备的用工制度招用服务人员",
@@ -6948,7 +7028,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方未按照报",
@@ -6966,7 +7046,7 @@
       ]
     },
     {
-      "id": "official-240",
+      "id": "official-243",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第117条",
       "name": "1000元—5000元/次",
@@ -6982,12 +7062,12 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": []
     },
     {
-      "id": "official-241",
+      "id": "official-244",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第118条",
       "name": "考勤规范考核",
@@ -7003,14 +7083,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "考勤规范考核"
       ]
     },
     {
-      "id": "official-242",
+      "id": "official-245",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第119条",
       "name": "乙方未按照报备的相关考勤制度进行管理的",
@@ -7026,7 +7106,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方未按照报",
@@ -7037,7 +7117,7 @@
       ]
     },
     {
-      "id": "official-243",
+      "id": "official-246",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第120条",
       "name": "2000元/起",
@@ -7053,7 +7133,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "个工作日后仍",
@@ -7062,7 +7142,7 @@
       ]
     },
     {
-      "id": "official-244",
+      "id": "official-247",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第121条",
       "name": "用工规范、薪酬福利考核",
@@ -7078,7 +7158,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "用工规范",
@@ -7086,7 +7166,7 @@
       ]
     },
     {
-      "id": "official-245",
+      "id": "official-248",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第122条",
       "name": "乙方应与其负责本合同项目的服务人员签订劳动合同、缴纳社会保险、及",
@@ -7102,7 +7182,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方应与其负",
@@ -7120,7 +7200,7 @@
       ]
     },
     {
-      "id": "official-246",
+      "id": "official-249",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第123条",
       "name": "劳动合同问题考核2000元/人/次;薪酬发放问题考核5000元/",
@@ -7136,7 +7216,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "劳动合同问题",
@@ -7148,7 +7228,7 @@
       ]
     },
     {
-      "id": "official-247",
+      "id": "official-250",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第124条",
       "name": "培训管理规范考核",
@@ -7164,7 +7244,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "培训管理规范",
@@ -7172,7 +7252,7 @@
       ]
     },
     {
-      "id": "official-248",
+      "id": "official-251",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第125条",
       "name": "1.每年乙方未交培训委托函的",
@@ -7188,7 +7268,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "每年乙方未交",
@@ -7198,7 +7278,7 @@
       ]
     },
     {
-      "id": "official-249",
+      "id": "official-252",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第126条",
       "name": "1.未交培训委托函的",
@@ -7214,7 +7294,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未交培训委托",
@@ -7229,7 +7309,7 @@
       ]
     },
     {
-      "id": "official-250",
+      "id": "official-253",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第127条",
       "name": "劳动争议考核",
@@ -7245,14 +7325,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "劳动争议考核"
       ]
     },
     {
-      "id": "official-251",
+      "id": "official-254",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第128条",
       "name": "因乙方管理不规范发生个体、群体性劳动争议的（包含但不限于外包服务",
@@ -7268,7 +7348,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "因乙方管理不",
@@ -7286,7 +7366,7 @@
       ]
     },
     {
-      "id": "official-252",
+      "id": "official-255",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第129条",
       "name": "近三个月外包服务费总价20％进行结算",
@@ -7302,7 +7382,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "近三个月外包",
@@ -7317,7 +7397,7 @@
       ]
     },
     {
-      "id": "official-253",
+      "id": "official-256",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第130条",
       "name": "违反指挥调度违约考核",
@@ -7333,7 +7413,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "违反指挥调度",
@@ -7341,7 +7421,7 @@
       ]
     },
     {
-      "id": "official-254",
+      "id": "official-257",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第131条",
       "name": "未落实专项行动",
@@ -7357,14 +7437,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未落实专项行"
       ]
     },
     {
-      "id": "official-255",
+      "id": "official-258",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第132条",
       "name": "未按甲方上级部门要求开展专项行动",
@@ -7380,7 +7460,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未按甲方上级",
@@ -7396,7 +7476,7 @@
       ]
     },
     {
-      "id": "official-256",
+      "id": "official-259",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第133条",
       "name": "考核5000-10000元/次",
@@ -7412,14 +7492,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "考核"
       ]
     },
     {
-      "id": "official-257",
+      "id": "official-260",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第134条",
       "name": "未按计划作业",
@@ -7435,14 +7515,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未按计划作业"
       ]
     },
     {
-      "id": "official-258",
+      "id": "official-261",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第135条",
       "name": "未按计划频次发运",
@@ -7458,7 +7538,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未按计划频次",
@@ -7476,7 +7556,7 @@
       ]
     },
     {
-      "id": "official-259",
+      "id": "official-262",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第136条",
       "name": "违反指挥调度令",
@@ -7492,14 +7572,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "违反指挥调度"
       ]
     },
     {
-      "id": "official-260",
+      "id": "official-263",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第137条",
       "name": "未及时、全面、严格执行“指挥调度令”或通知（生产流程、操作规范、",
@@ -7515,7 +7595,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未及时",
@@ -7533,7 +7613,7 @@
       ]
     },
     {
-      "id": "official-261",
+      "id": "official-264",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第138条",
       "name": "擅自使用强制配发",
@@ -7549,7 +7629,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "擅自使用强制",
@@ -7557,7 +7637,7 @@
       ]
     },
     {
-      "id": "official-262",
+      "id": "official-265",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第139条",
       "name": "擅自打开强制配发开关被中国邮政集团有限公司通报的",
@@ -7573,7 +7653,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "擅自打开强制",
@@ -7583,7 +7663,7 @@
       ]
     },
     {
-      "id": "official-263",
+      "id": "official-266",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第140条",
       "name": "重大事故、异常上报或处置不及时",
@@ -7599,7 +7679,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "重大事故",
@@ -7608,7 +7688,7 @@
       ]
     },
     {
-      "id": "official-264",
+      "id": "official-267",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第141条",
       "name": "内部生产故障、车辆在途重大事故、处理中心生产严重异常等预计对本市",
@@ -7624,7 +7704,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "内部生产故障",
@@ -7642,7 +7722,7 @@
       ]
     },
     {
-      "id": "official-265",
+      "id": "official-268",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第142条",
       "name": "重大问题被甲方上级单位通报",
@@ -7658,7 +7738,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "重大问题被甲",
@@ -7666,7 +7746,7 @@
       ]
     },
     {
-      "id": "official-266",
+      "id": "official-269",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第143条",
       "name": "发生重大问题",
@@ -7682,7 +7762,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "发生重大问题",
@@ -7696,7 +7776,7 @@
       ]
     },
     {
-      "id": "official-267",
+      "id": "official-270",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第144条",
       "name": "人员配置不到位引起批量邮件延误",
@@ -7712,7 +7792,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "人员配置不到",
@@ -7721,7 +7801,7 @@
       ]
     },
     {
-      "id": "official-268",
+      "id": "official-271",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第145条",
       "name": "服务人员配置不足或现场管控不到位",
@@ -7737,7 +7817,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "服务人员配置",
@@ -7748,7 +7828,7 @@
       ]
     },
     {
-      "id": "official-269",
+      "id": "official-272",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第146条",
       "name": "考核2000-50000元/次",
@@ -7764,14 +7844,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "考核"
       ]
     },
     {
-      "id": "official-270",
+      "id": "official-273",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第147条",
       "name": "负面清单（严重违约）行为违约考核",
@@ -7787,7 +7867,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "负面清单",
@@ -7796,7 +7876,7 @@
       ]
     },
     {
-      "id": "official-271",
+      "id": "official-274",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第148条",
       "name": "延迟、积压邮件",
@@ -7812,7 +7892,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "延迟",
@@ -7820,7 +7900,7 @@
       ]
     },
     {
-      "id": "official-272",
+      "id": "official-275",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第149条",
       "name": "乙方未按本合同约定按时完成外包服务工作的",
@@ -7836,7 +7916,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方未按本合",
@@ -7854,7 +7934,7 @@
       ]
     },
     {
-      "id": "official-273",
+      "id": "official-276",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第150条",
       "name": "10000元/次",
@@ -7870,7 +7950,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "甲方视严重程",
@@ -7882,7 +7962,7 @@
       ]
     },
     {
-      "id": "official-274",
+      "id": "official-277",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第151条",
       "name": "未按合同约定质量完成工作",
@@ -7898,7 +7978,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未按合同约定",
@@ -7906,7 +7986,7 @@
       ]
     },
     {
-      "id": "official-275",
+      "id": "official-278",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第152条",
       "name": "乙方未按本合同约定质量完成外包服务工作的",
@@ -7922,7 +8002,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方未按本合",
@@ -7934,7 +8014,7 @@
       ]
     },
     {
-      "id": "official-276",
+      "id": "official-279",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第153条",
       "name": "10000元/次",
@@ -7950,7 +8030,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "达到",
@@ -7963,7 +8043,7 @@
       ]
     },
     {
-      "id": "official-277",
+      "id": "official-280",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第154条",
       "name": "被用户投诉、申诉",
@@ -7979,7 +8059,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "被用户投诉",
@@ -7987,7 +8067,7 @@
       ]
     },
     {
-      "id": "official-278",
+      "id": "official-281",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第155条",
       "name": "因乙方或其服务人员的原因",
@@ -8003,7 +8083,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "因乙方或其服",
@@ -8016,7 +8096,7 @@
       ]
     },
     {
-      "id": "official-279",
+      "id": "official-282",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第156条",
       "name": "200元/次",
@@ -8032,7 +8112,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "申诉至行业主",
@@ -8048,7 +8128,7 @@
       ]
     },
     {
-      "id": "official-280",
+      "id": "official-283",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第157条",
       "name": "被新闻媒体曝光",
@@ -8064,14 +8144,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "被新闻媒体曝"
       ]
     },
     {
-      "id": "official-281",
+      "id": "official-284",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第158条",
       "name": "因乙方或其服务人员的原因",
@@ -8087,7 +8167,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "因乙方或其服",
@@ -8105,7 +8185,7 @@
       ]
     },
     {
-      "id": "official-282",
+      "id": "official-285",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第159条",
       "name": "30000元/次",
@@ -8121,7 +8201,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "甲方视严重程",
@@ -8133,7 +8213,7 @@
       ]
     },
     {
-      "id": "official-283",
+      "id": "official-286",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第160条",
       "name": "被监管部门处罚",
@@ -8149,14 +8229,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "被监管部门处"
       ]
     },
     {
-      "id": "official-284",
+      "id": "official-287",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第161条",
       "name": "因乙方或其服务人员的原因",
@@ -8172,7 +8252,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "因乙方或其服",
@@ -8188,7 +8268,7 @@
       ]
     },
     {
-      "id": "official-285",
+      "id": "official-288",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第162条",
       "name": "私拆、隐匿、毁弃、盗窃邮件",
@@ -8204,7 +8284,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "私拆",
@@ -8214,7 +8294,7 @@
       ]
     },
     {
-      "id": "official-286",
+      "id": "official-289",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第163条",
       "name": "乙方服务人员有私拆、隐匿、毁弃或盗窃邮件行为之一的",
@@ -8230,7 +8310,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方服务人员",
@@ -8241,7 +8321,7 @@
       ]
     },
     {
-      "id": "official-287",
+      "id": "official-290",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第164条",
       "name": "50000元/次",
@@ -8257,7 +8337,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "甲方视严重程",
@@ -8275,7 +8355,7 @@
       ]
     },
     {
-      "id": "official-288",
+      "id": "official-291",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第165条",
       "name": "危害用户信息安全",
@@ -8291,7 +8371,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "危害用户信息",
@@ -8299,7 +8379,7 @@
       ]
     },
     {
-      "id": "official-289",
+      "id": "official-292",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第166条",
       "name": "乙方服务人员泄露、出售用户信息、服务信息的",
@@ -8315,7 +8395,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方服务人员",
@@ -8325,7 +8405,7 @@
       ]
     },
     {
-      "id": "official-290",
+      "id": "official-293",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第167条",
       "name": "20000元/次",
@@ -8341,7 +8421,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "甲方视严重程",
@@ -8353,7 +8433,7 @@
       ]
     },
     {
-      "id": "official-291",
+      "id": "official-294",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第168条",
       "name": "损害用户资金安全",
@@ -8369,7 +8449,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "损害用户资金",
@@ -8377,7 +8457,7 @@
       ]
     },
     {
-      "id": "official-292",
+      "id": "official-295",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第169条",
       "name": "乙方服务人员有侵吞、挪用甲方业务资金",
@@ -8393,7 +8473,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方服务人员",
@@ -8409,7 +8489,7 @@
       ]
     },
     {
-      "id": "official-293",
+      "id": "official-296",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第170条",
       "name": "20000元/次",
@@ -8425,7 +8505,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "甲方可以解除",
@@ -8436,7 +8516,7 @@
       ]
     },
     {
-      "id": "official-294",
+      "id": "official-297",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第171条",
       "name": "造成人身、财产损失",
@@ -8452,7 +8532,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "造成人身",
@@ -8460,7 +8540,7 @@
       ]
     },
     {
-      "id": "official-295",
+      "id": "official-298",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第172条",
       "name": "乙方或其服务人员的原因",
@@ -8476,7 +8556,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方或其服务",
@@ -8493,7 +8573,7 @@
       ]
     },
     {
-      "id": "official-296",
+      "id": "official-299",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第173条",
       "name": "20000元/次",
@@ -8509,7 +8589,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "甲方可以解除",
@@ -8523,7 +8603,7 @@
       ]
     },
     {
-      "id": "official-297",
+      "id": "official-300",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第174条",
       "name": "发生群体性事件",
@@ -8539,14 +8619,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "发生群体性事"
       ]
     },
     {
-      "id": "official-298",
+      "id": "official-301",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第175条",
       "name": "乙方服务人员发生影响恶劣事件（如停工、怠工、扣留邮车或邮件等）",
@@ -8562,7 +8642,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方服务人员",
@@ -8578,7 +8658,7 @@
       ]
     },
     {
-      "id": "official-299",
+      "id": "official-302",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第176条",
       "name": "未积极配合理赔",
@@ -8594,14 +8674,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "未积极配合理"
       ]
     },
     {
-      "id": "official-300",
+      "id": "official-303",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第177条",
       "name": "发生重大责任事故导致邮件损失",
@@ -8617,7 +8697,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "发生重大责任",
@@ -8629,7 +8709,7 @@
       ]
     },
     {
-      "id": "official-301",
+      "id": "official-304",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第178条",
       "name": "因乙方处理其内部事务不当引发严重影响",
@@ -8645,7 +8725,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "因乙方处理其",
@@ -8654,7 +8734,7 @@
       ]
     },
     {
-      "id": "official-302",
+      "id": "official-305",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第179条",
       "name": "指因乙方未能及时、妥善处理其与员工或第三人（包括但不限于劳动关系",
@@ -8670,7 +8750,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "指因乙方未能",
@@ -8688,7 +8768,7 @@
       ]
     },
     {
-      "id": "official-303",
+      "id": "official-306",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第180条",
       "name": "1. 乙方员工或其亲属、其他相关人员",
@@ -8704,7 +8784,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "乙方员工或其",
@@ -8722,7 +8802,7 @@
       ]
     },
     {
-      "id": "official-304",
+      "id": "official-307",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第181条",
       "name": "2. 前述人员非法限制甲方人员进出",
@@ -8738,7 +8818,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "前述人员非法",
@@ -8749,7 +8829,7 @@
       ]
     },
     {
-      "id": "official-305",
+      "id": "official-308",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第182条",
       "name": "3. 因乙方前述原因",
@@ -8765,7 +8845,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "因乙方前述原",
@@ -8779,7 +8859,7 @@
       ]
     },
     {
-      "id": "official-306",
+      "id": "official-309",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第183条",
       "name": "4. 有关政府部门（如信访、公安、人社、邮政管理等）因前述纠纷介",
@@ -8795,7 +8875,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "有关政府部门",
@@ -8812,7 +8892,7 @@
       ]
     },
     {
-      "id": "official-307",
+      "id": "official-310",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第184条",
       "name": "一旦发生",
@@ -8828,7 +8908,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "一旦发生",
@@ -8846,7 +8926,7 @@
       ]
     },
     {
-      "id": "official-308",
+      "id": "official-311",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第185条",
       "name": "前述情形情节严重或后果巨大",
@@ -8862,7 +8942,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "前述情形情节",
@@ -8880,7 +8960,7 @@
       ]
     },
     {
-      "id": "official-309",
+      "id": "official-312",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第186条",
       "name": "本条款项下的违约责任与合同正文第七条第（五）款及其他条款约定的违",
@@ -8896,7 +8976,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "本条款项下的",
@@ -8910,7 +8990,7 @@
       ]
     },
     {
-      "id": "official-310",
+      "id": "official-313",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第187条",
       "name": "其他违约考核",
@@ -8926,14 +9006,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "其他违约考核"
       ]
     },
     {
-      "id": "official-311",
+      "id": "official-314",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第188条",
       "name": "一般违约责任",
@@ -8949,14 +9029,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "一般违约责任"
       ]
     },
     {
-      "id": "official-312",
+      "id": "official-315",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第189条",
       "name": "除合同正文及附件对违约金标准另有约定外",
@@ -8972,7 +9052,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "除合同正文及",
@@ -8984,7 +9064,7 @@
       ]
     },
     {
-      "id": "official-313",
+      "id": "official-316",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第190条",
       "name": "500元/次10元/件500元/天",
@@ -9000,12 +9080,12 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": []
     },
     {
-      "id": "official-314",
+      "id": "official-317",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第191条",
       "name": "严重违约责任",
@@ -9021,14 +9101,14 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "严重违约责任"
       ]
     },
     {
-      "id": "official-315",
+      "id": "official-318",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第192条",
       "name": "1000元/次20元/件1000元/天",
@@ -9044,12 +9124,12 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": []
     },
     {
-      "id": "official-316",
+      "id": "official-319",
       "stage": "附件2·需主管认定",
       "clause": "附件2·需主管认定第193条",
       "name": "本规定未尽事宜按照中国邮政集团有限公司及省（自治区、直辖市）分公",
@@ -9065,7 +9145,7 @@
       ],
       "applicableConditions": "附件2内容需结合原文和现场事实由主管认定。",
       "followUpResponsibility": "以附件2原文为准。",
-      "version": "20260701",
+      "version": "20260819",
       "needsSupervisorReview": true,
       "keywords": [
         "本规定未尽事",

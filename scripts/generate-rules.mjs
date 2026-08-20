@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import PizZip from 'pizzip';
 
 try {
-const source = fs.readFileSync('西安邮区中心邮件处理中心生产质量考核办法260701.docx');
+const source = fs.readFileSync('西安邮区中心邮件处理中心生产质量考核办法20260819.docx');
 const xml = new PizZip(source).file('word/document.xml').asText();
 const decode = (value) => value.replace(/<w:tab\/>/g, ' ').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"');
 const paragraphs = [...xml.matchAll(/<w:p[ >][\s\S]*?<\/w:p>/g)].map((match) => decode(match[0]).trim()).filter(Boolean);
@@ -12,7 +12,7 @@ const headings = new Map([
   ['八、重点指标', '重点指标'], ['九、安全生产', '安全生产'], ['十、其它说明事项', '其他说明事项'],
 ]);
 const general = new Map([['（一）作业效率', '总则·作业效率'], ['（二）规范化操作', '总则·规范化操作'], ['（三）人员管理', '总则·人员管理'], ['（四）其他', '总则·其他']]);
-const excluded = new Set(['西安邮区中心邮件处理中心生产质量考核办法', '（2026年7月1日修订版）', '考核办法总则', '邮件逾限量']);
+const excluded = new Set(['西安邮区中心邮件处理中心生产质量考核办法', '（2026年8月19日修订版）', '考核办法总则', '邮件逾限量']);
 let stage = '总则'; let index = 0; let attachmentMode = false; const counters = new Map(); const seen = new Set();
 const unitPatterns = ['小时','车次','台次','人次','班次','袋（件）','袋件','袋/件','人·次','趟次','每车','每袋','每件','每次','每根','每条','每人','每吨','件','袋','次','根','条','车'];
 const extractKeywords = (paragraph) => [...new Set(paragraph.split(/[，。；、：\n]+/).flatMap((part) => part.match(/[\u4e00-\u9fa5]{2,6}/g) || []))].slice(0, 12);
@@ -33,7 +33,7 @@ for (const paragraph of paragraphs) {
   if (attachmentMode) {
     if (seen.has(paragraph) || /^附件2/.test(paragraph) || paragraph.length < 4) continue;
     seen.add(paragraph); index += 1; const count = (counters.get(stage) || 0) + 1; counters.set(stage, count);
-    rules.push({ id: `official-${String(index).padStart(3, '0')}`, stage, clause: `${stage}第${count}条`, name: paragraph.replace(/^[（(]\d+[）)]/, '').split(/[，。；]/)[0].slice(0, 32), original: paragraph, pricingOptions: [{ id: 'supervisor', unit: '待主管认定', unitPrice: null, condition: '附件2条款未自动解析计费标准，需主管按原文认定。', needsSupervisorReview: true }], applicableConditions: '附件2内容需结合原文和现场事实由主管认定。', followUpResponsibility: '以附件2原文为准。', version: '20260701', needsSupervisorReview: true, keywords: extractKeywords(paragraph) });
+    rules.push({ id: `official-${String(index).padStart(3, '0')}`, stage, clause: `${stage}第${count}条`, name: paragraph.replace(/^[（(]\d+[）)]/, '').split(/[，。；]/)[0].slice(0, 32), original: paragraph, pricingOptions: [{ id: 'supervisor', unit: '待主管认定', unitPrice: null, condition: '附件2条款未自动解析计费标准，需主管按原文认定。', needsSupervisorReview: true }], applicableConditions: '附件2内容需结合原文和现场事实由主管认定。', followUpResponsibility: '以附件2原文为准。', version: '20260819', needsSupervisorReview: true, keywords: extractKeywords(paragraph) });
     continue;
   }
   if (general.has(paragraph)) { stage = general.get(paragraph); continue; }
@@ -47,11 +47,11 @@ for (const paragraph of paragraphs) {
     name: paragraph.replace(/^[（(]\d+[）)]/, '').split(/[，。；]/)[0].slice(0, 32), original: paragraph,
     pricingOptions: options, applicableConditions: '以原文描述、现场事实和适用条件为准。',
     followUpResponsibility: /承担[^。；]*责任|赔偿|延误/.test(paragraph) ? '按原文承担后续连带责任、延误或赔偿责任。' : '无另行载明的后续责任。',
-    version: '20260701', needsSupervisorReview: options.some((item) => item.needsSupervisorReview),
+    version: '20260819', needsSupervisorReview: options.some((item) => item.needsSupervisorReview),
     keywords: extractKeywords(paragraph),
   });
 }
-fs.writeFileSync('public/production-quality-rules.json', JSON.stringify({ version: '20260701', source: '《西安邮区中心邮件处理中心生产质量考核办法》（2026年7月1日修订版）', rules }, null, 2));
+fs.writeFileSync('public/production-quality-rules.json', JSON.stringify({ version: '20260819', source: '《西安邮区中心邮件处理中心生产质量考核办法》（2026年8月19日修订版）', rules }, null, 2));
 console.log(`Generated ${rules.length} official rule records.`);
 } catch (error) {
   console.error('规则生成失败：', error instanceof Error ? error.message : error);

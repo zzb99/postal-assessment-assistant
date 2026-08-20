@@ -9,7 +9,7 @@ import { clearDraft, loadDraft, saveDraft } from './utils/storage';
 import { NoticePreview } from './components/NoticePreview';
 import { PreviewPane } from './components/PreviewPane';
 import { analyseWithDeepSeek, askPolicyWithDeepSeek, type AiPolicyAnswer } from './services/deepseekService';
-import { DEEPSEEK_API_KEY } from './config/deepseek.local';
+import { DEEPSEEK_API_KEY } from './config/deepseek';
 import './styles.css';
 import './template.css';
 
