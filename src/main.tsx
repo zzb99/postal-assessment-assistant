@@ -13,7 +13,8 @@ import { DEEPSEEK_API_KEY } from './config/deepseek';
 import './styles.css';
 import './template.css';
 
-const today = new Date().toISOString().slice(0, 10);
+const now = new Date();
+const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 const initialForm: AssessmentForm = { noticeNo: `KH${today.replaceAll('-', '')}`, date: today, fillDate: today, shift: '白班', company: '', inspector: '', stage: '', ruleId: '', pricingId: '', quantity: '1', penaltyAmount: '', fact: '' };
 const companies = ['华洋公司', '联智公司', '君喜公司'];
 const inspectors = ['一班吴正一', '二班黄旭东', '三班魏振'];
