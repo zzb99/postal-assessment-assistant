@@ -66,6 +66,25 @@ function editableParagraph(xml: XMLDocument, container: Element) {
  */
 function setTextInContainer(xml: XMLDocument, container: Element, value: string, style: WordTextStyle) {
   const paragraph = editableParagraph(xml, container);
+  if (!isWordElement(container, 'p')) {
+    Array.from(container.children)
+      .filter((node) => isWordElement(node, 'p') && node !== paragraph)
+      .forEach((node) => container.removeChild(node));
+  }
+  let paragraphProperties = Array.from(paragraph.children).find((node) => isWordElement(node, 'pPr'));
+  if (!paragraphProperties) {
+    paragraphProperties = createWordElement(xml, 'pPr');
+    paragraph.insertBefore(paragraphProperties, paragraph.firstChild);
+  }
+  let spacing = Array.from(paragraphProperties.children).find((node) => isWordElement(node, 'spacing'));
+  if (!spacing) {
+    spacing = createWordElement(xml, 'spacing');
+    paragraphProperties.appendChild(spacing);
+  }
+  spacing.setAttribute('w:before', '0');
+  spacing.setAttribute('w:after', '0');
+  spacing.setAttribute('w:line', String(Math.round(style.halfPoints * 12)));
+  spacing.setAttribute('w:lineRule', 'auto');
   Array.from(paragraph.children)
     .filter((node) => isWordElement(node, 'r') || isWordElement(node, 'hyperlink'))
     .forEach((node) => paragraph.removeChild(node));
@@ -79,6 +98,24 @@ function setTextInContainer(xml: XMLDocument, container: Element, value: string,
     run.appendChild(text);
   });
   paragraph.appendChild(run);
+}
+
+function setWordRowHeight(xml: XMLDocument, row: Element, heightTwips: number) {
+  let properties = Array.from(row.children).find((node) => isWordElement(node, 'trPr'));
+  if (!properties) { properties = createWordElement(xml, 'trPr'); row.insertBefore(properties, row.firstChild); }
+  let height = Array.from(properties.children).find((node) => isWordElement(node, 'trHeight'));
+  if (!height) { height = createWordElement(xml, 'trHeight'); properties.appendChild(height); }
+  height.setAttribute('w:val', String(heightTwips));
+  height.setAttribute('w:hRule', 'exact');
+}
+
+function setWordParagraphAlignment(xml: XMLDocument, container: Element, value: 'left') {
+  const paragraph = editableParagraph(xml, container);
+  let properties = Array.from(paragraph.children).find((node) => isWordElement(node, 'pPr'));
+  if (!properties) { properties = createWordElement(xml, 'pPr'); paragraph.insertBefore(properties, paragraph.firstChild); }
+  let alignment = Array.from(properties.children).find((node) => isWordElement(node, 'jc'));
+  if (!alignment) { alignment = createWordElement(xml, 'jc'); properties.appendChild(alignment); }
+  alignment.setAttribute('w:val', value);
 }
 
 function templateValueCell(rows: Element[], rowIndex: number) {
@@ -119,7 +156,13 @@ export async function exportWord(data: DocumentData, fetcher: typeof fetch = fet
     return cell;
   };
   fillCell('company', data.company);
-  setCellVerticalAlign(xml, fillCell('noticeSummary', data.noticeSummary), 'center');
+  // The blank source creates the large item area using multiple empty
+  // paragraphs. Remove those placeholders and preserve the measured visual
+  // height explicitly so real text cannot push the A4 form onto page two.
+  setWordRowHeight(xml, rows[1], 5590);
+  const noticeCell = fillCell('noticeSummary', data.noticeSummary);
+  setCellVerticalAlign(xml, noticeCell, 'center');
+  setWordParagraphAlignment(xml, noticeCell, 'left');
   fillCell('amount', `${data.amountChinese}（大写）`);
 
   const body = xml.getElementsByTagNameNS(wordNamespace, 'body')[0];
@@ -143,8 +186,16 @@ function drawText(ctx: CanvasRenderingContext2D, field: TemplateField, value: st
   ctx.font = `${fontSize}px SimSun, Songti SC, serif`;
   ctx.fillStyle = '#111';
   ctx.textBaseline = 'top';
-  if (!slot.width) { ctx.fillText(value, x, y); return; }
-  const maxWidth = PDF_TEMPLATE_WIDTH * slot.width / 100;
+  const maxWidth = PDF_TEMPLATE_WIDTH * (slot.width ?? 100) / 100;
+  if (field !== 'noticeSummary') {
+    let fittedFontSize = fontSize;
+    while (ctx.measureText(value).width > maxWidth && fittedFontSize > 40) {
+      fittedFontSize -= 2;
+      ctx.font = `${fittedFontSize}px SimSun, Songti SC, serif`;
+    }
+    ctx.fillText(value, x, y);
+    return;
+  }
   const lineHeight = fontSize * (slot.lineHeight ?? 1.2);
   const lines: string[] = [];
   for (const paragraph of value.split('\n')) {
@@ -172,6 +223,19 @@ function createPdfOverlay(data: DocumentData) {
   canvas.height = PDF_TEMPLATE_HEIGHT;
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('PDF 文字图层创建失败。');
+  // The supplied PDF contains visible XXX/xx example text. Cover only the
+  // designated value areas before drawing canonical data so exports never
+  // contain duplicated placeholder values.
+  for (const field of ['company', 'amount', 'inspector', 'date'] as TemplateField[]) {
+    const slot = TEMPLATE_SLOTS[field];
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(
+      PDF_TEMPLATE_WIDTH * slot.left / 100 - 4,
+      PDF_TEMPLATE_HEIGHT * slot.top / 100 - 4,
+      PDF_TEMPLATE_WIDTH * (slot.width ?? 0) / 100 + 8,
+      PDF_TEMPLATE_HEIGHT * (slot.height ?? 2.2) / 100 + 8,
+    );
+  }
   drawText(ctx, 'company', data.company);
   drawText(ctx, 'noticeSummary', data.noticeSummary);
   drawText(ctx, 'amount', `${data.amountChinese}（大写）`);

@@ -17,6 +17,7 @@ export type AssessmentRule = {
 export type AssessmentForm = {
   noticeNo: string;
   date: string;
+  fillDate: string;
   shift: string;
   company: string;
   inspector: string;
@@ -24,6 +25,7 @@ export type AssessmentForm = {
   ruleId: string;
   pricingId: string;
   quantity: string;
+  penaltyAmount: string;
   fact: string;
 };
 

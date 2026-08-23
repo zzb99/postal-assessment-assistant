@@ -14,7 +14,7 @@ import './styles.css';
 import './template.css';
 
 const today = new Date().toISOString().slice(0, 10);
-const initialForm: AssessmentForm = { noticeNo: `KH${today.replaceAll('-', '')}`, date: today, shift: '白班', company: '', inspector: '', stage: '', ruleId: '', pricingId: '', quantity: '1', fact: '' };
+const initialForm: AssessmentForm = { noticeNo: `KH${today.replaceAll('-', '')}`, date: today, fillDate: today, shift: '白班', company: '', inspector: '', stage: '', ruleId: '', pricingId: '', quantity: '1', penaltyAmount: '', fact: '' };
 const companies = ['华洋公司', '联智公司', '君喜公司'];
 const inspectors = ['一班吴正一', '二班黄旭东', '三班魏振'];
 
@@ -45,19 +45,32 @@ function App() {
 
   const selectedRule = rules.find((item) => item.id === form.ruleId);
   const selectedPricing = selectedRule?.pricingOptions.find((item) => item.id === form.pricingId);
-  const documentData = selectedRule && selectedPricing && selectedPricing.unitPrice !== null ? buildDocumentData(form, selectedRule, selectedPricing) : undefined;
+  const documentData = selectedRule && selectedPricing && selectedPricing.unitPrice !== null && /^(0|[1-9]\d*)$/.test(form.penaltyAmount) ? buildDocumentData(form, selectedRule, selectedPricing) : undefined;
   const stages = useMemo(() => [...new Set(rules.map((item) => item.stage))], [rules]);
   const stageRules = rules.filter((item) => item.stage === form.stage);
   const matched = useMemo(() => policyAnswer ? rules.filter((rule) => policyAnswer.ruleIds.includes(rule.id)) : [], [policyAnswer, rules]);
 
   const update = (key: keyof AssessmentForm, value: string) => {
-    setForm((old) => ({ ...old, [key]: value, ...(key === 'stage' ? { ruleId: '', pricingId: '' } : {}), ...(key === 'ruleId' ? { pricingId: '' } : {}) }));
+    setForm((old) => ({ ...old, [key]: value, ...(key === 'stage' ? { ruleId: '', pricingId: '', penaltyAmount: '' } : {}), ...(key === 'ruleId' ? { pricingId: '', penaltyAmount: '' } : {}) }));
     setErrors((old) => ({ ...old, [key]: undefined }));
   };
+  const updatePricing = (pricingId: string) => {
+    const pricing = selectedRule?.pricingOptions.find((item) => item.id === pricingId);
+    setForm((old) => ({ ...old, pricingId, penaltyAmount: pricing?.unitPrice === null || pricing?.unitPrice === undefined ? '' : String(Number(old.quantity) * pricing.unitPrice) }));
+    setErrors((old) => ({ ...old, pricingId: undefined, penaltyAmount: undefined }));
+  };
+  const updateQuantity = (quantity: string) => {
+    setForm((old) => {
+      const previousSuggestion = selectedPricing?.unitPrice === null || selectedPricing?.unitPrice === undefined ? '' : String(Number(old.quantity) * selectedPricing.unitPrice);
+      const nextSuggestion = selectedPricing?.unitPrice === null || selectedPricing?.unitPrice === undefined ? '' : String(Number(quantity) * selectedPricing.unitPrice);
+      return { ...old, quantity, penaltyAmount: !old.penaltyAmount || old.penaltyAmount === previousSuggestion ? nextSuggestion : old.penaltyAmount };
+    });
+    setErrors((old) => ({ ...old, quantity: undefined, penaltyAmount: undefined }));
+  };
   const validateBasics = () => {
-    const next = validateForm(form, undefined, undefined, ['company', 'inspector']);
-    setErrors({ company: next.company, inspector: next.inspector });
-    return !next.company && !next.inspector;
+    const next = validateForm(form, undefined, undefined, ['date', 'fillDate', 'company', 'inspector']);
+    setErrors({ date: next.date, fillDate: next.fillDate, company: next.company, inspector: next.inspector });
+    return !next.date && !next.fillDate && !next.company && !next.inspector;
   };
   const verify = () => { const next = validateForm(form, selectedRule, selectedPricing); setErrors(next); return !hasErrors(next); };
   const next = () => { if (step === 1 && !validateBasics()) return; if (step === 2 && !verify()) return; setStep((value) => Math.min(3, value + 1)); };
@@ -70,7 +83,7 @@ function App() {
       const rule = rules.find((item) => item.id === result.ruleId);
       const pricing = rule?.pricingOptions.find((item) => item.id === result.pricingId);
       if (!rule || !pricing) throw new Error('AI 未匹配到可用制度条款，请补充事实或改为主管认定。');
-      setForm((old) => ({ ...old, stage: rule.stage, ruleId: rule.id, pricingId: pricing.id, quantity: result.quantity }));
+      setForm((old) => ({ ...old, stage: rule.stage, ruleId: rule.id, pricingId: pricing.id, quantity: result.quantity, penaltyAmount: pricing.unitPrice === null ? '' : String(Number(result.quantity) * pricing.unitPrice) }));
       setAiState('success');
       setAiMessage(`${result.confidence === 'high' ? '已匹配' : '建议匹配'}：${rule.clause} · ${rule.name}。${result.reason}${result.needsSupervisorReview ? ' 该结果须主管最终认定。' : ''}`);
     } catch (error) { setAiState('error'); setAiMessage(error instanceof Error ? error.message : 'AI 识别失败，请重试。'); }
@@ -95,10 +108,11 @@ function App() {
   };
 
   const basics = <div className="basic-grid">
-    <Field label="考核日期"><input type="date" value={form.date} onChange={(e) => update('date', e.target.value)} /></Field>
+    <Field label="发生日期" error={errors.date}><input type="date" value={form.date} onChange={(e) => update('date', e.target.value)} /></Field>
+    <Field label="填报日期" error={errors.fillDate}><input type="date" value={form.fillDate} onChange={(e) => update('fillDate', e.target.value)} /></Field>
     <Field label="班次"><select value={form.shift} onChange={(e) => update('shift', e.target.value)}><option>白班</option><option>夜班</option></select></Field>
-    <Field label="被考核工段/单位" error={errors.company}><select value={form.company} onChange={(e) => update('company', e.target.value)}><option value="">请选择</option>{companies.map((item) => <option key={item}>{item}</option>)}</select></Field>
-    <Field label="考核人员" error={errors.inspector}><select value={form.inspector} onChange={(e) => update('inspector', e.target.value)}><option value="">请选择</option>{inspectors.map((item) => <option key={item}>{item}</option>)}</select></Field>
+    <Field label="被考核单位/工段" error={errors.company}><input list="company-options" value={form.company} onChange={(e) => update('company', e.target.value)} placeholder="选择或临时输入" /><datalist id="company-options">{companies.map((item) => <option key={item} value={item} />)}</datalist></Field>
+    <Field label="检查人" error={errors.inspector}><input list="inspector-options" value={form.inspector} onChange={(e) => update('inspector', e.target.value)} placeholder="请输入检查人，可参考历史姓名" /><datalist id="inspector-options">{inspectors.map((item) => <option key={item} value={item} />)}</datalist></Field>
   </div>;
   const assessment = <>
     <label className="fact-field"><span>事实经过 <b>*</b></span><textarea maxLength={MAX_FACT_LENGTH} value={form.fact} onChange={(e) => update('fact', e.target.value)} placeholder="请写明作业地点/环节、邮件或事件信息和现场情况；日期、班次、被考核单位会自动写入考核事项。" />{errors.fact && <small className="field-error">{errors.fact}</small>}<small className="counter">{form.fact.length}/{MAX_FACT_LENGTH}</small></label>
@@ -107,7 +121,7 @@ function App() {
       <section className="manual-panel"><div className="source-heading"><div><DocumentTextIcon /><strong>手动调整</strong></div><span>可随时修改</span></div><p>也可以直接选择作业环节、违规类型和计费标准。</p><div className="manual-grid">
         <Field label="作业环节" error={errors.stage}><select value={form.stage} onChange={(e) => update('stage', e.target.value)}><option value="">请选择</option>{stages.map((item) => <option key={item}>{item}</option>)}</select></Field>
         <Field label="违规类型" error={errors.ruleId}><select value={form.ruleId} disabled={!form.stage} onChange={(e) => update('ruleId', e.target.value)}><option value="">请选择</option>{stageRules.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select></Field>
-        <Field label="计费单位与单价" error={errors.pricingId}><select value={form.pricingId} disabled={!selectedRule} onChange={(e) => update('pricingId', e.target.value)}><option value="">请选择</option>{selectedRule?.pricingOptions.map((item) => <option value={item.id} key={item.id}>{item.unitPrice === null ? '主管最终认定' : `${item.unit} · ${item.unitPrice}元/${item.unit}`}（{item.condition}）</option>)}</select></Field>
+        <Field label="计费单位与单价" error={errors.pricingId}><select value={form.pricingId} disabled={!selectedRule} onChange={(e) => updatePricing(e.target.value)}><option value="">请选择</option>{selectedRule?.pricingOptions.map((item) => <option value={item.id} key={item.id}>{item.unitPrice === null ? '主管最终认定' : `${item.unit} · ${item.unitPrice}元/${item.unit}`}（{item.condition}）</option>)}</select></Field>
       </div></section>
     </div>
     {selectedRule && <section className="analysis-card">
@@ -115,13 +129,14 @@ function App() {
       {selectedRule && selectedPricing && <div className="analysis-table">
         <span>作业环节</span><b>{selectedRule.stage}</b><span>违规类型</span><b>{selectedRule.name}</b>
         <span>制度依据</span><b>{selectedRule.clause} · {selectedRule.original}</b><span>计费单位</span><b>{selectedPricing.unit}</b>
-        <span>数量</span><b><input aria-label="数量" inputMode="numeric" value={form.quantity} onChange={(e) => update('quantity', e.target.value)} />{errors.quantity && <small className="field-error">{errors.quantity}</small>}</b><span>单价</span><b>{selectedPricing.unitPrice}元/{selectedPricing.unit}</b>
+        <span>数量</span><b><input aria-label="数量" inputMode="numeric" value={form.quantity} onChange={(e) => updateQuantity(e.target.value)} />{errors.quantity && <small className="field-error">{errors.quantity}</small>}</b><span>单价</span><b>{selectedPricing.unitPrice}元/{selectedPricing.unit}</b>
+        <span>建议金额</span><b>{Number(form.quantity) * (selectedPricing.unitPrice ?? 0)}元</b><span>最终处罚金额</span><b><input aria-label="最终处罚金额" inputMode="numeric" value={form.penaltyAmount} onChange={(e) => update('penaltyAmount', e.target.value)} /> 元{errors.penaltyAmount && <small className="field-error">{errors.penaltyAmount}</small>}</b>
       </div>}
-      {documentData && <div className="amount-total"><span>考核金额</span><strong>{documentData.amount}<small>元</small></strong></div>}
+      {documentData && <div className="amount-total"><span>最终处罚金额（人工确认）</span><strong>{documentData.amount}<small>元</small></strong></div>}
       {selectedRule?.needsSupervisorReview && <p className="supervisor-note">该条款含浮动或指标条件，须主管最终认定。</p>}
     </section>}
   </>;
-  const downloads = <section className="download-card"><div><strong>确认无误后下载</strong><p>{documentData ? `${documentData.rule.clause} · ${documentData.pricing.unit} · ${documentData.quantityNumber} × ${documentData.pricing.unitPrice}元` : '请先完成 AI 分析或手动选择考核依据。'}</p></div><div className="download-actions"><button onClick={() => exportFile('word')} disabled={exportState === 'loading'}><DocumentArrowDownIcon />Word</button><button className="secondary" onClick={() => exportFile('pdf')} disabled={exportState === 'loading'}><PrinterIcon />PDF</button></div>{exportMessage && <p className={`download-state ${exportState}`}>{exportMessage}</p>}</section>;
+  const downloads = <section className="download-card"><div><strong>确认无误后下载</strong><p>{documentData ? `${documentData.rule.clause} · 最终处罚 ${documentData.amount} 元 · 填报日期 ${documentData.formattedDate}` : '请先完成考核依据并确认最终处罚金额。'}</p></div><div className="download-actions"><button onClick={() => exportFile('word')} disabled={exportState === 'loading'}><DocumentArrowDownIcon />Word</button><button className="secondary" onClick={() => exportFile('pdf')} disabled={exportState === 'loading'}><PrinterIcon />PDF</button></div>{exportMessage && <p className={`download-state ${exportState}`}>{exportMessage}</p>}</section>;
 
   return <div className="app-shell"><header className="topbar"><div className="brand"><span className="brand-mark">邮</span><div><small>中国邮政<br />CHINA POST</small><strong>邮件处理中心考核助手</strong></div><em>正式版</em></div><div className="top-actions"><button onClick={() => setTab('ask')}><BookOpenIcon />制度问答</button><span className="user-dot">张</span><span className="desktop-only">当前用户</span></div></header>
     <main>{tab === 'create' ? <section className="workbench">

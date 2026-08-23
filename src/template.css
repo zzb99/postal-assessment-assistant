@@ -43,6 +43,12 @@
   z-index: 1;
 }
 
-.company-field, .amount-field, .inspector-field, .date-field { font-size: var(--template-font-size); }
+.company-field, .amount-field, .inspector-field, .date-field {
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #fff;
+  font-size: var(--template-font-size);
+  line-height: var(--template-line-height);
+  white-space: nowrap;
+}
 .event-field { display:flex; align-items:center; overflow: hidden; margin: 0; font-size: var(--template-font-size); line-height: var(--template-line-height); white-space: pre-line; text-align: justify; }
-.inspector-field, .date-field { white-space: nowrap; }
