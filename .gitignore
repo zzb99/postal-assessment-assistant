@@ -1,3 +1,11 @@
-# Local DeepSeek key is intentionally versioned for this test deployment.
 node_modules/
 dist/
+.env
+.env.local
+assessment.db
+*.sqlite-wal
+*.sqlite-shm
+__pycache__/
+.pytest_cache/
+backend/.venv/
+deploy/.env.runtime

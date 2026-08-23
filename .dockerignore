@@ -1,0 +1,12 @@
+.git
+.audit
+.pytest_cache
+.tmp-docx-template-audit
+node_modules
+dist
+*.sqlite
+*.sqlite3
+*.db
+deploy/.env.runtime
+backend/**/__pycache__
+backend/**/*.pyc
