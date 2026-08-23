@@ -5,6 +5,7 @@ RUN npm ci --ignore-scripts
 COPY index.html tsconfig.json tsconfig.app.json vite.config.ts ./
 COPY src ./src
 COPY public ./public
+COPY scripts ./scripts
 RUN npm run build
 
 FROM m.daocloud.io/docker.io/library/nginx:1.31.1-alpine
