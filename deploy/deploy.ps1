@@ -48,11 +48,22 @@ if ($RepositoryImages) {
 }
 $arguments = @("compose", "--env-file", $runtimeEnv) + $composeFiles + @("up", "-d")
 if ($Rebuild) { $arguments += "--build" }
+if ($RepositoryImages) { $arguments += @("--pull", "never") }
 Push-Location $deploymentRoot
 try {
     if ($RepositoryImages) {
-        & docker compose --env-file $runtimeEnv @composeFiles pull
+        & docker compose --env-file $runtimeEnv @composeFiles pull api web
         if ($LASTEXITCODE -ne 0) { throw "Unable to pull repository images." }
+        & docker image inspect postgres:16-alpine *> $null
+        if ($LASTEXITCODE -ne 0) {
+            & docker pull postgres:16-alpine
+            if ($LASTEXITCODE -ne 0) {
+                & docker pull m.daocloud.io/docker.io/library/postgres:16-alpine
+                if ($LASTEXITCODE -ne 0) { throw "Unable to pull the PostgreSQL image." }
+                & docker tag m.daocloud.io/docker.io/library/postgres:16-alpine postgres:16-alpine
+                if ($LASTEXITCODE -ne 0) { throw "Unable to tag the PostgreSQL mirror image." }
+            }
+        }
     }
     & docker @arguments
     if ($LASTEXITCODE -ne 0) { throw "Docker Compose deployment failed." }
