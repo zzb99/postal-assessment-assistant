@@ -6,6 +6,10 @@ export function NoticePreview({ data, previewRef }: { data?: DocumentData; previ
   return <article className="notice-paper template-paper" ref={previewRef} aria-label="考核通知单预览">
     <img className="template-background" src="/assessment-notice-template.png" alt="空白考核通知单模板" />
     {data && <>
+      <span className="template-mask company-mask" style={templateFieldStyle('company')} aria-hidden="true" />
+      <span className="template-mask amount-mask" style={templateFieldStyle('amount')} aria-hidden="true" />
+      <span className="template-mask inspector-mask" style={templateFieldStyle('inspector')} aria-hidden="true" />
+      <span className="template-mask date-mask" style={templateFieldStyle('date')} aria-hidden="true" />
       <span className="template-field company-field" style={templateFieldStyle('company')}>{data.company}</span>
       <p className="template-field event-field" style={templateFieldStyle('noticeSummary')}>{data.noticeSummary}</p>
       <span className="template-field amount-field" style={templateFieldStyle('amount')}>{data.amountChinese}（大写）</span>

@@ -40,13 +40,20 @@
   position: absolute;
   color: #111;
   font-family: SimSun, "Songti SC", serif;
+  z-index: 2;
+}
+
+.template-mask {
+  position: absolute;
   z-index: 1;
+  background: #fff;
+  transform: translateY(-18%);
+  height: 136% !important;
 }
 
 .company-field, .amount-field, .inspector-field, .date-field {
   box-sizing: border-box;
   overflow: hidden;
-  background: #fff;
   font-size: var(--template-font-size);
   line-height: var(--template-line-height);
   white-space: nowrap;

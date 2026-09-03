@@ -10,7 +10,7 @@ export function validateForm(form: AssessmentForm, rule?: AssessmentRule, pricin
   const errors: FieldErrors = {};
   if (shouldCheck('date') && !form.date) errors.date = '请选择发生日期。';
   if (shouldCheck('fillDate') && !form.fillDate) errors.fillDate = '请选择填报日期。';
-  if (shouldCheck('company') && !form.company.trim()) errors.company = '请选择或输入被考核单位/工段。';
+  if (shouldCheck('company') && !form.company.trim()) errors.company = '请选择被考核单位。';
   if (shouldCheck('inspector') && !form.inspector.trim()) errors.inspector = '请输入检查人。';
   if (shouldCheck('stage') && !form.stage) errors.stage = '请选择作业环节。';
   if (shouldCheck('ruleId') && (!form.ruleId || !rule)) errors.ruleId = '请选择违规类型。';
@@ -21,8 +21,8 @@ export function validateForm(form: AssessmentForm, rule?: AssessmentRule, pricin
     errors.quantity = `数量仅支持 1 至 ${MAX_QUANTITY.toLocaleString()} 的正整数。`;
   }
   const penaltyAmount = Number(form.penaltyAmount);
-  if (shouldCheck('penaltyAmount') && (!/^(0|[1-9]\d*)$/.test(form.penaltyAmount) || penaltyAmount > MAX_PENALTY_AMOUNT)) {
-    errors.penaltyAmount = `最终处罚金额仅支持 0 至 ${MAX_PENALTY_AMOUNT.toLocaleString()} 元的整数。`;
+  if (shouldCheck('penaltyAmount') && (!/^[1-9]\d*$/.test(form.penaltyAmount) || penaltyAmount > MAX_PENALTY_AMOUNT)) {
+    errors.penaltyAmount = `正式处罚单金额仅支持 1 至 ${MAX_PENALTY_AMOUNT.toLocaleString()} 元的整数；0元请使用通报流程。`;
   }
   if (shouldCheck('fact') && !form.fact.trim()) errors.fact = '请填写事实经过。';
   else if (shouldCheck('fact') && form.fact.trim().length > MAX_FACT_LENGTH) errors.fact = `事实经过最多 ${MAX_FACT_LENGTH} 字，避免模板正文溢出。`;

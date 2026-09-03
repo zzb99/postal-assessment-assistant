@@ -15,9 +15,9 @@ import './template.css';
 
 const now = new Date();
 const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-const initialForm: AssessmentForm = { noticeNo: `KH${today.replaceAll('-', '')}`, date: today, fillDate: today, shift: '白班', company: '', inspector: '', stage: '', ruleId: '', pricingId: '', quantity: '1', penaltyAmount: '', fact: '' };
-const companies = ['华洋公司', '联智公司', '君喜公司'];
-const inspectors = ['一班吴正一', '二班黄旭东', '三班魏振'];
+const initialForm: AssessmentForm = { noticeNo: `KH${today.replaceAll('-', '')}`, date: today, fillDate: today, shift: '白班', team: '一班', company: '', inspector: '', stage: '', ruleId: '', pricingId: '', quantity: '1', penaltyAmount: '', fact: '' };
+const companies = ['华阳公司', '君盈公司'];
+const inspectorsByTeam: Record<string, string[]> = { 一班: ['吴正一'], 二班: ['黄旭东'], 三班: ['魏振'] };
 
 function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return <label className="work-field"><span>{label}</span><div>{children}{error && <small className="field-error">{error}</small>}</div></label>;
@@ -46,7 +46,8 @@ function App() {
 
   const selectedRule = rules.find((item) => item.id === form.ruleId);
   const selectedPricing = selectedRule?.pricingOptions.find((item) => item.id === form.pricingId);
-  const documentData = selectedRule && selectedPricing && selectedPricing.unitPrice !== null && /^(0|[1-9]\d*)$/.test(form.penaltyAmount) ? buildDocumentData(form, selectedRule, selectedPricing) : undefined;
+  const documentErrors = validateForm(form, selectedRule, selectedPricing);
+  const documentData = selectedRule && selectedPricing && !hasErrors(documentErrors) ? buildDocumentData(form, selectedRule, selectedPricing) : undefined;
   const stages = useMemo(() => [...new Set(rules.map((item) => item.stage))], [rules]);
   const stageRules = rules.filter((item) => item.stage === form.stage);
   const matched = useMemo(() => policyAnswer ? rules.filter((rule) => policyAnswer.ruleIds.includes(rule.id)) : [], [policyAnswer, rules]);
@@ -112,8 +113,9 @@ function App() {
     <Field label="发生日期" error={errors.date}><input type="date" value={form.date} onChange={(e) => update('date', e.target.value)} /></Field>
     <Field label="填报日期" error={errors.fillDate}><input type="date" value={form.fillDate} onChange={(e) => update('fillDate', e.target.value)} /></Field>
     <Field label="班次"><select value={form.shift} onChange={(e) => update('shift', e.target.value)}><option>白班</option><option>夜班</option></select></Field>
+    <Field label="班组"><select value={form.team || '一班'} onChange={(e) => { const team = e.target.value; setForm((old) => ({ ...old, team, inspector: inspectorsByTeam[team]?.[0] || '' })); }}><option>一班</option><option>二班</option><option>三班</option></select></Field>
     <Field label="被考核单位/工段" error={errors.company}><input list="company-options" value={form.company} onChange={(e) => update('company', e.target.value)} placeholder="选择或临时输入" /><datalist id="company-options">{companies.map((item) => <option key={item} value={item} />)}</datalist></Field>
-    <Field label="检查人" error={errors.inspector}><input list="inspector-options" value={form.inspector} onChange={(e) => update('inspector', e.target.value)} placeholder="请输入检查人，可参考历史姓名" /><datalist id="inspector-options">{inspectors.map((item) => <option key={item} value={item} />)}</datalist></Field>
+    <Field label="检查人" error={errors.inspector}><select value={form.inspector} onChange={(e) => update('inspector', e.target.value)}><option value="">请选择</option>{(inspectorsByTeam[form.team || '一班'] || []).map((item) => <option key={item} value={item}>{item}</option>)}</select></Field>
   </div>;
   const assessment = <>
     <label className="fact-field"><span>事实经过 <b>*</b></span><textarea maxLength={MAX_FACT_LENGTH} value={form.fact} onChange={(e) => update('fact', e.target.value)} placeholder="请写明作业地点/环节、邮件或事件信息和现场情况；日期、班次、被考核单位会自动写入考核事项。" />{errors.fact && <small className="field-error">{errors.fact}</small>}<small className="counter">{form.fact.length}/{MAX_FACT_LENGTH}</small></label>

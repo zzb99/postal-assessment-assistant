@@ -229,11 +229,13 @@ function createPdfOverlay(data: DocumentData) {
   for (const field of ['company', 'amount', 'inspector', 'date'] as TemplateField[]) {
     const slot = TEMPLATE_SLOTS[field];
     ctx.fillStyle = '#fff';
+    // Expand beyond the CSS line box: the source placeholder glyphs extend
+    // above and below the measured baseline, otherwise fragments remain.
     ctx.fillRect(
-      PDF_TEMPLATE_WIDTH * slot.left / 100 - 4,
-      PDF_TEMPLATE_HEIGHT * slot.top / 100 - 4,
-      PDF_TEMPLATE_WIDTH * (slot.width ?? 0) / 100 + 8,
-      PDF_TEMPLATE_HEIGHT * (slot.height ?? 2.2) / 100 + 8,
+      PDF_TEMPLATE_WIDTH * slot.left / 100 - 16,
+      PDF_TEMPLATE_HEIGHT * slot.top / 100 - 22,
+      PDF_TEMPLATE_WIDTH * (slot.width ?? 0) / 100 + 32,
+      PDF_TEMPLATE_HEIGHT * (slot.height ?? 2.2) / 100 + 44,
     );
   }
   drawText(ctx, 'company', data.company);

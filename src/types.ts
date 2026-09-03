@@ -19,6 +19,7 @@ export type AssessmentForm = {
   date: string;
   fillDate: string;
   shift: string;
+  team?: string;
   company: string;
   inspector: string;
   stage: string;
