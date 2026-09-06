@@ -46,11 +46,11 @@ def export_ledger(
     filters = visible_filters(user, keyword=keyword, record_status=record_status, start_date=start_date, end_date=end_date)
     records = session.execute(select(Assessment).where(*filters).order_by(Assessment.incident_date.desc(), Assessment.id.desc())).scalars().all()
     workbook = Workbook(); ledger = workbook.active; ledger.title = "考核台账"
-    ledger.append(["考核编号", "发生日期", "班次", "被考核单位", "所属部门", "问题类型", "作业环节", "检查人", "处罚金额", "金额大写", "状态", "考核事项", "备注", "考核办法版本", "创建时间"])
+    ledger.append(["考核编号", "发生日期", "班次", "班组", "被考核单位", "所属部门", "问题类型", "作业环节", "检查人", "数量", "处罚金额", "金额大写", "状态", "考核事项", "备注", "考核办法版本", "创建时间"])
     for item in records:
-        ledger.append([item.assessment_no or "草稿", item.incident_date, item.shift, item.assessment_unit_name_snapshot, item.department_name_snapshot or "", item.category_name_snapshot or "", item.operation_stage or "", item.inspector_name, item.penalty_amount, item.penalty_amount_cn, item.status, item.assessment_content, item.remark or "", item.regulation_version or "", item.created_at.replace(tzinfo=None)])
-    for row in ledger.iter_rows(min_row=2, min_col=9, max_col=9): row[0].number_format = '#,##0.00'
-    for column, width in {"A": 20, "B": 13, "C": 10, "D": 18, "E": 16, "F": 14, "G": 14, "H": 13, "I": 14, "J": 18, "K": 12, "L": 54, "M": 32, "N": 16, "O": 20}.items(): ledger.column_dimensions[column].width = width
+        ledger.append([item.assessment_no or "草稿", item.incident_date, item.shift, item.team, item.assessment_unit_name_snapshot, item.department_name_snapshot or "", item.category_name_snapshot or "", item.operation_stage or "", item.inspector_name, item.quantity, item.penalty_amount, item.penalty_amount_cn, item.status, item.assessment_content, item.remark or "", item.regulation_version or "", item.created_at.replace(tzinfo=None)])
+    for row in ledger.iter_rows(min_row=2, min_col=11, max_col=11): row[0].number_format = '#,##0.00'
+    for column, width in {"A": 20, "B": 13, "C": 10, "D": 10, "E": 18, "F": 16, "G": 14, "H": 14, "I": 13, "J": 10, "K": 14, "L": 18, "M": 12, "N": 54, "O": 32, "P": 16, "Q": 20}.items(): ledger.column_dimensions[column].width = width
     style_sheet(ledger)
     effective = [item for item in records if item.status == "effective"]
     for title, key in (("单位汇总", lambda item: item.assessment_unit_name_snapshot), ("部门汇总", lambda item: item.department_name_snapshot or "未归属部门"), ("问题类型汇总", lambda item: item.category_name_snapshot or "未分类")):

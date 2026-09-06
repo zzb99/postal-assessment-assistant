@@ -1,118 +1,234 @@
-from datetime import date
+from __future__ import annotations
+
+import hashlib
+import shutil
+import subprocess
+import tempfile
+import threading
+import uuid
+import zipfile
+from copy import deepcopy
+from dataclasses import dataclass
+from datetime import datetime
 from io import BytesIO
+from pathlib import Path
+from zoneinfo import ZoneInfo
 
-from docx import Document
-from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
-from docx.oxml import OxmlElement
-from docx.oxml.ns import qn
-from docx.shared import Cm, Pt
-from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER
-from reportlab.lib.pagesizes import A4
-from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
-from reportlab.lib.units import mm
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.cidfonts import UnicodeCIDFont
-from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from lxml import etree
+from pypdf import PdfReader
 
+from .config import settings
 from .models import Assessment
 
+W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+NS = {"w": W_NS}
+XML_SPACE = "{http://www.w3.org/XML/1998/namespace}space"
+REQUIRED_TEMPLATE_TAGS = {
+    "ASSESSMENT_UNIT",
+    "ASSESSMENT_CONTENT",
+    "PENALTY_AMOUNT_CN",
+    "INSPECTOR_NAME",
+    "FILL_DATE",
+}
+_CONVERSION_SEMAPHORE = threading.BoundedSemaphore(value=1)
 
-def format_cn_date(value: date) -> str:
+
+class DocumentGenerationError(RuntimeError):
+    pass
+
+
+@dataclass(frozen=True)
+class ArchivedFiles:
+    docx_path: str
+    pdf_path: str
+    docx_sha256: str
+    pdf_sha256: str
+    template_sha256: str
+    generated_at: datetime
+    archive_dir: Path
+
+
+def qn(local: str) -> str:
+    return f"{{{W_NS}}}{local}"
+
+
+def format_cn_date(value) -> str:
     return f"{value.year}年{value.month}月{value.day}日"
 
 
-def _set_cell_text(cell, text: str, bold: bool = False) -> None:
-    paragraph = cell.paragraphs[0]
-    paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
-    run = paragraph.add_run(text)
-    run.bold = bold
-    run.font.name = "Microsoft YaHei"
-    run._element.rPr.rFonts.set(qn("w:eastAsia"), "Microsoft YaHei")
-    run.font.size = Pt(10.5)
-    cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+def _sha256(content: bytes) -> str:
+    return hashlib.sha256(content).hexdigest()
 
 
-def _set_cell_border(cell, **kwargs) -> None:
-    tc_pr = cell._tc.get_or_add_tcPr()
-    borders = tc_pr.first_child_found_in("w:tcBorders")
-    if borders is None:
-        borders = OxmlElement("w:tcBorders")
-        tc_pr.append(borders)
-    for edge in ("top", "left", "bottom", "right"):
-        tag = "w:" + edge
-        element = borders.find(qn(tag))
-        if element is None:
-            element = OxmlElement(tag)
-            borders.append(element)
-        element.set(qn("w:val"), kwargs.get(edge, "single"))
-        element.set(qn("w:sz"), "8")
-        element.set(qn("w:color"), "000000")
+def _new_run(text: str, rpr: etree._Element | None, *, break_before: bool = False) -> etree._Element:
+    run = etree.Element(qn("r"))
+    if rpr is not None:
+        run.append(deepcopy(rpr))
+    if break_before:
+        etree.SubElement(run, qn("br"))
+    text_node = etree.SubElement(run, qn("t"))
+    text_node.text = text
+    if text.startswith(" ") or text.endswith(" "):
+        text_node.set(XML_SPACE, "preserve")
+    return run
 
 
-def build_word(assessment: Assessment) -> bytes:
-    document = Document()
-    section = document.sections[0]
-    section.top_margin = Cm(1.8); section.bottom_margin = Cm(1.8); section.left_margin = Cm(2.1); section.right_margin = Cm(2.1)
-    style = document.styles["Normal"]
-    style.font.name = "Microsoft YaHei"; style._element.rPr.rFonts.set(qn("w:eastAsia"), "Microsoft YaHei"); style.font.size = Pt(10.5)
-    title = document.add_paragraph(); title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = title.add_run("邮件处理中心"); run.bold = True; run.font.name = "Microsoft YaHei"; run._element.rPr.rFonts.set(qn("w:eastAsia"), "Microsoft YaHei"); run.font.size = Pt(20)
-    subtitle = document.add_paragraph(); subtitle.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = subtitle.add_run("通信生产考核通知单"); run.bold = True; run.font.name = "Microsoft YaHei"; run._element.rPr.rFonts.set(qn("w:eastAsia"), "Microsoft YaHei"); run.font.size = Pt(15)
-    number = document.add_paragraph(); number.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-    number.add_run(f"考核编号：{assessment.assessment_no or '草稿'}")
-    rows = [
-        ("被考核工段", assessment.assessment_unit_name_snapshot),
-        ("发生日期 / 班次", f"{format_cn_date(assessment.incident_date)} / {assessment.shift}"),
-        ("问题类型 / 作业环节", f"{assessment.category_name_snapshot or '未分类'} / {assessment.operation_stage or '未填写'}"),
-        ("考核事项", assessment.assessment_content),
-        ("处罚金额", f"人民币 {assessment.penalty_amount:.2f} 元（{assessment.penalty_amount_cn}）"),
-        ("被处罚单位/人员意见", ""),
-        ("业务主管复核意见", ""),
-        ("负责人意见", ""),
-        ("备注", assessment.remark or ""),
-    ]
-    table = document.add_table(rows=0, cols=2)
-    table.autofit = False
-    table.columns[0].width = Cm(3.2); table.columns[1].width = Cm(13.4)
-    for label, value in rows:
-        cells = table.add_row().cells
-        cells[0].width = Cm(3.2); cells[1].width = Cm(13.4)
-        _set_cell_text(cells[0], label, True); _set_cell_text(cells[1], value)
-        for cell in cells: _set_cell_border(cell)
-        if label in {"考核事项", "被处罚单位/人员意见", "业务主管复核意见", "负责人意见", "备注"}:
-            cells[0].paragraphs[0].paragraph_format.space_after = Pt(28)
-            cells[1].paragraphs[0].paragraph_format.space_after = Pt(28)
-    footer = document.add_paragraph(); footer.paragraph_format.space_before = Pt(12)
-    footer.add_run(f"检查人：{assessment.inspector_name}    填报日期：{format_cn_date(assessment.finalized_at.date() if assessment.finalized_at else assessment.created_at.date())}")
-    version = document.add_paragraph(); version.add_run(f"考核办法版本：{assessment.regulation_version or '未填写'}")
-    output = BytesIO(); document.save(output); return output.getvalue()
+def _fill_sdt(sdt: etree._Element, value: str) -> None:
+    content = sdt.find("w:sdtContent", namespaces=NS)
+    if content is None:
+        raise DocumentGenerationError("Word模板内容控件缺少内容区域")
+    rpr = content.find(".//w:rPr", namespaces=NS)
+    for child in list(content):
+        content.remove(child)
+    lines = value.replace("\r\n", "\n").replace("\r", "\n").split("\n")
+    for index, line in enumerate(lines):
+        content.append(_new_run(line, rpr, break_before=index > 0))
 
 
-def build_pdf(assessment: Assessment) -> bytes:
-    pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
+def build_word(assessment: Assessment, *, fill_time: datetime | None = None) -> bytes:
+    template_path = settings.document_template
+    if not template_path.is_file():
+        raise DocumentGenerationError(f"Word模板不存在：{template_path.name}")
+    template = template_path.read_bytes()
+    fill_time = fill_time or datetime.now(ZoneInfo("Asia/Shanghai"))
+    if fill_time.tzinfo is None:
+        fill_time = fill_time.replace(tzinfo=ZoneInfo("Asia/Shanghai"))
+    values = {
+        "ASSESSMENT_UNIT": assessment.assessment_unit_name_snapshot,
+        "ASSESSMENT_CONTENT": assessment.assessment_content,
+        "PENALTY_AMOUNT_CN": assessment.penalty_amount_cn,
+        "INSPECTOR_NAME": f"{assessment.team}{assessment.inspector_name}",
+        "FILL_DATE": format_cn_date(fill_time.astimezone(ZoneInfo("Asia/Shanghai")).date()),
+    }
+
+    source = BytesIO(template)
     output = BytesIO()
-    document = SimpleDocTemplate(output, pagesize=A4, leftMargin=20 * mm, rightMargin=20 * mm, topMargin=16 * mm, bottomMargin=16 * mm)
-    styles = getSampleStyleSheet()
-    body = ParagraphStyle("CNBody", parent=styles["BodyText"], fontName="STSong-Light", fontSize=10.5, leading=18)
-    small = ParagraphStyle("CNSmall", parent=body, fontSize=9.5, leading=15)
-    title = ParagraphStyle("CNTitle", parent=body, fontSize=20, leading=28, alignment=TA_CENTER)
-    subtitle = ParagraphStyle("CNSubtitle", parent=body, fontSize=15, leading=23, alignment=TA_CENTER)
-    story = [Paragraph("邮件处理中心", title), Paragraph("通信生产考核通知单", subtitle), Spacer(1, 4 * mm), Paragraph(f"考核编号：{assessment.assessment_no or '草稿'}", small), Spacer(1, 3 * mm)]
-    def pair(label: str, value: str):
-        table = Table([[Paragraph(label, body), Paragraph(value.replace("\n", "<br/>") or "&nbsp;", body)]], colWidths=[35 * mm, 135 * mm])
-        table.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 0.6, colors.black), ("VALIGN", (0, 0), (-1, -1), "TOP"), ("BACKGROUND", (0, 0), (0, 0), colors.HexColor("#F2F4F7")), ("LEFTPADDING", (0, 0), (-1, -1), 7), ("RIGHTPADDING", (0, 0), (-1, -1), 7), ("TOPPADDING", (0, 0), (-1, -1), 7), ("BOTTOMPADDING", (0, 0), (-1, -1), 7)]))
-        story.append(table)
-    pair("被考核工段", assessment.assessment_unit_name_snapshot)
-    pair("发生日期 / 班次", f"{format_cn_date(assessment.incident_date)} / {assessment.shift}")
-    pair("问题类型 / 作业环节", f"{assessment.category_name_snapshot or '未分类'} / {assessment.operation_stage or '未填写'}")
-    story.extend([Spacer(1, 3 * mm), Paragraph("考核事项", body), Spacer(1, 1 * mm), Paragraph(assessment.assessment_content.replace("\n", "<br/>"), body), Spacer(1, 4 * mm)])
-    pair("处罚金额", f"人民币 {assessment.penalty_amount:.2f} 元（{assessment.penalty_amount_cn}）")
-    for label in ("被处罚单位/人员意见", "业务主管复核意见", "负责人意见"):
-        pair(label, "<br/><br/><br/>")
-    pair("备注", assessment.remark or "")
-    story.extend([Spacer(1, 4 * mm), Paragraph(f"检查人：{assessment.inspector_name}　　填报日期：{format_cn_date(assessment.finalized_at.date() if assessment.finalized_at else assessment.created_at.date())}", body), Paragraph(f"考核办法版本：{assessment.regulation_version or '未填写'}", small)])
-    document.build(story)
+    found: dict[str, int] = {}
+    with zipfile.ZipFile(source, "r") as zin, zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED) as zout:
+        for item in zin.infolist():
+            content = zin.read(item.filename)
+            if item.filename == "word/document.xml":
+                parser = etree.XMLParser(remove_blank_text=False, resolve_entities=False)
+                root = etree.fromstring(content, parser)
+                for sdt in root.xpath(".//w:sdt", namespaces=NS):
+                    tag = sdt.xpath("string(.//w:sdtPr/w:tag/@w:val)", namespaces=NS)
+                    if tag in values:
+                        found[tag] = found.get(tag, 0) + 1
+                        _fill_sdt(sdt, values[tag])
+                content = etree.tostring(root, xml_declaration=True, encoding="UTF-8", standalone="yes")
+            zout.writestr(item, content)
+
+    invalid = sorted(tag for tag in REQUIRED_TEMPLATE_TAGS if found.get(tag) != 1)
+    if invalid:
+        raise DocumentGenerationError(f"Word模板字段标记异常：{', '.join(invalid)}")
     return output.getvalue()
+
+
+def _verify_pdf(content: bytes) -> None:
+    if not content.startswith(b"%PDF"):
+        raise DocumentGenerationError("LibreOffice未生成有效PDF")
+    try:
+        reader = PdfReader(BytesIO(content))
+        if len(reader.pages) != 1:
+            raise DocumentGenerationError("正式文书必须保持一页A4")
+        box = reader.pages[0].mediabox
+        width, height = float(box.width), float(box.height)
+        if abs(width - 595.28) > 4 or abs(height - 841.89) > 4:
+            raise DocumentGenerationError("转换后的PDF不是A4页面")
+    except DocumentGenerationError:
+        raise
+    except Exception as error:
+        raise DocumentGenerationError("无法验证转换后的PDF") from error
+
+
+def convert_word_to_pdf(docx_content: bytes) -> bytes:
+    with _CONVERSION_SEMAPHORE:
+        with tempfile.TemporaryDirectory(prefix="assessment-convert-") as temp:
+            temp_dir = Path(temp)
+            docx_path = temp_dir / "assessment.docx"
+            output_dir = temp_dir / "output"
+            profile_dir = temp_dir / "profile"
+            output_dir.mkdir()
+            profile_dir.mkdir()
+            docx_path.write_bytes(docx_content)
+            command = [
+                settings.libreoffice_binary,
+                "--headless",
+                "--norestore",
+                "--nodefault",
+                "--nolockcheck",
+                f"-env:UserInstallation={profile_dir.resolve().as_uri()}",
+                "--convert-to",
+                "pdf:writer_pdf_Export",
+                "--outdir",
+                str(output_dir),
+                str(docx_path),
+            ]
+            try:
+                completed = subprocess.run(command, capture_output=True, timeout=settings.libreoffice_timeout_seconds, check=False)
+            except FileNotFoundError as error:
+                raise DocumentGenerationError("服务器未安装LibreOffice，文书保持草稿") from error
+            except subprocess.TimeoutExpired as error:
+                raise DocumentGenerationError("Word转PDF超过60秒，文书保持草稿") from error
+            pdf_path = output_dir / "assessment.pdf"
+            if completed.returncode != 0 or not pdf_path.is_file():
+                detail = (completed.stderr or completed.stdout).decode("utf-8", errors="replace").strip()[-500:]
+                raise DocumentGenerationError(f"Word转PDF失败，文书保持草稿：{detail or '未生成文件'}")
+            content = pdf_path.read_bytes()
+            _verify_pdf(content)
+            return content
+
+
+def archive_documents(assessment: Assessment, generated_at: datetime) -> ArchivedFiles:
+    if not assessment.assessment_no:
+        raise DocumentGenerationError("正式编号尚未生成")
+    root = settings.document_root.resolve()
+    root.mkdir(parents=True, exist_ok=True)
+    staging_root = root / ".staging"
+    staging_root.mkdir(exist_ok=True)
+    staging_dir = staging_root / uuid.uuid4().hex
+    final_dir = root / assessment.incident_date.strftime("%Y") / assessment.incident_date.strftime("%m") / assessment.assessment_no
+    if final_dir.exists():
+        raise DocumentGenerationError("该考核编号的归档目录已存在，禁止覆盖")
+    staging_dir.mkdir()
+    try:
+        docx_content = build_word(assessment, fill_time=generated_at)
+        pdf_content = convert_word_to_pdf(docx_content)
+        docx_name = f"{assessment.assessment_no}.docx"
+        pdf_name = f"{assessment.assessment_no}.pdf"
+        (staging_dir / docx_name).write_bytes(docx_content)
+        (staging_dir / pdf_name).write_bytes(pdf_content)
+        final_dir.parent.mkdir(parents=True, exist_ok=True)
+        staging_dir.replace(final_dir)
+        return ArchivedFiles(
+            docx_path=(final_dir / docx_name).relative_to(root).as_posix(),
+            pdf_path=(final_dir / pdf_name).relative_to(root).as_posix(),
+            docx_sha256=_sha256(docx_content),
+            pdf_sha256=_sha256(pdf_content),
+            template_sha256=_sha256(settings.document_template.read_bytes()),
+            generated_at=generated_at,
+            archive_dir=final_dir,
+        )
+    except Exception:
+        shutil.rmtree(staging_dir, ignore_errors=True)
+        raise
+
+
+def cleanup_archive(path: Path | None) -> None:
+    if path is None:
+        return
+    root = settings.document_root.resolve()
+    resolved = path.resolve()
+    if root in resolved.parents and resolved.name.startswith("KH-"):
+        shutil.rmtree(resolved, ignore_errors=True)
+
+
+def read_archived_file(relative_path: str, expected_sha256: str) -> bytes:
+    root = settings.document_root.resolve()
+    path = (root / relative_path).resolve()
+    if root not in path.parents or not path.is_file():
+        raise DocumentGenerationError("归档文书不存在")
+    content = path.read_bytes()
+    if _sha256(content) != expected_sha256:
+        raise DocumentGenerationError("归档文书哈希校验失败，禁止下载")
+    return content

@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import settings
 from .db import Base, SessionLocal, engine
-from .routers import assessments, auth, documents, exports, management, statistics
+from .routers import ai, assessments, auth, documents, exports, management, statistics
 from .seed import seed_reference_data
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
@@ -25,6 +25,7 @@ async def lifespan(_: FastAPI):
 app = FastAPI(title=settings.app_name, version="1.0.0", lifespan=lifespan)
 app.add_middleware(CORSMiddleware, allow_origins=list(settings.cors_origins), allow_credentials=False, allow_methods=["GET", "POST", "PUT"], allow_headers=["Authorization", "Content-Type"])
 app.include_router(auth.router)
+app.include_router(ai.router)
 app.include_router(assessments.router)
 app.include_router(documents.router)
 app.include_router(exports.router)

@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 from ..audit import write_audit_log
 from ..db import get_session
 from ..deps import assert_record_scope, get_current_user, require_roles
+from ..documents import DocumentGenerationError, cleanup_archive
 from ..models import Assessment, User
 from ..schemas import AssessmentInput, AssessmentOut, AssessmentPage, AssessmentUpdate, VoidRequest
 from ..services import finalize_assessment, snapshot_for_input, utc_now
@@ -91,17 +92,23 @@ def update_assessment(assessment_id: int, payload: AssessmentUpdate, session: Se
 
 @router.post("/{assessment_id}/finalize", response_model=AssessmentOut)
 def finalize(assessment_id: int, session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager"))) -> Assessment:
-    assessment = session.get(Assessment, assessment_id)
+    assessment = session.execute(select(Assessment).where(Assessment.id == assessment_id).with_for_update()).scalar_one_or_none()
     if not assessment:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="考核单不存在")
     assert_record_scope(user, assessment.department_id)
+    archived = None
     try:
-        assessment = finalize_assessment(session, assessment)
+        assessment, archived = finalize_assessment(session, assessment)
         write_audit_log(session, operator_id=user.id, action="assessment.finalize", target_type="assessment", target_id=str(assessment.id), after={"assessment_no": assessment.assessment_no, "status": "effective"})
         session.commit()
         return assessment
+    except DocumentGenerationError as error:
+        session.rollback()
+        cleanup_archive(archived.archive_dir if archived else None)
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail=str(error)) from error
     except Exception:
         session.rollback()
+        cleanup_archive(archived.archive_dir if archived else None)
         raise
 
 

@@ -7,5 +7,6 @@ assessment.db
 *.sqlite-shm
 __pycache__/
 .pytest_cache/
+.tmp/
 backend/.venv/
 deploy/.env.runtime

@@ -2,7 +2,7 @@ from datetime import date, datetime, timezone
 from decimal import Decimal
 from typing import Any
 
-from sqlalchemy import Boolean, Date, DateTime, ForeignKey, Integer, JSON, Numeric, String, Text, UniqueConstraint
+from sqlalchemy import Boolean, CheckConstraint, Date, DateTime, ForeignKey, Integer, JSON, Numeric, String, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .db import Base
@@ -61,6 +61,7 @@ class MasterDataItem(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     kind: Mapped[str] = mapped_column(String(32), index=True)
     name: Mapped[str] = mapped_column(String(100))
+    parent_name: Mapped[str | None] = mapped_column(String(100), nullable=True, index=True)
     active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     sort_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
 
@@ -74,16 +75,22 @@ class NumberSequence(Base):
 
 class Assessment(Base):
     __tablename__ = "assessments"
+    __table_args__ = (
+        CheckConstraint("quantity >= 1 AND quantity <= 100000", name="ck_assessments_quantity_positive"),
+        CheckConstraint("penalty_amount >= 1 AND penalty_amount <= 100000000 AND penalty_amount = CAST(penalty_amount AS INTEGER)", name="ck_assessments_penalty_integer"),
+    )
 
     id: Mapped[int] = mapped_column(primary_key=True)
     assessment_no: Mapped[str | None] = mapped_column(String(32), unique=True, nullable=True, index=True)
     incident_date: Mapped[date] = mapped_column(Date, index=True)
     shift: Mapped[str] = mapped_column(String(32), index=True)
+    team: Mapped[str] = mapped_column(String(32), index=True)
     assessment_unit_id: Mapped[int | None] = mapped_column(ForeignKey("assessment_units.id"), nullable=True, index=True)
     assessment_unit_name_snapshot: Mapped[str] = mapped_column(String(160))
     department_id: Mapped[int | None] = mapped_column(ForeignKey("departments.id"), nullable=True, index=True)
     department_name_snapshot: Mapped[str | None] = mapped_column(String(100), nullable=True)
     inspector_name: Mapped[str] = mapped_column(String(100), index=True)
+    quantity: Mapped[int] = mapped_column(Integer, nullable=False)
     assessment_content: Mapped[str] = mapped_column(Text)
     category_id: Mapped[int | None] = mapped_column(ForeignKey("assessment_categories.id"), nullable=True, index=True)
     category_name_snapshot: Mapped[str | None] = mapped_column(String(100), nullable=True)
@@ -105,6 +112,23 @@ class Assessment(Base):
     department: Mapped[Department | None] = relationship(foreign_keys=[department_id])
     category: Mapped[AssessmentCategory | None] = relationship()
     creator: Mapped[User] = relationship(foreign_keys=[created_by])
+    document: Mapped["AssessmentDocument | None"] = relationship(back_populates="assessment", uselist=False, cascade="all, delete-orphan")
+
+
+class AssessmentDocument(Base):
+    __tablename__ = "assessment_documents"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    assessment_id: Mapped[int] = mapped_column(ForeignKey("assessments.id", ondelete="CASCADE"), unique=True, nullable=False, index=True)
+    template_version: Mapped[str] = mapped_column(String(64), nullable=False)
+    template_sha256: Mapped[str] = mapped_column(String(64), nullable=False)
+    docx_path: Mapped[str] = mapped_column(String(500), nullable=False)
+    pdf_path: Mapped[str] = mapped_column(String(500), nullable=False)
+    docx_sha256: Mapped[str] = mapped_column(String(64), nullable=False)
+    pdf_sha256: Mapped[str] = mapped_column(String(64), nullable=False)
+    generated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now, nullable=False)
+
+    assessment: Mapped[Assessment] = relationship(back_populates="document")
 
 
 class AuditLog(Base):

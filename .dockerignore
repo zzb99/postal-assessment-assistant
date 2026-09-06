@@ -2,6 +2,7 @@
 .audit
 .pytest_cache
 .tmp-docx-template-audit
+.tmp
 node_modules
 dist
 *.sqlite

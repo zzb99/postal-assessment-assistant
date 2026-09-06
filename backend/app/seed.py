@@ -11,8 +11,12 @@ def _ensure(session: Session, model, **values):
 
 
 def seed_reference_data(session: Session) -> None:
-    for index, name in enumerate(("白班", "夜班", "其他")):
+    for index, name in enumerate(("白班", "夜班")):
         _ensure(session, MasterDataItem, kind="shift", name=name, sort_order=index)
+    for index, name in enumerate(("一班", "二班", "三班")):
+        _ensure(session, MasterDataItem, kind="team", name=name, sort_order=index)
+    for index, (team, name) in enumerate((("一班", "吴正一"), ("二班", "黄旭东"), ("三班", "魏振"))):
+        _ensure(session, MasterDataItem, kind="inspector", name=name, parent_name=team, sort_order=index)
     for index, name in enumerate(("卸车", "矩阵", "小件机", "异形", "装车", "问题件处理", "安全生产", "其他")):
         _ensure(session, MasterDataItem, kind="operation_stage", name=name, sort_order=index)
     for name in ("白送", "错发", "邮件滞留", "现场管理", "安全生产", "操作不规范", "其他"):
@@ -22,7 +26,7 @@ def seed_reference_data(session: Session) -> None:
         department = Department(name="邮件处理中心")
         session.add(department)
         session.flush()
-    for name in ("华洋公司", "联智公司", "君喜公司"):
+    for name in ("华阳公司", "君盈公司"):
         unit = session.execute(select(AssessmentUnit).where(AssessmentUnit.name == name)).scalar_one_or_none()
         if not unit:
             session.add(AssessmentUnit(name=name, department_id=department.id))

@@ -15,6 +15,19 @@ class Settings:
         if origin.strip()
     )
     base_dir: Path = Path(__file__).resolve().parents[2]
+    document_root: Path = Path(os.getenv("DOCUMENT_ROOT", "/data/documents"))
+    document_template: Path = Path(
+        os.getenv(
+            "DOCUMENT_TEMPLATE",
+            str(Path(__file__).resolve().parents[1] / "templates" / "assessment-notice-template-v20260819.docx"),
+        )
+    )
+    document_template_version: str = os.getenv("DOCUMENT_TEMPLATE_VERSION", "20260819-1")
+    libreoffice_binary: str = os.getenv("LIBREOFFICE_BINARY", "soffice")
+    libreoffice_timeout_seconds: int = int(os.getenv("LIBREOFFICE_TIMEOUT_SECONDS", "60"))
+    deepseek_api_key: str = os.getenv("DEEPSEEK_API_KEY", "")
+    deepseek_api_url: str = os.getenv("DEEPSEEK_API_URL", "https://api.deepseek.com/chat/completions")
+    deepseek_model: str = os.getenv("DEEPSEEK_MODEL", "deepseek-chat")
 
 
 settings = Settings()

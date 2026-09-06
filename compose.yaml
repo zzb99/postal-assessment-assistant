@@ -1,13 +1,29 @@
 name: postal-assessment
 
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
 services:
   db:
     image: postgres:16-alpine
     restart: unless-stopped
+    command:
+      - postgres
+      - -c
+      - shared_buffers=128MB
+      - -c
+      - work_mem=4MB
+      - -c
+      - maintenance_work_mem=64MB
+      - -c
+      - max_connections=30
     environment:
       POSTGRES_DB: assessment
       POSTGRES_USER: assessment
-      POSTGRES_PASSWORD: ${ASSESSMENT_DB_PASSWORD:?set in deploy/.env.runtime}
+      POSTGRES_PASSWORD: ${ASSESSMENT_DB_PASSWORD:?set in /etc/postal-assessment.env}
     volumes:
       - assessment_postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -15,6 +31,9 @@ services:
       interval: 5s
       timeout: 3s
       retries: 20
+    mem_limit: 512m
+    pids_limit: 128
+    logging: *default-logging
     networks: [internal]
 
   api:
@@ -24,12 +43,22 @@ services:
     restart: unless-stopped
     environment:
       DATABASE_URL: postgresql+psycopg://assessment:${ASSESSMENT_DB_PASSWORD}@db:5432/assessment
-      JWT_SECRET: ${ASSESSMENT_JWT_SECRET:?set in deploy/.env.runtime}
+      JWT_SECRET: ${ASSESSMENT_JWT_SECRET:?set in /etc/postal-assessment.env}
       JWT_EXPIRE_MINUTES: 480
-      CORS_ORIGINS: http://127.0.0.1:${ASSESSMENT_PORT:-8080},http://localhost:${ASSESSMENT_PORT:-8080}
+      CORS_ORIGINS: https://${DOMAIN:?set in /etc/postal-assessment.env},http://127.0.0.1:${ASSESSMENT_LOCAL_PORT:-8080}
       BOOTSTRAP_ADMIN_USERNAME: ${ASSESSMENT_ADMIN_USERNAME:-admin}
-      BOOTSTRAP_ADMIN_PASSWORD: ${ASSESSMENT_ADMIN_PASSWORD:?set in deploy/.env.runtime}
+      BOOTSTRAP_ADMIN_PASSWORD: ${ASSESSMENT_ADMIN_PASSWORD:?set in /etc/postal-assessment.env}
       BOOTSTRAP_ADMIN_DISPLAY_NAME: ${ASSESSMENT_ADMIN_DISPLAY_NAME:-系统管理员}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      DEEPSEEK_API_URL: ${DEEPSEEK_API_URL:-https://api.deepseek.com/chat/completions}
+      DEEPSEEK_MODEL: ${DEEPSEEK_MODEL:-deepseek-chat}
+      DOCUMENT_ROOT: /data/documents
+      DOCUMENT_TEMPLATE: /app/backend/templates/assessment-notice-template-v20260819.docx
+      DOCUMENT_TEMPLATE_VERSION: 20260819-1
+      LIBREOFFICE_BINARY: soffice
+      LIBREOFFICE_TIMEOUT_SECONDS: 60
+    volumes:
+      - assessment_documents:/data/documents
     depends_on:
       db:
         condition: service_healthy
@@ -37,8 +66,11 @@ services:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=2)"]
       interval: 10s
       timeout: 3s
-      retries: 12
-      start_period: 20s
+      retries: 18
+      start_period: 45s
+    mem_limit: 900m
+    pids_limit: 256
+    logging: *default-logging
     networks: [internal]
 
   web:
@@ -46,11 +78,63 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
-    ports:
-      - "${ASSESSMENT_PORT:-8080}:80"
     depends_on:
       api:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/api/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 12
+    mem_limit: 128m
+    pids_limit: 64
+    logging: *default-logging
+    networks: [internal]
+
+  caddy:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    environment:
+      DOMAIN: ${DOMAIN:?set in /etc/postal-assessment.env}
+      ACME_EMAIL: ${ACME_EMAIL:?set in /etc/postal-assessment.env}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+      - "127.0.0.1:${ASSESSMENT_LOCAL_PORT:-8080}:8080"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - assessment_caddy_data:/data
+      - assessment_caddy_config:/config
+    depends_on:
+      web:
+        condition: service_healthy
+    mem_limit: 128m
+    pids_limit: 96
+    logging: *default-logging
+    networks: [internal]
+
+  backup:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    entrypoint: ["/bin/sh", "/opt/backup/backup-loop.sh"]
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      PGDATABASE: assessment
+      PGUSER: assessment
+      PGPASSWORD: ${ASSESSMENT_DB_PASSWORD:?set in /etc/postal-assessment.env}
+      TZ: Asia/Shanghai
+    volumes:
+      - ./deploy/backup-loop.sh:/opt/backup/backup-loop.sh:ro
+      - assessment_documents:/data/documents:ro
+      - assessment_backups:/backups
+    depends_on:
+      db:
+        condition: service_healthy
+    mem_limit: 192m
+    pids_limit: 64
+    logging: *default-logging
     networks: [internal]
 
 networks:
@@ -59,3 +143,7 @@ networks:
 
 volumes:
   assessment_postgres_data:
+  assessment_documents:
+  assessment_backups:
+  assessment_caddy_data:
+  assessment_caddy_config:

@@ -8,9 +8,14 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PIP_DEFAULT_TIMEOUT=${PIP_DEFAULT_TIMEOUT}
 
 WORKDIR /app
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libreoffice-writer fonts-noto-cjk fontconfig \
+    && fc-cache -f \
+    && rm -rf /var/lib/apt/lists/*
 COPY backend/requirements.txt /app/backend/requirements.txt
 RUN pip install --no-cache-dir --retries 10 --index-url "${PIP_INDEX_URL}" -r /app/backend/requirements.txt
 COPY backend /app/backend
+COPY public/production-quality-rules.json /app/public/production-quality-rules.json
 
 EXPOSE 8000
-CMD ["sh", "-c", "python -m alembic -c backend/alembic.ini upgrade head && python -m backend.app.seed && python -m backend.app.bootstrap && exec uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --workers 2"]
+CMD ["sh", "-c", "python -m alembic -c backend/alembic.ini upgrade head && python -m backend.app.seed && python -m backend.app.bootstrap && exec uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --workers 1"]
