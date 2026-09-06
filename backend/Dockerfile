@@ -1,6 +1,6 @@
 FROM m.daocloud.io/docker.io/library/python:3.12-slim
 
-ARG PIP_INDEX_URL=https://pypi.org/simple
+ARG PIP_INDEX_URL=https://mirrors.aliyun.com/pypi/simple
 ARG PIP_DEFAULT_TIMEOUT=120
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
