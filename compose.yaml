@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   db:
-    image: postgres:16-alpine
+    image: m.daocloud.io/docker.io/library/postgres:16-alpine
     restart: unless-stopped
     command:
       - postgres
@@ -92,7 +92,7 @@ services:
     networks: [internal]
 
   caddy:
-    image: caddy:2.10-alpine
+    image: m.daocloud.io/docker.io/library/caddy:2.10-alpine
     restart: unless-stopped
     environment:
       DOMAIN: ${DOMAIN:?set in /etc/postal-assessment.env}
@@ -115,7 +115,7 @@ services:
     networks: [internal]
 
   backup:
-    image: postgres:16-alpine
+    image: m.daocloud.io/docker.io/library/postgres:16-alpine
     restart: unless-stopped
     entrypoint: ["/bin/sh", "/opt/backup/backup-loop.sh"]
     environment:
