@@ -8,7 +8,11 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PIP_DEFAULT_TIMEOUT=${PIP_DEFAULT_TIMEOUT}
 
 WORKDIR /app
-RUN apt-get update \
+RUN sed -i \
+        -e 's|http://deb.debian.org/debian-security|https://mirrors.aliyun.com/debian-security|g' \
+        -e 's|http://deb.debian.org/debian|https://mirrors.aliyun.com/debian|g' \
+        /etc/apt/sources.list.d/debian.sources \
+    && apt-get update \
     && apt-get install -y --no-install-recommends libreoffice-writer fonts-noto-cjk fontconfig \
     && fc-cache -f \
     && rm -rf /var/lib/apt/lists/*
