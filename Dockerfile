@@ -1,7 +1,7 @@
-FROM node:22-bookworm-slim AS builder
+FROM m.daocloud.io/docker.io/library/node:22-bookworm-slim AS builder
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci --ignore-scripts
+RUN npm ci --ignore-scripts --registry=https://registry.npmmirror.com
 COPY index.html tsconfig.json tsconfig.app.json vite.config.ts ./
 COPY src ./src
 COPY public ./public
