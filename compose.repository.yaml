@@ -1,0 +1,7 @@
+services:
+  api:
+    image: ghcr.io/zzb99/postal-assessment-api:latest
+    build: null
+  web:
+    image: ghcr.io/zzb99/postal-assessment-web:latest
+    build: null

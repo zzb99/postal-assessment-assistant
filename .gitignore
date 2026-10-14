@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+.env.local
+assessment.db
+*.sqlite-wal
+*.sqlite-shm
+__pycache__/
+.pytest_cache/
+.tmp/
+backend/.venv/
+deploy/.env.runtime
+.playwright-cli/
+output/playwright/
+coverage/
+.coverage

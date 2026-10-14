@@ -1,0 +1,13 @@
+fastapi==0.141.1
+uvicorn[standard]==0.41.0
+SQLAlchemy==2.0.52
+alembic==1.18.4
+psycopg[binary]==3.3.3
+PyJWT==2.12.1
+pwdlib[argon2]==0.3.0
+python-multipart==0.0.22
+openpyxl==3.1.5
+python-docx==1.2.0
+lxml==6.0.2
+pypdf==6.7.4
+httpx==0.28.1
