@@ -22,6 +22,7 @@ const privateCatalog = () => ({
 
 export default defineConfig({
   plugins: [react(), privateCatalog()],
-  server: { proxy: { '/api': process.env.API_PROXY_TARGET || 'http://127.0.0.1:8000' } },
+  server: { proxy: { '/api': process.env.API_PROXY_TARGET || 'http://127.0.0.1:8000' },
+    watch: { ignored: ['**/output/**', '**/.tmp/**', '**/.pytest_cache/**', '**/.venv/**'] } },
   preview: { proxy: { '/api': process.env.API_PROXY_TARGET || 'http://127.0.0.1:8000' } },
 });

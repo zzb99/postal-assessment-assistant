@@ -1,7 +1,9 @@
+param([string]$Revision = 'r2')
 $ErrorActionPreference = 'Stop'
+if ($Revision -notmatch '^[a-z0-9-]{1,24}$') { throw 'Invalid package revision.' }
 $releaseRoot = Split-Path -Parent $PSScriptRoot
 Set-Location -LiteralPath $releaseRoot
-$releaseStage = Join-Path $releaseRoot 'output/delivery-source'
+$releaseStage = Join-Path (Split-Path -Parent $releaseRoot) ('delivery-source-' + $Revision + '-' + (git rev-parse --short HEAD))
 if (Test-Path -LiteralPath $releaseStage) { throw 'Preserve existing delivery. Choose a new staging directory.' }
 $utf8 = [Text.UTF8Encoding]::new($false)
 $sourceFiles = @(git -c core.quotepath=false ls-files)
@@ -23,10 +25,10 @@ $manifest = @{input_zip_sha256='B31F0D34F44FA8931B70F3A7BF0996D331A41C81ED8ED33B
 $patch = (git -c core.quotepath=false diff b76fcfe HEAD --binary --no-ext-diff --no-color) -join "`n"
 [IO.File]::WriteAllText((Join-Path $releaseStage 'CHANGES_FROM_USER_ZIP.patch'), $patch, $utf8)
 Add-Type -AssemblyName System.IO.Compression.FileSystem
-$sourceZip = Join-Path $releaseRoot 'output/考核系统-20261014-验收修复-完整源码.zip'
-$evidenceZip = Join-Path $releaseRoot 'output/考核系统-20261014-测试与视觉证据.zip'
+$sourceZip = Join-Path $releaseRoot ('output/考核系统-20261014-验收修复-完整源码-' + $Revision + '.zip')
+$evidenceZip = Join-Path $releaseRoot ('output/考核系统-20261014-测试与视觉证据-' + $Revision + '.zip')
 [IO.Compression.ZipFile]::CreateFromDirectory($releaseStage, $sourceZip, [IO.Compression.CompressionLevel]::Optimal, $false)
-$evidenceStage = Join-Path $releaseRoot 'output/delivery-evidence'
+$evidenceStage = Join-Path $releaseRoot ('output/delivery-evidence-' + $Revision)
 if (Test-Path -LiteralPath $evidenceStage) { throw 'Preserve existing evidence staging.' }
 [void][IO.Directory]::CreateDirectory($evidenceStage)
 Copy-Item -LiteralPath (Join-Path $releaseRoot 'output/acceptance') -Destination $evidenceStage -Recurse
