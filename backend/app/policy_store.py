@@ -8,14 +8,17 @@ import re
 import threading
 import uuid
 import zipfile
+from functools import wraps
 from contextlib import contextmanager
 from datetime import date, datetime, timezone
+from zoneinfo import ZoneInfo
 from pathlib import Path
 from docx import Document
 from docx.oxml.ns import qn
 from .config import settings
 
 _LOCK = threading.RLock()
+_LOCAL = threading.local()
 MAX_WORD_BYTES = 5 * 1024 * 1024
 BASELINE_DATE = '2026-08-19'
 
@@ -30,7 +33,9 @@ def _manifest():
 
 
 def manifest():
-    with _LOCK:
+    with _publish_lock():
+        if not getattr(_LOCAL, 'transaction', False):
+            recover_pending()
         return _manifest()
 
 
@@ -38,7 +43,10 @@ def _atomic_write(path: Path, data: bytes):
     path.parent.mkdir(parents=True, exist_ok=True)
     temp = path.with_name(f'.{path.name}.{uuid.uuid4().hex}.tmp')
     try:
-        temp.write_bytes(data)
+        with temp.open('wb') as output:
+            output.write(data)
+            output.flush()
+            os.fsync(output.fileno())
         os.replace(temp, path)
     finally:
         temp.unlink(missing_ok=True)
@@ -79,7 +87,18 @@ def parse_word(content: bytes, *, version: str, effective_date: str, filename: s
                 raise ValueError('不允许宏或外部链接文档')
             if sum(info.file_size for info in z.infolist()) > 20 * 1024 * 1024:
                 raise ValueError('Word解压后体积异常')
-        blocks = list(_extract_blocks(Document(io.BytesIO(content))))
+        document = Document(io.BytesIO(content))
+        blocks = list(_extract_blocks(document))
+        locations = []
+        for index, node in enumerate(document.element.body.iterchildren()):
+            if node.tag == qn('w:p'):
+                if ''.join(node.itertext()).strip():
+                    locations.append({'kind': 'paragraph', 'block': index + 1,
+                                      'numbering': bool(node.find('.//' + qn('w:numPr')) is not None)})
+            elif node.tag == qn('w:tbl'):
+                for row_index, row in enumerate(node.findall(qn('w:tr'))):
+                    if any(t.text for t in row.iter(qn('w:t'))):
+                        locations.append({'kind': 'table', 'block': index + 1, 'row': row_index + 1})
     except (ValueError, zipfile.BadZipFile):
         raise
     except Exception as e:
@@ -87,12 +106,10 @@ def parse_word(content: bytes, *, version: str, effective_date: str, filename: s
     if len(blocks) < 3:
         raise ValueError('文档内容过少，请核对是否上传考核通则')
     stage, counter, rules = '总则', {}, []
-    seen = set()
-    for value in blocks:
+    for block_index, value in enumerate(blocks):
         raw = re.sub(r'\s+', ' ', value).strip()
-        if not raw or raw in seen:
+        if not raw:
             continue
-        seen.add(raw)
         if raw in _HEADINGS:
             stage = _HEADINGS[raw]; continue
         if re.fullmatch(r'附件\s*\d*[：:]?', raw):
@@ -116,18 +133,26 @@ def parse_word(content: bytes, *, version: str, effective_date: str, filename: s
         if not options:
             options = [{'id':'manual-1','unit':'待核实','unitPrice':None,'billingType':'manual',
                         'needsSupervisorReview':True,'autoApproved':False,'requiredConditions':[]}]
+        from .policy_pricing import simple_tariff
+        simple = simple_tariff(raw)
+        if simple:
+            options = [simple]  # Preview candidates remain unapproved until publish comparison.
         rules.append({'id':f'policy-{len(rules)+1:04}', 'stage':stage,
                       'clause':f'{stage}第{counter[stage]}条', 'name':raw[:32], 'original':raw,
                       'applicableConditions':'请依据制度原文及现场事实核实', 'followUpResponsibility':'以原文为准',
                       'pricingOptions':options, 'needsSupervisorReview':True, 'version':version, 'keywords':[],
-                      'sourcePosition':len(rules)+1})
+                      'sourcePosition':block_index + 1,
+                      'sourceLocation':locations[block_index] if block_index < len(locations) else {'kind': 'unknown'}})
     if len(rules) < 10:
         raise ValueError('有效条款不足10条，未替换现行制度')
     if len(rules) > 1500:
         raise ValueError('解析条款数量异常，请检查Word')
     title = blocks[0] if 5 < len(blocks[0]) < 100 and ('考核' in blocks[0] or '办法' in blocks[0]) else Path(filename).stem
     return {'version': version, 'effective_date': effective_date,
-            'source': title, 'rules': rules, 'parse_method':'local-docx-v1', 'auto_pricing_approved':False}
+            'source': title, 'rules': rules, 'parse_method':'local-docx-v2', 'auto_pricing_approved':False,
+            'source_blocks': [{'position': i + 1, 'text': text, 'location': locations[i] if i < len(locations) else {}}
+                              for i, text in enumerate(blocks)],
+            'parse_warnings': ['自动编号保留在原始Word，定位以正文块及表格行号为准；表格/附件和复杂计费需核对原文。']}
 
 
 def select_entry(for_date: date | None = None) -> dict | None:
@@ -138,8 +163,12 @@ def select_entry(for_date: date | None = None) -> dict | None:
         return next((v for v in versions if v['id'] == data['current']), None)
     # A restored version governs today and future; earlier incidents keep their historical schedule.
     current = next((v for v in versions if v['id'] == data['current']), None)
-    if current and for_date.isoformat() >= current['effective_date'] and data.get('restored'):
-        return current
+    for event in reversed(data.get('restorations', [])):
+        if event['from_date'] <= for_date.isoformat():
+            later = [v for v in versions if v['published_at'] > event['at'] and v['effective_date'] <= for_date.isoformat()]
+            if not later:
+                return next(v for v in versions if v['id'] == event['id'])
+            break
     eligible = [v for v in versions if v['effective_date'] <= for_date.isoformat() and v.get('active', True)]
     return max(eligible, key=lambda x:(x['effective_date'], x['published_at'])) if eligible else None
 
@@ -158,22 +187,99 @@ def versions_summary() -> list[dict]:
 @contextmanager
 def _publish_lock():
     with _LOCK:
+        if getattr(_LOCAL, 'depth', 0):
+            _LOCAL.depth += 1
+            try:
+                yield
+            finally:
+                _LOCAL.depth -= 1
+            return
         root().mkdir(parents=True, exist_ok=True)
         with open(root()/'publish.lock', 'a+b') as fd:
             try:
                 import fcntl
                 fcntl.flock(fd.fileno(), fcntl.LOCK_EX)
             except ImportError:
-                pass
+                import msvcrt
+                fd.seek(0)
+                if not fd.read(1):
+                    fd.write(b'0'); fd.flush()
+                fd.seek(0)
+                msvcrt.locking(fd.fileno(), msvcrt.LK_LOCK, 1)
+            _LOCAL.depth = 1
             try: yield
             finally:
+                _LOCAL.depth = 0
                 try:
                     import fcntl
                     fcntl.flock(fd.fileno(), fcntl.LOCK_UN)
                 except ImportError:
-                    pass
+                    import msvcrt
+                    fd.seek(0)
+                    msvcrt.locking(fd.fileno(), msvcrt.LK_UNLCK, 1)
 
 
+def recover_pending(session=None):
+    """Reconcile a crashed filesystem/DB commit using a durable operation audit marker."""
+    pending = root() / 'pending.json'
+    if not pending.exists():
+        return
+    from sqlalchemy import select
+    from .db import SessionLocal
+    from .models import AuditLog
+    state = json.loads(pending.read_text('utf-8'))
+    def committed(db):
+        return db.scalar(select(AuditLog.id).where(AuditLog.target_type == 'policy_operation', AuditLog.target_id == state['operation'])) is not None
+    if session is None:
+        with SessionLocal() as db:
+            done = committed(db)
+    else:
+        done = committed(session)
+    _atomic_write(root() / 'manifest.json', json.dumps(state['after'] if done else state['before'], ensure_ascii=False).encode())
+    pending.unlink()
+
+
+@contextmanager
+def policy_transaction(session):
+    with _publish_lock():
+        recover_pending(session)
+        before = _manifest()
+        operation = uuid.uuid4().hex
+        _LOCAL.transaction = True
+        _LOCAL.journal = {'operation': operation, 'before': before, 'after': before}
+        try:
+            yield operation
+        except Exception:
+            session.rollback()
+            recover_pending(session)
+            raise
+        finally:
+            _LOCAL.transaction = False
+            _LOCAL.journal = None
+
+
+def _write_manifest(data):
+    journal = getattr(_LOCAL, 'journal', None)
+    if journal is not None:
+        journal['after'] = data
+        _atomic_write(root() / 'pending.json', json.dumps(journal, ensure_ascii=False).encode())
+    _atomic_write(root() / 'manifest.json', json.dumps(data, ensure_ascii=False).encode())
+
+
+def finish_transaction():
+    # If deletion fails after DB commit, recovery observes its committed audit marker.
+    (root() / 'pending.json').unlink(missing_ok=True)
+
+
+def _locked(function):
+    @wraps(function)
+    def run(*args, **kwargs):
+        with _publish_lock():
+            return function(*args, **kwargs)
+    return run
+
+
+@_locked
 def publish(content: bytes, *, filename: str, version: str, effective_date: str, user_id: int, allow_major_change: bool = False) -> dict:
     if not re.fullmatch(r'[\w\u4e00-\u9fff.-]{2,64}', version):
         raise ValueError('版本号格式无效')
@@ -200,9 +306,13 @@ def publish(content: bytes, *, filename: str, version: str, effective_date: str,
         rule['needsSupervisorReview'] = old.get('needsSupervisorReview', True)
         inherited += 1
     catalog['inherited_verified_count'] = inherited
+    from .policy_pricing import approve_simple, differences
+    catalog['simple_verified_count'] = approve_simple(catalog, previous)
+    catalog['diff'] = differences(catalog, previous)
     digest = hashlib.sha256(content).hexdigest()
     with _publish_lock():
         data = _manifest()
+        previous_manifest = {k: v for k, v in data.items() if k != 'versions'}
         if any(v['version']==version for v in data['versions']):
             raise ValueError('版本号已存在；请填写新的制度版本号')
         id_ = uuid.uuid4().hex
@@ -213,7 +323,9 @@ def publish(content: bytes, *, filename: str, version: str, effective_date: str,
         data['versions'].append(entry)
         data['current'] = id_
         data.pop('restored', None)
-        _atomic_write(root()/'manifest.json', json.dumps(data,ensure_ascii=False).encode('utf-8'))
+        entry['simple_verified_count'] = catalog['simple_verified_count']
+        entry['previous_manifest'] = previous_manifest
+        _write_manifest(data)
         return entry
 
 
@@ -227,8 +339,13 @@ def undo_publish(id_: str) -> None:
             return
         entry = data['versions'].pop(index)
         if data['current'] == id_:
-            data['current'] = data['versions'][-1]['id'] if data['versions'] else None
-            data.pop('restored', None)
+            previous = entry.get('previous_manifest')
+            if previous is not None:
+                for key in list(data):
+                    if key != 'versions': data.pop(key)
+                data.update(previous)
+            else:
+                data['current'] = data['versions'][-1]['id'] if data['versions'] else None
         _atomic_write(root()/'manifest.json', json.dumps(data, ensure_ascii=False).encode('utf-8'))
         # Originals are retained in case they were referenced in a failed request log;
         # manifest no longer references this candidate.
@@ -239,8 +356,11 @@ def restore(id_: str) -> dict:
         data = _manifest()
         entry = next((v for v in data['versions'] if v['id']==id_), None)
         if not entry: raise ValueError('没有找到该历史版本')
-        if not (root()/entry['catalog']).is_file(): raise ValueError('历史制度文件缺失，无法恢复')
+        if not (root()/entry['catalog']).is_file() or not (root()/entry['file']).is_file(): raise ValueError('历史制度文件缺失，无法恢复')
+        if hashlib.sha256((root()/entry['file']).read_bytes()).hexdigest() != entry['sha256']:
+            raise ValueError('历史制度原件校验失败，无法恢复')
         data['current'] = id_
         data['restored'] = True
-        _atomic_write(root()/'manifest.json', json.dumps(data,ensure_ascii=False).encode('utf-8'))
+        data.setdefault('restorations', []).append({'id': id_, 'from_date': datetime.now(ZoneInfo('Asia/Shanghai')).date().isoformat(), 'at': datetime.now(timezone.utc).isoformat()})
+        _write_manifest(data)
         return entry

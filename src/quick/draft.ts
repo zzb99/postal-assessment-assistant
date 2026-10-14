@@ -1,3 +1,4 @@
+import { getDeviceToken } from './identity';
 const KEY = 'assessment-quick-unfinished-v1';
 const fields = ['incident_date', 'shift', 'unit', 'facts', 'assessment_content', 'quantity', 'penalty_amount'] as const;
 export function readDraft(): Record<string, string> {
@@ -22,7 +23,7 @@ export function clearDraft(): void {
 // in persistent localStorage; the server verifies expiration and policy digest.
 const PROPOSAL_KEY = 'assessment-quick-proposal-session-v1';
 const context = (data: Record<string, string>) =>
-  JSON.stringify(['incident_date', 'shift', 'unit', 'facts', 'quantity', 'penalty_amount'].map((k) => data[k] || ''));
+  JSON.stringify([getDeviceToken(), ...['incident_date', 'shift', 'unit', 'facts', 'quantity', 'penalty_amount', 'team', 'inspector_name'].map((k) => data[k] || '')]);
 export function saveSessionProposal(data: Record<string, string>, original: string): void {
   try {
     if (!data.ai_proposal) { sessionStorage.removeItem(PROPOSAL_KEY); return; }

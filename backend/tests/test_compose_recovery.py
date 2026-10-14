@@ -53,8 +53,15 @@ def test_medium_confidence_can_select_and_continue_locally(monkeypatch):
     assert selected['condition_questions'][0]['id'] == 'unloading_completed'
     second = ai_writing.recheck(selected['continuation_token'], {'unloading_completed': True}, scope='recovery')
     final = ai_writing.recheck(second['continuation_token'], {'single_event': True}, scope='recovery')
-    assert final['ready'] and final['penalty_amount'] == 40 and calls == [1]
-    assert '卸车完毕后，卸车口发现' in final['assessment_content']
+    # Choosing a clause cannot erase an unmodelled semantic prerequisite.
+    assert not final['ready'] and final['penalty_amount'] is None and calls == [1]
+    assert final['disposition'] == 'needs_conditions'
+    assert final['condition_questions'][0]['id'] == 'semantic_confirmed'
+    assert '卸车完毕后，卸车口发现' in final['draft_content']
+    confirmed = ai_writing.recheck(final['continuation_token'], {'semantic_confirmed': True}, scope='recovery')
+    assert confirmed['ready'] and confirmed['penalty_amount'] == 40 and calls == [1]
+    rejected = ai_writing.recheck(final['continuation_token'], {'semantic_confirmed': False}, scope='recovery')
+    assert not rejected['ready'] and rejected['disposition'] == 'not_applicable'
     with pytest.raises(HTTPException):
         ai_writing.select_candidate(result['continuation_token'], 'official-107', 'p1', scope='another-device')
     with pytest.raises(HTTPException):

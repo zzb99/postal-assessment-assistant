@@ -24,12 +24,15 @@ export function AiComposer({ enabled, disabled, manual, children, context, facts
   const [quantity, setQuantity] = useState('');
   const request = useRef(0); const controller = useRef<AbortController | null>(null); const running = useRef(false);
   const contextKey = JSON.stringify(context);
+  const previousContext = useRef(contextKey);
   const callbacks = useRef({ onPrepared, onPending, onInvalidate });
   useEffect(() => { callbacks.current = { onPrepared, onPending, onInvalidate }; });
   useEffect(() => {
     request.current++; controller.current?.abort(); running.current = false;
     setPending(false); setMessage(''); setResult(null); setQuantity('');
-    callbacks.current.onPending(false); callbacks.current.onInvalidate();
+    callbacks.current.onPending(false);
+    if (previousContext.current !== contextKey) callbacks.current.onInvalidate();
+    previousContext.current = contextKey;
     return () => { request.current++; controller.current?.abort(); running.current = false; callbacks.current.onPending(false); };
   }, [contextKey]);
 

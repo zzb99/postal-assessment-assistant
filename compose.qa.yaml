@@ -1,0 +1,55 @@
+# Isolated local acceptance only. These deliberately synthetic credentials are NOT production settings.
+name: assessment-review-20261014
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: assessment_qa
+      POSTGRES_USER: assessment_qa
+      POSTGRES_PASSWORD: synthetic-qa-database-only
+    volumes:
+      - qa_database:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U assessment_qa -d assessment_qa]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+    mem_limit: 512m
+  api:
+    image: assessment-fixed-20261014-api:qa
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      DATABASE_URL: postgresql+psycopg://assessment_qa:synthetic-qa-database-only@db:5432/assessment_qa
+      JWT_SECRET: synthetic-local-acceptance-jwt-secret-not-for-production-20261014
+      BOOTSTRAP_ADMIN_USERNAME: qa-admin
+      BOOTSTRAP_ADMIN_PASSWORD: SyntheticAcceptanceOnly2026!
+      BOOTSTRAP_ADMIN_DISPLAY_NAME: 本机验收管理员
+      DOCUMENT_ROOT: /data/documents
+      CORS_ORIGINS: http://127.0.0.1:18021
+      DEEPSEEK_API_KEY: ''
+      REQUIRE_TRUSTED_DEVICE: 'false'
+      REQUIRE_POLICY_APPROVAL: 'false'
+    ports:
+      - 127.0.0.1:18020:8000
+    volumes:
+      - qa_documents:/data/documents
+      - ./scripts:/verification:ro
+      - ./西安邮区中心邮件处理中心生产质量考核办法20260819.docx:/fixtures/policy.docx:ro
+      - ./output/acceptance:/evidence
+    depends_on:
+      db:
+        condition: service_healthy
+    mem_limit: 1100m
+  web:
+    image: assessment-fixed-20261014-web:qa
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 127.0.0.1:18021:80
+    depends_on: [api]
+volumes:
+  qa_database:
+  qa_documents:

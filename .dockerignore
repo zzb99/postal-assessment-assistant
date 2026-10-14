@@ -11,3 +11,9 @@ dist
 deploy/.env.runtime
 backend/**/__pycache__
 backend/**/*.pyc
+.venv
+output
+coverage
+.baseline-*.log
+.env
+.env.local

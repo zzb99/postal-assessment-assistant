@@ -8,7 +8,6 @@ import { getPermissions, navigationFor, roleName } from './permissions';
 import type { Page } from './permissions';
 import { RecordTable } from './components/RecordTable';
 import { AiUsagePanel } from './components/AiUsagePanel';
-import { GovernancePanel } from './components/GovernancePanel';
 import { PolicyUploadPanel } from './components/PolicyUploadPanel';
 import { loadRules } from './data/rules';
 import { searchRules } from './utils/searchRules';
@@ -148,7 +147,7 @@ function App() {
       <main>
         {activePage === 'home' && (employee ? <EmployeeHome user={user} rows={homeRecords.items} total={homeRecords.total} create={() => { if (!busy) { reset(); setPage('create'); } }} goLedger={() => navigate('ledger')} edit={openDraft} /> : <Home overview={overview} rows={homeRecords.items} goLedger={() => navigate('ledger')} />)}
         {activePage === 'create' && permissions.create && <Create key={`${draft?.id ?? 'new'}-${formGeneration}`} employee={employee} aiEnabled={aiEnabled} form={form} refData={reference} update={update} setUnit={(id) => { const unit = reference.units.find((item) => String(item.id) === id); setForm((old) => ({ ...old, assessment_unit_id: id, assessment_unit_name: unit?.name || '' })); }} moneyCn={moneyCn} draft={draft} busy={busy} save={saveDraft} finalize={finalize} reset={reset} />}
-        {activePage === 'policy' && <><PolicyAssistant aiEnabled={aiEnabled} />{(user.role === 'admin' || user.role === 'department_manager') && <PolicyUploadPanel />}{user.role === 'admin' && <><GovernancePanel /><AiUsagePanel /></>}</>}
+        {activePage === 'policy' && <><PolicyAssistant aiEnabled={aiEnabled} />{(user.role === 'admin' || user.role === 'department_manager') && <PolicyUploadPanel />}{user.role === 'admin' && <AiUsagePanel />}</>}
         {activePage === 'ledger' && <Ledger employee={employee} canCreate={permissions.create} canExport={permissions.export} edit={openDraft} data={ledger} search={search} setSearch={setSearch} status={status} setStatus={setStatus} load={loadLedger} selected={selected} setSelected={setSelected} copy={copy} voidItem={voidItem} canVoid={permissions.void} busy={busy} say={say} />}
         {activePage === 'statistics' && permissions.statistics && <Statistics overview={overview} stats={stats} />}
         {activePage === 'management' && permissions.manage && <Management refData={reference} refreshReference={async () => { if (!sessionGate.isCurrent(viewScope)) return; const refs = await api<ReferenceData>('/management/reference-data'); if (sessionGate.isCurrent(viewScope)) setReference(refs); }} say={say} />}
@@ -207,7 +206,11 @@ function Create({ employee, aiEnabled, form, refData, update, setUnit, moneyCn, 
 function PolicyAssistant({ aiEnabled }: { aiEnabled: boolean }) {
   const [question, setQuestion] = useState(''); const [answer, setAnswer] = useState<AiPolicyResult | null>(null); const [message, setMessage] = useState(''); const [busy, setBusy] = useState(false);
   const [rules, setRules] = useState<AssessmentRule[]>([]); const [keyword, setKeyword] = useState(''); const [ruleError, setRuleError] = useState('');
-  useEffect(() => { let cancelled = false; void loadRules().then((value) => { if (!cancelled) setRules(value); }).catch((error: Error) => { if (!cancelled) setRuleError(error.message); }); return () => { cancelled = true; }; }, []);
+  useEffect(() => { let cancelled = false; let revision = 0;
+    const refresh = () => { const current = ++revision; void loadRules().then((value) => { if (!cancelled && current === revision) { setRules(value); setRuleError(''); } }).catch((error: Error) => { if (!cancelled && current === revision) setRuleError(error.message); }); };
+    refresh(); window.addEventListener('assessment-policy-changed', refresh); window.addEventListener('focus', refresh);
+    return () => { cancelled = true; window.removeEventListener('assessment-policy-changed', refresh); window.removeEventListener('focus', refresh); };
+  }, []);
   const matches = searchRules(rules, keyword);
   const submit = async (event: FormEvent) => { event.preventDefault(); if (!aiEnabled) return; setBusy(true); setMessage(''); setAnswer(null); try { setAnswer(await api<AiPolicyResult>('/ai/policy', { method: 'POST', body: JSON.stringify({ question }) })); } catch (error) { setMessage(error instanceof Error ? error.message : '制度问答失败。'); } finally { setBusy(false); } };
   return <section><Intro kicker="制度辅助" title="制度查询" text="先查看原始条款；考核依据和金额仍需人工核实。关键词查询不需要AI密钥。" />

@@ -1,5 +1,7 @@
 from fastapi import APIRouter, Depends, Header, HTTPException, Query, Request, Response
 from types import SimpleNamespace
+from datetime import datetime
+from zoneinfo import ZoneInfo
 from sqlalchemy import func, select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
@@ -48,7 +50,7 @@ def config(response: Response, session: Session = Depends(get_session)):
         "units": [{"id": unit.id, "name": unit.name} for unit in session.scalars(select(AssessmentUnit).where(AssessmentUnit.active.is_(True)).order_by(AssessmentUnit.id))],
         "shifts": list(session.scalars(select(MasterDataItem.name).where(MasterDataItem.kind == "shift", MasterDataItem.active.is_(True)).order_by(MasterDataItem.sort_order))),
         "ai_enabled": bool(settings.deepseek_api_key.strip()),
-        "regulation_version": str(get_index(payload.incident_date).catalog.get("version", "")),
+        "regulation_version": str(get_index(datetime.now(ZoneInfo('Asia/Shanghai')).date()).catalog.get("version", "")),
     }
 
 

@@ -13,6 +13,7 @@ MAX_AMOUNT = Decimal("100000000")
 NUMBER = r"\d+(?:\.\d+)?|[零一二两三四五六七八九十百千万]+"
 COUNT = re.compile(rf"(?<![\d.负-])({NUMBER})\s*(袋[（(]件[）)]|袋件|人次|车次|小时|件|袋|次|人|辆|车)")
 CONDITION_QUESTIONS = {
+    "clause_applies": "是否已核对所选制度原文，确认本次现场事实符合该条款？",
     "unloading_completed": "是否已卸车完毕后才发现遗留邮件？",
     "single_event": "本次填报是否只涉及同一次违规事项（不是多次合并）？",
     "duration_gt_2h": "散落邮件是否已滞留严格超过2小时？",
@@ -168,7 +169,10 @@ def calculate(rule: dict, pricing_id: str, facts: str, raw_quantity: Any, confir
             result.update(disposition='not_applicable', reason='已确认不满足本条款的适用条件，不按此条处罚；可核对其他条款或保留草稿。')
             return result
         if evidence is not True and answer is not True:
-            questions.append(_question(condition))
+            question = _question(condition)
+            if condition == 'clause_applies':
+                question['question'] = f"请核对原文，是否符合本条款：{rule['original']}"
+            questions.append(question)
     given = confirmations.get("billing_quantity", raw_quantity)
     quantity_valid = type(given) is int and 1 <= given <= MAX_QUANTITY
     fixed_without_piece_count = billing_type == "fixed" and given is None and "billing_quantity" not in confirmations

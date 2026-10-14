@@ -114,6 +114,8 @@ def quantity_evidence(text):
 
 def _evaluate(entry, payload, key, scope, answers=None, *, hit=False, selection=None):
     index = get_index(payload.incident_date)
+    if entry.get('catalog_digest', index.digest) != index.digest:
+        raise HTTPException(409, '整理期间适用制度已更新，原草稿已保留，请核对新制度后继续')
     raw = entry["raw"]
     confirmations = answers or {}
     by_id = {r['id']: r for r in index.rules}
@@ -148,7 +150,7 @@ def _evaluate(entry, payload, key, scope, answers=None, *, hit=False, selection=
               "candidate_rules": [{"id": r["id"], "clause": r["clause"], "original": r["original"],
                                    "pricing_options": [{"id": p['id'], "label": p.get('condition') or p.get('unit', ''),
                                                         "automatic": _approved(r, p)} for p in r.get('pricingOptions', [])]} for r in candidates[:15]],
-              "continuation_token": None}
+              "continuation_token": None, '_catalog_digest': index.digest}
     if not rule or result["confidence"] != "high":
         result["reason"] = "尚未确认适用条款。请在下方核对并选择条款，或保留正文转人工核定；无需重复点击AI。"
     else:
@@ -170,10 +172,13 @@ def _evaluate(entry, payload, key, scope, answers=None, *, hit=False, selection=
             # A model cannot hide an unmodelled prerequisite behind successful arithmetic.
             # Known IDs are evaluated from original facts/explicit answers by calculate().
             unresolved = bool(missing_ids - local_ids) or (raw.get("conditionsSatisfied") is not True and not missing_ids)
-            if unresolved:
-                result['disposition'] = 'choose_rule'
-                result["reason"] = "条款适用条件尚未确定，请核对原文"
-                result["clarifications"] = [str(q)[:120] for q in semantic_missing[:2]]
+            if unresolved and confirmations.get('semantic_confirmed') is False:
+                result.update(disposition='not_applicable', reason='已确认本条款不适用，请选择其他条款或手动核定。')
+            elif unresolved and confirmations.get('semantic_confirmed') is not True:
+                result['disposition'] = 'needs_conditions'
+                result["reason"] = "请核对制度原文与现场事实，确认适用后可继续生成；无需重新调用AI。"
+                result["condition_questions"] = [{'id': 'semantic_confirmed', 'kind': 'boolean',
+                    'question': f"已核对现场事实，是否确认符合此条款全部适用条件：{rule['original']}"}]
             else:
                 amount = billed["amount"]
                 if billed["billing_type"] == "fixed":
@@ -262,6 +267,12 @@ def recheck(token, answers, *, scope):
     chosen = next((r for r in index.rules if r["id"] in entry["candidates"] and r["id"] == entry["raw"].get("ruleId")), {})
     pricing = next((p for p in chosen.get("pricingOptions", []) if p.get("id") == entry["raw"].get("pricingId")), {})
     allowed = set(pricing.get("requiredConditions", [])) | {"billing_quantity"}
+    missing = entry['raw'].get('missingFields')
+    missing = missing if isinstance(missing, list) else []
+    known = {'是否卸车完毕？': 'unloading_completed', '是否为同一次事项？': 'single_event'}
+    missing_ids = {known.get(str(item), str(item)) for item in missing}
+    if (missing_ids - set(pricing.get('requiredConditions', []))) or (entry['raw'].get('conditionsSatisfied') is not True and not missing):
+        allowed.add('semantic_confirmed')
     if not answers or set(answers) - allowed or any((type(v) is not bool if k != "billing_quantity" else type(v) is not int or not 1 <= v <= 100000) for k, v in answers.items()):
         raise HTTPException(status_code=422, detail="补充条件无效")
     merged = {**claims.get("answers", {}), **answers}
@@ -272,11 +283,15 @@ def recheck(token, answers, *, scope):
 def sign_proposal(result: dict, payload, owner: str) -> str:
     if not settings.jwt_secret:
         raise AiServiceError("服务端签名未配置")
+    index = get_index(payload.incident_date)
+    digest = result.get('_catalog_digest', index.digest)
+    if digest != index.digest or str(result['regulation_version']) != str(index.catalog['version']):
+        raise HTTPException(409, '适用制度已更新，请核对新制度后继续')
     return jwt.encode({"kind": "quick-ai", "owner": owner, "exp": datetime.now(timezone.utc) + timedelta(hours=2),
                        "date": str(payload.incident_date), "shift": payload.shift, "unit": payload.assessment_unit_id,
                        "quantity": result["quantity"], "amount": str(result["penalty_amount"]), "content": result["assessment_content"],
                        "stage": result["operation_stage"], "version": result["regulation_version"], "rule": result["rule_id"], "pricing": result["pricing_id"],
-                       "catalog_digest": get_index(payload.incident_date).digest, "revision": PROMPT_VERSION},
+                       "catalog_digest": digest, "revision": PROMPT_VERSION},
                       settings.jwt_secret, algorithm="HS256")
 
 

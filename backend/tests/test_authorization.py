@@ -26,7 +26,7 @@ def test_one_time_device_trust_policy_approval_and_revoke(monkeypatch):
         assert client.put(f"/api/governance/devices/{row['id']}", headers=admin, json={'approved': True, 'code': row['code']}).status_code == 200
         assert client.get('/api/quick/device', headers=device).json()['status'] == 'approved'
         policy = client.get('/api/governance/policy', headers=admin).json()
-        assert policy['approval_status'] == 'pending' and policy['version'] == '20260819'
+        assert policy['approval_status'] == 'legacy' and policy['version'] == '20260819'
         assert client.post('/api/governance/policy/approve', headers=admin, json={'digest': 'wrong'}).status_code == 409
         assert client.post('/api/governance/policy/approve', headers=admin, json={'digest': policy['digest']}).status_code == 200
         with governance.SessionLocal() as session:
