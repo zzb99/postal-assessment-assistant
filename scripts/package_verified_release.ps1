@@ -35,6 +35,9 @@ Copy-Item -LiteralPath (Join-Path $releaseRoot 'output/acceptance') -Destination
 Copy-Item -LiteralPath (Join-Path $releaseRoot 'output/playwright') -Destination $evidenceStage -Recurse
 Copy-Item -LiteralPath (Join-Path $releaseRoot 'docs/RELEASE_ACCEPTANCE_20261014.md') -Destination $evidenceStage
 Copy-Item -LiteralPath (Join-Path $releaseRoot 'docs/DEPLOY_ROLLBACK_20261014.md') -Destination $evidenceStage
+if (Test-Path -LiteralPath (Join-Path $releaseRoot 'docs/RECOGNITION_REPAIR_20261014.md')) {
+    Copy-Item -LiteralPath (Join-Path $releaseRoot 'docs/RECOGNITION_REPAIR_20261014.md') -Destination $evidenceStage
+}
 [IO.Compression.ZipFile]::CreateFromDirectory($evidenceStage, $evidenceZip, [IO.Compression.CompressionLevel]::Optimal, $false)
 $archive = [IO.Compression.ZipFile]::OpenRead($sourceZip)
 try {
