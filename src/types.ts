@@ -13,30 +13,3 @@ export type AssessmentRule = {
   needsSupervisorReview: boolean;
   keywords: string[];
 };
-
-export type AssessmentForm = {
-  noticeNo: string;
-  date: string;
-  shift: string;
-  company: string;
-  inspector: string;
-  stage: string;
-  ruleId: string;
-  pricingId: string;
-  quantity: string;
-  fact: string;
-};
-
-export type DocumentData = AssessmentForm & {
-  rule: AssessmentRule;
-  pricing: PricingOption;
-  quantityNumber: number;
-  amount: number;
-  amountChinese: string;
-  formattedDate: string;
-  noticeSummary: string;
-  itemText: string;
-};
-
-export type FieldErrors = Partial<Record<keyof AssessmentForm, string>>;
-export type ExportState = 'idle' | 'loading' | 'success' | 'error';
