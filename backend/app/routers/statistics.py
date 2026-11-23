@@ -6,7 +6,7 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from ..db import get_session
-from ..deps import get_current_user
+from ..deps import get_current_user, require_roles
 from ..models import Assessment, User
 from ..schemas import GroupStatistics, OverviewStatistics
 
@@ -17,6 +17,8 @@ def effective_scope(user: User, start_date: date | None = None, end_date: date |
     filters = [Assessment.status == "effective"]
     if user.role == "department_manager":
         filters.append(Assessment.department_id == user.department_id)
+    elif user.role == "employee":
+        filters.extend([Assessment.department_id == user.department_id, Assessment.created_by == user.id])
     if start_date:
         filters.append(Assessment.incident_date >= start_date)
     if end_date:
@@ -48,15 +50,25 @@ def grouped(session: Session, user: User, field, start_date: date | None, end_da
 
 
 @router.get("/units", response_model=list[GroupStatistics])
-def by_units(start_date: date | None = None, end_date: date | None = None, session: Session = Depends(get_session), user: User = Depends(get_current_user)) -> list[GroupStatistics]:
+def by_units(start_date: date | None = None, end_date: date | None = None, session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager", "leader"))) -> list[GroupStatistics]:
     return grouped(session, user, Assessment.assessment_unit_name_snapshot, start_date, end_date)
 
 
 @router.get("/departments", response_model=list[GroupStatistics])
-def by_departments(start_date: date | None = None, end_date: date | None = None, session: Session = Depends(get_session), user: User = Depends(get_current_user)) -> list[GroupStatistics]:
+def by_departments(start_date: date | None = None, end_date: date | None = None, session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager", "leader"))) -> list[GroupStatistics]:
     return grouped(session, user, Assessment.department_name_snapshot, start_date, end_date)
 
 
 @router.get("/categories", response_model=list[GroupStatistics])
-def by_categories(start_date: date | None = None, end_date: date | None = None, session: Session = Depends(get_session), user: User = Depends(get_current_user)) -> list[GroupStatistics]:
+def by_categories(start_date: date | None = None, end_date: date | None = None, session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager", "leader"))) -> list[GroupStatistics]:
     return grouped(session, user, Assessment.category_name_snapshot, start_date, end_date)
+
+
+@router.get("/teams", response_model=list[GroupStatistics])
+def by_teams(session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager", "leader"))):
+    return grouped(session, user, Assessment.team, None, None)
+
+
+@router.get("/inspectors", response_model=list[GroupStatistics])
+def by_inspectors(session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager", "leader"))):
+    return grouped(session, user, Assessment.inspector_name, None, None)

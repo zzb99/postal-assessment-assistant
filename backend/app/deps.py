@@ -20,6 +20,10 @@ def get_current_user(
     user = session.get(User, decode_access_token(credentials.credentials))
     if not user or not user.active:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="用户不存在或已停用")
+    if user.role not in {"admin", "leader", "department_manager", "employee"}:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="账号角色无效，请联系管理员")
+    if user.role in {"department_manager", "employee"} and user.department_id is None:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="账号未绑定部门，请联系管理员")
     return user
 
 
@@ -31,9 +35,11 @@ def require_roles(*roles: str) -> Callable[[User], User]:
     return checker
 
 
-def assert_record_scope(user: User, department_id: int | None) -> None:
+def assert_record_scope(user: User, department_id: int | None, created_by: int | None = None) -> None:
     if user.role in {"admin", "leader"}:
         return
-    if user.role == "department_manager" and user.department_id == department_id:
+    if user.department_id is not None and user.department_id == department_id and (
+        user.role == "department_manager" or (user.role == "employee" and created_by == user.id)
+    ):
         return
     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="无权访问该部门考核记录")

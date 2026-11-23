@@ -1,0 +1,645 @@
+{
+  "source_sha256": "103258359dbec4974962432abbb46c81cc73f34ed8088afc42a0c634379c33a4",
+  "valid_notices": 86,
+  "excluded_lock_files": 4,
+  "usage": "仅归纳文风，历史处罚金额不是现行制度；事实与责任单位不得复制",
+  "categories": {
+    "现场管理": 10,
+    "错发白送": 5,
+    "卸车": 19,
+    "小件机": 27,
+    "矩阵": 5,
+    "装车": 12,
+    "安全生产": 3,
+    "收容": 5
+  },
+  "font_half_points": {
+    "32": 1509,
+    "24": 53,
+    "30": 48,
+    "28": 31
+  },
+  "body_characters": {
+    "minimum": 105,
+    "median": 145.5,
+    "maximum": 201
+  },
+  "paragraph_counts": {
+    "3": 5,
+    "2": 77,
+    "1": 4
+  },
+  "openings": {
+    "巡查发现": 47
+  },
+  "rectification_phrases": {
+    "加强作业人员": 36,
+    "避免此类情况再次发生": 39,
+    "严格执行": 1,
+    "加强业务培训": 1
+  },
+  "records": [
+    {
+      "source_sha256": "fe94a9a40ebce81cd44e812c89e5b9973281ba4111d8857809e262f7bdc4829b",
+      "category": "现场管理",
+      "body_characters": 123,
+      "paragraph_count": 3,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "92b18688136a95b77edbf5c933c98842aa08d5a7bedc2dce5ec7f75cdc400e9b",
+      "category": "错发白送",
+      "body_characters": 170,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "7b74934bdc964feaa258988441b8aa964a51884ed08a7ba236d48ea8bcb3dda8",
+      "category": "卸车",
+      "body_characters": 175,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "3a79feeadde6fb5d84bc878fd6faffe4b52a91d53655fa8e8fc9f168fbd42480",
+      "category": "小件机",
+      "body_characters": 128,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "71c9a504375249e6850d24109a605d17207f44793a30a4269d6271b3c9554678",
+      "category": "小件机",
+      "body_characters": 151,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "7a57054a73cc0e9b74b1b68f056c2205a45903763c57d2bcbc32feb339582b0e",
+      "category": "现场管理",
+      "body_characters": 111,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "f1d67b7574b6ddd0c7884b4cb3e5da05840d9e92cef851600da0f92fe25d636d",
+      "category": "小件机",
+      "body_characters": 150,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "82f0f825f0e7e0bb9e9533684cbae95c886ec55b008d932391daf642fbe3d4de",
+      "category": "小件机",
+      "body_characters": 149,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "ccf59cd078434ab455266a336f82f9c649632a5c0981a762bab01bf11444fe7a",
+      "category": "矩阵",
+      "body_characters": 175,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "fecf066c6c66454444e31ebc72f2926cc325c522a3b089880f2fdad9f26c53b5",
+      "category": "矩阵",
+      "body_characters": 145,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "08db0513d45b6193f3ec71b1f1c58d5b1bbc7a351f3ccbcfe6d2e35b7f0a02bd",
+      "category": "矩阵",
+      "body_characters": 117,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "607379b0eb5a747218bf16aa8fda8f3831560c1d43dc70b6de90b5a5e80e4564",
+      "category": "卸车",
+      "body_characters": 136,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "8c48157f7b3d052c1e915f0a54fc534deab21ac9d2466c3c40ee221519f8c50d",
+      "category": "卸车",
+      "body_characters": 157,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "9b1b08e326bfa34102524719ca905fa20df420459103cc2b7978973da390060a",
+      "category": "小件机",
+      "body_characters": 157,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "8f89a924f5692764f7b7ab94f37d61e482d36368c69ed356d4aaec4d01b03f71",
+      "category": "卸车",
+      "body_characters": 147,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "caffaf51ebf5241398c411f8561d04bf5b0f3cc49bbd8f6866b03674873f8b00",
+      "category": "现场管理",
+      "body_characters": 177,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "12c2f2a1fdb3f180737b0fc26bbf5cfe15b77cc2e927ff4f84ce9e98b8da2a5f",
+      "category": "小件机",
+      "body_characters": 163,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "1c8918fdcde0c7c6da3cd1966cfe75db3942ecb7ac653dd0a95b05c98f9f1c64",
+      "category": "错发白送",
+      "body_characters": 138,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "2054ea251a3394f9ae788084a3c3980a60008c5b18aa76fe428cebd68a83d97c",
+      "category": "错发白送",
+      "body_characters": 166,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "b40ed1f8b6aaa51f89cd534f7e51a4f7c039f8a015ac2b56929cebec4d451337",
+      "category": "小件机",
+      "body_characters": 150,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "aec97a0b4eed6acd7ce7783218cc27ffe2e0562134b6a78320e668b19efb9982",
+      "category": "卸车",
+      "body_characters": 148,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "6260b11a55661ba3ea943f3ac0b54de5522528c73c25269904c9d90fe7a41e43",
+      "category": "卸车",
+      "body_characters": 144,
+      "paragraph_count": 1,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "51c46bf84ad9fe87ac3f2b2a4077873ae72450262b38cb9f33c3bc39dfde4d1f",
+      "category": "卸车",
+      "body_characters": 141,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "7d3e8725584c27afdf3da51b47b93514f10887e4daf9880abca678b2b2a97413",
+      "category": "现场管理",
+      "body_characters": 149,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "59f36a0ec0f32d5fc37d3902da16b17f8bab95022dbda6fc1d065fe75907c4f8",
+      "category": "矩阵",
+      "body_characters": 151,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "93d81b2d1bfd3edb6b7bc4786500efbcbf3b78ded1aa8565e06895956fef2e8d",
+      "category": "现场管理",
+      "body_characters": 201,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "3790f923ae1ced892d10b0cc134c072b7e69b774950018605d801d46527f6d20",
+      "category": "小件机",
+      "body_characters": 133,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "fed1d073a83e0f2f52bf9a1c2004eba38d7f489870d2d8e634efa99c4444e4bd",
+      "category": "小件机",
+      "body_characters": 128,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "250b48f560837543ff3660d3c52492ead213972f99f51b2b6ffbf34daa6e3711",
+      "category": "小件机",
+      "body_characters": 167,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "b7bc64139abbe67096343e3a238e3dc243ed094bcf1e3f75b502c1cc87a4f3d4",
+      "category": "小件机",
+      "body_characters": 183,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "a824d0c295c9fb24d29f1ed834e90fc06fd8acfc1c5a346e089c2c0d696ad7b4",
+      "category": "小件机",
+      "body_characters": 126,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "03d780fe251546aa14f4aef3c496e98cf417d8e5e7414a7ed977b7d85468a87d",
+      "category": "小件机",
+      "body_characters": 146,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "987e1823890e27529502e74f77647b33214600d391bcee8b4941ba2d7dea401e",
+      "category": "小件机",
+      "body_characters": 143,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "71f10fe704f60522c75f1f7a43c31ddcc78d5fd455bf3db45c580fe0cbd968e3",
+      "category": "小件机",
+      "body_characters": 151,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "01054b973cdaf4a9771d7a21a9255e826f2fb3b5183aa97f8415c70affa22e57",
+      "category": "卸车",
+      "body_characters": 129,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "c234c3a42dd329202ae6066bd5951372dd599ea37fdbe37334e7eef0d9f50626",
+      "category": "装车",
+      "body_characters": 107,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "5757d9164affe8f1d40d55f14910f8122cd3b32e0d38f17bf2530cd1cce31d77",
+      "category": "小件机",
+      "body_characters": 128,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "d783a0e958b4d06a0ae41c68b177dfe7f4b484a672dafa745ebdd975ca436a6a",
+      "category": "小件机",
+      "body_characters": 142,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "a3321f529cf8546982fd89c3e285af47fc9a5fceaeacb8b353a3155ab93d6e12",
+      "category": "小件机",
+      "body_characters": 155,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "2230945e44eaac97f4938c578c00a84fa0aa4635456c1912838a745cd913cc5a",
+      "category": "现场管理",
+      "body_characters": 161,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "71a49dc5bdc21d3649696cfcdf72620335a40111202c27b444e852e243db31fd",
+      "category": "小件机",
+      "body_characters": 135,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "fb8cbb54f87cc67675c9c51668f1b3c82d974d7c915240112e8a081a92f25fe4",
+      "category": "现场管理",
+      "body_characters": 169,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "fa1a174b59104d4009fe25dc31b6dab7c39f5415d3dc5574436dc9b50a74c9da",
+      "category": "小件机",
+      "body_characters": 157,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "cb8cf8ae7beec77ce73526911ed9193a2b189adc7cf956db3688050692d2889d",
+      "category": "小件机",
+      "body_characters": 199,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "7fbd7c7c75b8e6292746c3b04e2f2cfd5cd0cd3bcae53e4aa2203126ff030366",
+      "category": "装车",
+      "body_characters": 128,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "706de73142fa0966f98bfb618a868e7e466e7ace5a28b146e7419a5ba3a33b00",
+      "category": "卸车",
+      "body_characters": 144,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "ef47a5fb88a412e7fe049e8db2c4895d3e5b93e330022f264a33abcdf2c0b520",
+      "category": "安全生产",
+      "body_characters": 105,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "d511d4780115ccd168808f692a692f3c9973a7fd26218f18faaab9aef623ef6b",
+      "category": "收容",
+      "body_characters": 125,
+      "paragraph_count": 3,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "75e45f9a2740e7df198cf086f8cf38b6cb529b59220a7b3d4f8fd59470f706b3",
+      "category": "卸车",
+      "body_characters": 145,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "b3c093c5252c29a7669879cdaa7e8b5577aa3598a446e44d2573422f11bef261",
+      "category": "装车",
+      "body_characters": 159,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "ca0149544be58fc9d72f90072151f0e1a4675380df12104d48bf33dd144d8ca2",
+      "category": "装车",
+      "body_characters": 158,
+      "paragraph_count": 1,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "4a0f77270cf4c9d23120c92ec6296475e3b70374cc741040c99b877a8b1ba0bb",
+      "category": "装车",
+      "body_characters": 125,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "4009dda846105d5a1fd9b9da59f598567049dda57d147175266a819152051bae",
+      "category": "小件机",
+      "body_characters": 150,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "6ab7c87d00d1de669e9f73a38a4b4447110c6d36280993c8cc284a9fd3ae7c38",
+      "category": "卸车",
+      "body_characters": 174,
+      "paragraph_count": 3,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "833ac7fdcb07654d5f23c52ef5c70ab3c6399ef7eceebc0f5382690beb8a1547",
+      "category": "卸车",
+      "body_characters": 119,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "ee1b3d13b73c4fce41cbdc01259ea14c4d0850ad2bf475e7abd296c9667588d5",
+      "category": "卸车",
+      "body_characters": 133,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "d50a85a8c9afa6a9a42e62451fb478af3abd7d5ae9db0bbf438b0a151f1d57b2",
+      "category": "收容",
+      "body_characters": 126,
+      "paragraph_count": 3,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "bea7921ca621159acf506ea6355865369f6d1ac4412f491fdf8a07eec464cbbf",
+      "category": "卸车",
+      "body_characters": 162,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "c59d194d49339c15639e2b8e5993c0c9a8be9c87f2ce5cd95e3910397451a992",
+      "category": "装车",
+      "body_characters": 132,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "ed121a7c30f05cbe3f8613556d84a55c54749f12bbe482febd9854f1cece086f",
+      "category": "小件机",
+      "body_characters": 162,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "9b3f8ff26a5f381ae821016c2df93ccdf7db2f6660b36510a48d5243a40b2a7a",
+      "category": "安全生产",
+      "body_characters": 113,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "fbd46f3ba4d787ba01525bac48232594e453e16512197893b0d44b22a8feaa81",
+      "category": "收容",
+      "body_characters": 121,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "bf20d65e5dda2b58faa628ae69d570b65c3ee8a13015fe49d528e1ecc6d91a6c",
+      "category": "收容",
+      "body_characters": 135,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "be518bc665139eeec9133c5dceb3c3e841cb06a8c6f218ffe571a0fa7c684e99",
+      "category": "小件机",
+      "body_characters": 147,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "3b8755561fef36f8a2ffc68c79068816ebf6171607dc1ee2a8a27d4074504934",
+      "category": "现场管理",
+      "body_characters": 143,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "d2b0d169894426493258386ce22f5454cb0702772355e899b7feaeab7e87025b",
+      "category": "现场管理",
+      "body_characters": 158,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "08c7fcf90168e271212797541ab6d3fe533fd2ff6029d31f98f6658b73fd6902",
+      "category": "收容",
+      "body_characters": 122,
+      "paragraph_count": 3,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "16645f8ef12f9854e1ac66d3a08fcb89a54b47f62e7cc331e134e398aa1bd78a",
+      "category": "错发白送",
+      "body_characters": 167,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "79789c11f7e476e070d1e7598cda9ce8d62b2404d047e8b5d6b32ce1f243e045",
+      "category": "小件机",
+      "body_characters": 156,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "49ce9f595393789caadf64eb4c4592228f7ca3e95e3a68aa2be60962f4cfad38",
+      "category": "现场管理",
+      "body_characters": 168,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "efd3d832926837042914c2b6185e3eb4fefbaed7ba8cd07eb69e4910ee3a91b5",
+      "category": "装车",
+      "body_characters": 124,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "5e46da59648395764aab82bdd297da0e7ccd6996c97521adeb39d99483a5387d",
+      "category": "装车",
+      "body_characters": 136,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "fce0651aad9cd9b11254b19c11d67f5224b1b8deaf45904621a1a7549e042d04",
+      "category": "装车",
+      "body_characters": 143,
+      "paragraph_count": 1,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "fb472972b1478de4d2240e00fb919ddeed7220ab58e9a15195a54dc482fd560c",
+      "category": "装车",
+      "body_characters": 129,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "f638de3edc346ea2d9767f495cb45c5071d8c8e9a1f1bbe163c0a1c0e86cb16b",
+      "category": "矩阵",
+      "body_characters": 145,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "c74a2106801bd911a9e36cd338e84c4189dd91b9d25cbe0514591e1778880eea",
+      "category": "小件机",
+      "body_characters": 175,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "8c324a21aae217cd7aa9438b9abeaa0de757cf030d0d6b4aaca6114a13f12cbc",
+      "category": "安全生产",
+      "body_characters": 119,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "ca2bae0278e8b8c8b0d5a367fac93d04267c485e274d1f20053bc9f3eae6587d",
+      "category": "装车",
+      "body_characters": 108,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "bf1e3745814e9c991a779ced8bebca91aff0cfd7d0cca3f7152e28e9a430ed54",
+      "category": "小件机",
+      "body_characters": 164,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "6860a7613f63ebee5488265227f6f66b798476b0be83d1949575f3206472ef81",
+      "category": "错发白送",
+      "body_characters": 190,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "d9aa46fd7d4889ce75cbd265aaafe4888810b4a6fa71d377768adf51f1939ba3",
+      "category": "装车",
+      "body_characters": 149,
+      "paragraph_count": 1,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "bf632ddac7c4a17a75edffd5841577d1354764c91074edeb03fc348fec2e4200",
+      "category": "卸车",
+      "body_characters": 161,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "661a0a4646cd6e6c0c33df58403fd8565c926908ea0c07056c83db1bbded587b",
+      "category": "卸车",
+      "body_characters": 145,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "d0a8d1e54bd5c49bbb66bd0568c2ac642370b6085bab8df841d5440b77db71f9",
+      "category": "卸车",
+      "body_characters": 183,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "8d5dd014f1839e7d6d9177f583eeb8d872deda59edf6bd2876df298a594050e5",
+      "category": "卸车",
+      "body_characters": 130,
+      "paragraph_count": 2,
+      "references_20260825": false
+    },
+    {
+      "source_sha256": "a296ba66d7aed3ad3f386842795952a2c40ed3f02dbb6a168fdd3d75d35d19ef",
+      "category": "卸车",
+      "body_characters": 136,
+      "paragraph_count": 2,
+      "references_20260825": false
+    }
+  ]
+}

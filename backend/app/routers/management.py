@@ -33,7 +33,7 @@ def _flush_unique(session: Session, detail: str) -> None:
 def reference_data(session: Session = Depends(get_session), user: User = Depends(get_current_user)) -> dict:
     department_filter = []
     unit_filter = []
-    if user.role == "department_manager":
+    if user.role in {"department_manager", "employee"}:
         department_filter.append(Department.id == user.department_id)
         unit_filter.append(AssessmentUnit.department_id == user.department_id)
     return {
@@ -41,6 +41,8 @@ def reference_data(session: Session = Depends(get_session), user: User = Depends
         "units": [{"id": item.id, "name": item.name, "department_id": item.department_id, "active": item.active} for item in session.execute(select(AssessmentUnit).where(AssessmentUnit.active.is_(True), *unit_filter).order_by(AssessmentUnit.name)).scalars()],
         "categories": [{"id": item.id, "name": item.name, "active": item.active} for item in session.execute(select(AssessmentCategory).where(AssessmentCategory.active.is_(True)).order_by(AssessmentCategory.name)).scalars()],
         "shifts": [item.name for item in session.execute(select(MasterDataItem).where(MasterDataItem.kind == "shift", MasterDataItem.active.is_(True)).order_by(MasterDataItem.sort_order, MasterDataItem.id)).scalars()],
+        "teams": [item.name for item in session.execute(select(MasterDataItem).where(MasterDataItem.kind == "team", MasterDataItem.active.is_(True)).order_by(MasterDataItem.sort_order, MasterDataItem.id)).scalars()],
+        "inspectors": [{"name": item.name, "team": item.parent_name} for item in session.execute(select(MasterDataItem).where(MasterDataItem.kind == "inspector", MasterDataItem.active.is_(True)).order_by(MasterDataItem.sort_order, MasterDataItem.id)).scalars()],
         "operation_stages": [item.name for item in session.execute(select(MasterDataItem).where(MasterDataItem.kind == "operation_stage", MasterDataItem.active.is_(True)).order_by(MasterDataItem.sort_order, MasterDataItem.id)).scalars()],
     }
 
@@ -51,7 +53,7 @@ def catalog(session: Session = Depends(get_session), _: User = Depends(require_r
         "departments": [{"id": x.id, "name": x.name, "active": x.active} for x in session.execute(select(Department).order_by(Department.id)).scalars()],
         "units": [{"id": x.id, "name": x.name, "department_id": x.department_id, "active": x.active} for x in session.execute(select(AssessmentUnit).order_by(AssessmentUnit.id)).scalars()],
         "categories": [{"id": x.id, "name": x.name, "active": x.active} for x in session.execute(select(AssessmentCategory).order_by(AssessmentCategory.id)).scalars()],
-        "master_items": [{"id": x.id, "kind": x.kind, "name": x.name, "active": x.active, "sort_order": x.sort_order} for x in session.execute(select(MasterDataItem).order_by(MasterDataItem.kind, MasterDataItem.sort_order, MasterDataItem.id)).scalars()],
+        "master_items": [{"id": x.id, "kind": x.kind, "name": x.name, "parent_name": x.parent_name, "active": x.active, "sort_order": x.sort_order} for x in session.execute(select(MasterDataItem).order_by(MasterDataItem.kind, MasterDataItem.sort_order, MasterDataItem.id)).scalars()],
     }
 
 
@@ -62,8 +64,8 @@ def list_users(session: Session = Depends(get_session), _: User = Depends(requir
 
 @router.post("/users", response_model=ManagedUserOut, status_code=status.HTTP_201_CREATED)
 def create_user(payload: UserCreate, session: Session = Depends(get_session), admin: User = Depends(require_roles("admin"))) -> User:
-    if payload.role == "department_manager" and payload.department_id is None:
-        raise HTTPException(status_code=422, detail="部门主管必须绑定部门")
+    if payload.role in {"department_manager", "employee"} and payload.department_id is None:
+        raise HTTPException(status_code=422, detail="主管和职工必须绑定部门")
     if payload.department_id and not session.get(Department, payload.department_id):
         raise HTTPException(status_code=422, detail="部门不存在")
     item = User(username=payload.username.strip(), display_name=payload.display_name.strip(), password_hash=hash_password(payload.password), role=payload.role, department_id=payload.department_id, active=True)
@@ -80,8 +82,8 @@ def update_user(user_id: int, payload: UserUpdate, session: Session = Depends(ge
         raise HTTPException(status_code=404, detail="用户不存在")
     if item.id == admin.id and not payload.active:
         raise HTTPException(status_code=409, detail="不能停用当前登录账号")
-    if payload.role == "department_manager" and payload.department_id is None:
-        raise HTTPException(status_code=422, detail="部门主管必须绑定部门")
+    if payload.role in {"department_manager", "employee"} and payload.department_id is None:
+        raise HTTPException(status_code=422, detail="主管和职工必须绑定部门")
     if payload.department_id and not session.get(Department, payload.department_id):
         raise HTTPException(status_code=422, detail="部门不存在")
     before = {"display_name": item.display_name, "role": item.role, "department_id": item.department_id, "active": item.active}
@@ -103,10 +105,14 @@ def create_catalog_item(kind: str, payload: NamedItemCreate, session: Session = 
         item = AssessmentUnit(name=payload.name, department_id=payload.department_id)
     elif kind == "categories":
         item = AssessmentCategory(name=payload.name)
-    elif kind in {"shifts", "operation-stages"}:
-        master_kind = "shift" if kind == "shifts" else "operation_stage"
+    elif kind in {"shifts", "teams", "inspectors", "operation-stages"}:
+        master_kind = {"shifts": "shift", "teams": "team", "inspectors": "inspector", "operation-stages": "operation_stage"}[kind]
+        if master_kind == "inspector" and not payload.parent_name:
+            raise HTTPException(status_code=422, detail="检查人必须绑定班组")
+        if master_kind == "inspector" and not session.execute(select(MasterDataItem).where(MasterDataItem.kind == "team", MasterDataItem.name == payload.parent_name, MasterDataItem.active.is_(True))).scalar_one_or_none():
+            raise HTTPException(status_code=422, detail="所属班组不存在或已停用")
         max_sort = session.scalar(select(func.max(MasterDataItem.sort_order)).where(MasterDataItem.kind == master_kind)) or 0
-        item = MasterDataItem(kind=master_kind, name=payload.name, sort_order=max_sort + 1)
+        item = MasterDataItem(kind=master_kind, name=payload.name, parent_name=payload.parent_name, sort_order=max_sort + 1)
     else:
         raise HTTPException(status_code=404, detail="基础数据类型不存在")
     session.add(item); _flush_unique(session, "名称已存在")
@@ -117,11 +123,11 @@ def create_catalog_item(kind: str, payload: NamedItemCreate, session: Session = 
 
 @router.put("/{kind}/{item_id}/active")
 def set_catalog_active(kind: str, item_id: int, payload: ActiveUpdate, session: Session = Depends(get_session), admin: User = Depends(require_roles("admin"))) -> dict:
-    model = {"departments": Department, "units": AssessmentUnit, "categories": AssessmentCategory, "shifts": MasterDataItem, "operation-stages": MasterDataItem}.get(kind)
+    model = {"departments": Department, "units": AssessmentUnit, "categories": AssessmentCategory, "shifts": MasterDataItem, "teams": MasterDataItem, "inspectors": MasterDataItem, "operation-stages": MasterDataItem}.get(kind)
     if model is None:
         raise HTTPException(status_code=404, detail="基础数据类型不存在")
     item = session.get(model, item_id)
-    expected_kind = "shift" if kind == "shifts" else "operation_stage"
+    expected_kind = {"shifts": "shift", "teams": "team", "inspectors": "inspector", "operation-stages": "operation_stage"}.get(kind)
     if not item or (isinstance(item, MasterDataItem) and item.kind != expected_kind):
         raise HTTPException(status_code=404, detail="基础数据不存在")
     before = item.active; item.active = payload.active

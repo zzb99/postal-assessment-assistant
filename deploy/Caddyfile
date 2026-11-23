@@ -1,0 +1,21 @@
+{
+    email {$ACME_EMAIL}
+}
+
+:8080 {
+    reverse_proxy web:80
+}
+
+{$DOMAIN} {
+    encode zstd gzip
+    reverse_proxy web:80
+    header {
+        -Server
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Permissions-Policy "camera=(), microphone=(), geolocation=()"
+        Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; frame-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'"
+    }
+}

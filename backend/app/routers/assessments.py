@@ -1,14 +1,15 @@
 from datetime import date, datetime, timezone
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
-from sqlalchemy import Select, func, or_, select
+from sqlalchemy import Select, func, or_, select, update
 from sqlalchemy.orm import Session
 
 from ..audit import write_audit_log
 from ..db import get_session
 from ..deps import assert_record_scope, get_current_user, require_roles
+from ..documents import DocumentGenerationError, cleanup_archive
 from ..models import Assessment, User
-from ..schemas import AssessmentInput, AssessmentOut, AssessmentPage, AssessmentUpdate, VoidRequest
+from ..schemas import AssessmentInput, AssessmentOut, AssessmentPage, AssessmentUpdate, FinalizeRequest, VoidRequest
 from ..services import finalize_assessment, snapshot_for_input, utc_now
 
 router = APIRouter(prefix="/api/assessments", tags=["考核单"])
@@ -17,18 +18,20 @@ router = APIRouter(prefix="/api/assessments", tags=["考核单"])
 def comparable_timestamp(value: datetime) -> datetime:
     if value.tzinfo is not None:
         value = value.astimezone(timezone.utc).replace(tzinfo=None)
-    return value.replace(microsecond=0)
+    return value
 
 
 def scoped_query(user: User) -> Select[tuple[Assessment]]:
     query = select(Assessment)
     if user.role == "department_manager":
         query = query.where(Assessment.department_id == user.department_id)
+    elif user.role == "employee":
+        query = query.where(Assessment.department_id == user.department_id, Assessment.created_by == user.id)
     return query
 
 
 @router.post("", response_model=AssessmentOut, status_code=status.HTTP_201_CREATED)
-def create_assessment(payload: AssessmentInput, session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager"))) -> Assessment:
+def create_assessment(payload: AssessmentInput, session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager", "employee"))) -> Assessment:
     values = snapshot_for_input(session, payload, user)
     assessment = Assessment(**values, created_by=user.id, status="draft")
     session.add(assessment)
@@ -66,51 +69,65 @@ def get_assessment(assessment_id: int, session: Session = Depends(get_session), 
     assessment = session.get(Assessment, assessment_id)
     if not assessment:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="考核单不存在")
-    assert_record_scope(user, assessment.department_id)
+    assert_record_scope(user, assessment.department_id, assessment.created_by)
     return assessment
 
 
 @router.put("/{assessment_id}", response_model=AssessmentOut)
-def update_assessment(assessment_id: int, payload: AssessmentUpdate, session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager"))) -> Assessment:
-    assessment = session.get(Assessment, assessment_id)
+def update_assessment(assessment_id: int, payload: AssessmentUpdate, session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager", "employee"))) -> Assessment:
+    assessment = session.execute(select(Assessment).where(Assessment.id == assessment_id).with_for_update()).scalar_one_or_none()
     if not assessment:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="考核单不存在")
-    assert_record_scope(user, assessment.department_id)
+    assert_record_scope(user, assessment.department_id, assessment.created_by)
     if assessment.status != "draft":
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="正式考核单不可直接修改，请作废后重新开具")
     if comparable_timestamp(assessment.updated_at) != comparable_timestamp(payload.updated_at):
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="记录已被其他用户更新，请刷新后再试")
     before = {"penalty_amount": str(assessment.penalty_amount), "assessment_content": assessment.assessment_content}
-    for key, value in snapshot_for_input(session, payload, user).items():
-        setattr(assessment, key, value)
-    session.flush()
+    values = snapshot_for_input(session, payload, user)
+    # The conditional write also protects SQLite, where FOR UPDATE is not supported.
+    changed = session.execute(update(Assessment).where(
+        Assessment.id == assessment.id, Assessment.status == "draft", Assessment.updated_at == assessment.updated_at,
+    ).values(**values, updated_at=utc_now()).execution_options(synchronize_session=False))
+    if changed.rowcount != 1:
+        session.rollback()
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="草稿状态或版本已变化，请刷新后再试")
+    session.refresh(assessment)
     write_audit_log(session, operator_id=user.id, action="assessment.update_draft", target_type="assessment", target_id=str(assessment.id), before=before, after={"penalty_amount": str(assessment.penalty_amount), "assessment_content": assessment.assessment_content})
     session.commit()
     return assessment
 
 
 @router.post("/{assessment_id}/finalize", response_model=AssessmentOut)
-def finalize(assessment_id: int, session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager"))) -> Assessment:
-    assessment = session.get(Assessment, assessment_id)
+def finalize(assessment_id: int, payload: FinalizeRequest, session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager"))) -> Assessment:
+    assessment = session.execute(select(Assessment).where(Assessment.id == assessment_id).with_for_update()).scalar_one_or_none()
     if not assessment:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="考核单不存在")
     assert_record_scope(user, assessment.department_id)
+    if comparable_timestamp(assessment.updated_at) != comparable_timestamp(payload.updated_at):
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="草稿已被更新，请重新打开并复核后再正式生成")
+    archived = None
     try:
-        assessment = finalize_assessment(session, assessment)
+        assessment, archived = finalize_assessment(session, assessment)
         write_audit_log(session, operator_id=user.id, action="assessment.finalize", target_type="assessment", target_id=str(assessment.id), after={"assessment_no": assessment.assessment_no, "status": "effective"})
         session.commit()
         return assessment
+    except DocumentGenerationError as error:
+        session.rollback()
+        cleanup_archive(archived.archive_dir if archived else None)
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail=str(error)) from error
     except Exception:
         session.rollback()
+        cleanup_archive(archived.archive_dir if archived else None)
         raise
 
 
 @router.post("/{assessment_id}/copy", response_model=AssessmentOut, status_code=status.HTTP_201_CREATED)
-def copy_assessment(assessment_id: int, session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager"))) -> Assessment:
+def copy_assessment(assessment_id: int, session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager", "employee"))) -> Assessment:
     original = session.get(Assessment, assessment_id)
     if not original:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="考核单不存在")
-    assert_record_scope(user, original.department_id)
+    assert_record_scope(user, original.department_id, original.created_by)
     values = {column.name: getattr(original, column.name) for column in Assessment.__table__.columns if column.name not in {"id", "assessment_no", "status", "created_by", "created_at", "updated_at", "finalized_at", "voided_at", "voided_by", "void_reason"}}
     copied = Assessment(**values, assessment_no=None, status="draft", created_by=user.id)
     session.add(copied)
@@ -121,10 +138,11 @@ def copy_assessment(assessment_id: int, session: Session = Depends(get_session),
 
 
 @router.post("/{assessment_id}/void", response_model=AssessmentOut)
-def void_assessment(assessment_id: int, payload: VoidRequest, session: Session = Depends(get_session), user: User = Depends(require_roles("admin"))) -> Assessment:
+def void_assessment(assessment_id: int, payload: VoidRequest, session: Session = Depends(get_session), user: User = Depends(require_roles("admin", "department_manager"))) -> Assessment:
     assessment = session.get(Assessment, assessment_id)
     if not assessment:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="考核单不存在")
+    assert_record_scope(user, assessment.department_id, assessment.created_by)
     if assessment.status != "effective":
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="只有正式考核单可以作废")
     assessment.status = "voided"
