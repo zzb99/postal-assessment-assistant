@@ -17,3 +17,5 @@ coverage/
 .venv/
 output/
 .baseline-*.log
+# 微信开发者工具的本机私有设置（如「不校验合法域名」），每台电脑各自保存。
+miniprogram/project.private.config.json

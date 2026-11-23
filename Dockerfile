@@ -4,6 +4,7 @@ COPY package.json package-lock.json ./
 RUN npm ci --ignore-scripts --registry=https://registry.npmmirror.com
 COPY index.html tsconfig.json tsconfig.app.json vite.config.ts ./
 COPY src ./src
+COPY miniprogram/src/shared ./miniprogram/src/shared
 COPY public ./public
 RUN ./node_modules/.bin/tsc -b && ./node_modules/.bin/vite build
 

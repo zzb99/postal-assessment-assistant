@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/fill/fill",
+    "pages/records/records",
+    "pages/result/result"
+  ],
+  "window": {
+    "navigationBarTitleText": "通信生产考核",
+    "navigationBarBackgroundColor": "#006b45",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f2f5f3",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#66756d",
+    "selectedColor": "#006b45",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/fill/fill", "text": "填写考核单" },
+      { "pagePath": "pages/records/records", "text": "我的记录" }
+    ]
+  },
+  "networkTimeout": {
+    "request": 120000,
+    "downloadFile": 60000
+  },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

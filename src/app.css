@@ -75,3 +75,6 @@ summary { cursor: pointer; font-weight: 600; line-height: 1.6; color: #294e7c; }
   .detail dd, .compact-form dd, .rule-item p { overflow-wrap: anywhere; }
   .money strong, .metrics article strong { overflow-wrap: anywhere; }
 }
+/* 管理网站顶部的返回职工填报入口（原放在旧职工页样式里，职工页重写后移到后台样式）。 */
+.management-entry { text-align: right; padding: 8px 20px; background: #fff; }
+.management-entry a { color: #294e7c; font-size: 13px; }

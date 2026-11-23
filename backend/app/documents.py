@@ -2,11 +2,13 @@ from __future__ import annotations
 
 import hashlib
 import shutil
+import struct
 import subprocess
 import tempfile
 import threading
 import uuid
 import zipfile
+import zlib
 from copy import deepcopy
 from dataclasses import dataclass
 from datetime import datetime
@@ -271,3 +273,42 @@ def read_archived_file(relative_path: str, expected_sha256: str) -> bytes:
     if _sha256(content) != expected_sha256:
         raise DocumentGenerationError("归档文书哈希校验失败，禁止下载")
     return content
+
+
+def _png_chunk(tag: bytes, data: bytes) -> bytes:
+    return struct.pack(">I", len(data)) + tag + data + struct.pack(">I", zlib.crc32(tag + data) & 0xFFFFFFFF)
+
+
+def render_pdf_png(pdf_content: bytes, scale: float = 2.0) -> bytes:
+    """把已归档且已校验哈希的单页 PDF 渲染为 PNG，供微信小程序和网页分享图片。
+
+    只读取归档 PDF，不重新生成或修改正式文书；图片由 pdfium 渲染，PNG 用标准库编码，不额外依赖图像库。
+    """
+    import pypdfium2 as pdfium
+
+    try:
+        document = pdfium.PdfDocument(pdf_content)
+    except Exception as error:  # pdfium 对损坏文件抛出自身异常类型
+        raise DocumentGenerationError("归档PDF无法读取，不能生成分享图片") from error
+    try:
+        if len(document) != 1:
+            raise DocumentGenerationError("正式文书不是单页，不能生成分享图片")
+        page = document[0]
+        try:
+            bitmap = page.render(scale=scale, rev_byteorder=True)
+            try:
+                width, height, stride, channels = bitmap.width, bitmap.height, bitmap.stride, bitmap.n_channels
+                pixels = memoryview(bitmap.buffer).cast("B")
+                row = width * channels
+                raw = b"".join(b"\x00" + pixels[offset:offset + row].tobytes() for offset in range(0, height * stride, stride))
+            finally:
+                bitmap.close()
+        finally:
+            page.close()
+    finally:
+        document.close()
+    color_type = {1: 0, 3: 2, 4: 6}.get(channels)
+    if color_type is None:
+        raise DocumentGenerationError("分享图片颜色格式不受支持")
+    header = struct.pack(">IIBBBBB", width, height, 8, color_type, 0, 0, 0)
+    return b"\x89PNG\r\n\x1a\n" + _png_chunk(b"IHDR", header) + _png_chunk(b"IDAT", zlib.compress(raw, 6)) + _png_chunk(b"IEND", b"")

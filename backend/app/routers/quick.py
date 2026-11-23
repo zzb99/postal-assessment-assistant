@@ -11,9 +11,9 @@ from .. import ai_writing
 from ..ai import AiServiceError, rule_catalog
 from ..config import settings
 from ..db import get_session
-from ..documents import DocumentGenerationError, cleanup_archive, read_archived_file
+from ..documents import DocumentGenerationError, cleanup_archive, read_archived_file, render_pdf_png
 from ..models import Assessment, AssessmentCategory, AssessmentUnit, MasterDataItem, QuickSubmission
-from ..quick import ai_limiter, device_hash, generation_slot, intake_actor, limit_submission, payload_hash
+from ..quick import ai_limiter, device_hash, generation_slot, intake_actor, limit_submission, limiter, payload_hash
 from ..schemas import AssessmentOut, AssessmentPage, QuickAssessmentInput, QuickConfig, QuickAiRequest, QuickAiResult, QuickAiContinueRequest
 from ..services import finalize_assessment, snapshot_for_input
 from .documents import archived_response
@@ -25,6 +25,13 @@ from ..schemas import QuickReconfirmRequest
 from ..schemas import QuickAiSelectRequest
 
 router = APIRouter(prefix="/api/quick", tags=["手机快捷填报"])
+
+# 本机可下载的正式文书：Word/PDF 为归档原件，PNG 为归档 PDF 的分享图片（小程序与网页共用）。
+DOCUMENT_TYPES = {
+    "word": ("application/vnd.openxmlformats-officedocument.wordprocessingml.document", "docx", "attachment"),
+    "pdf": ("application/pdf", "pdf", "attachment"),
+    "png": ("image/png", "png", "inline"),
+}
 
 
 def owner_key(x_device_token: str | None = Header(default=None)) -> str:
@@ -201,14 +208,22 @@ def recent(response: Response, page: int = Query(1, ge=1), owner: str = Depends(
 @router.get("/assessments/{assessment_id}/documents/{kind}")
 def document(assessment_id: int, kind: str, owner: str = Depends(owner_key), session: Session = Depends(get_session)):
     assessment = session.scalar(select(Assessment).join(QuickSubmission, Assessment.id == QuickSubmission.assessment_id).where(Assessment.id == assessment_id, QuickSubmission.device_hash == owner))
-    if assessment is None or kind not in {"word", "pdf"}:
+    if assessment is None or kind not in DOCUMENT_TYPES:
         raise HTTPException(status_code=404, detail="本机找不到该文书")
     if assessment.status != "effective" or assessment.document is None:
         raise HTTPException(status_code=409, detail="该文书未正式生成或已作废，不能分享")
     archive = assessment.document
+    if kind == "png":
+        # 分享图片由归档 PDF 现场渲染，占用 CPU；本机查看自己的单据远用不到这个上限。
+        limiter.check("share-image:" + owner, 120)
     try:
-        data = read_archived_file(archive.docx_path if kind == "word" else archive.pdf_path, archive.docx_sha256 if kind == "word" else archive.pdf_sha256)
+        if kind == "word":
+            data = read_archived_file(archive.docx_path, archive.docx_sha256)
+        else:
+            data = read_archived_file(archive.pdf_path, archive.pdf_sha256)
+            if kind == "png":
+                data = render_pdf_png(data)
     except DocumentGenerationError as error:
         raise HTTPException(status_code=500, detail=str(error)) from error
-    media = "application/pdf" if kind == "pdf" else "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-    return archived_response(data, media, f"{assessment.assessment_no}.{'pdf' if kind == 'pdf' else 'docx'}", "attachment")
+    media, extension, disposition = DOCUMENT_TYPES[kind]
+    return archived_response(data, media, f"{assessment.assessment_no}.{extension}", disposition)

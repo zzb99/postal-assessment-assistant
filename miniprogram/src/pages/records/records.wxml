@@ -1,0 +1,29 @@
+<view class="page">
+  <view class="hero">
+    <view class="hero-title">我的记录</view>
+    <view class="hero-sub">本机生成的考核单{{total ? '，共 ' + total + ' 张' : ''}}。换手机或清除微信数据后，旧记录请到后台查询。</view>
+  </view>
+
+  <view wx:if="{{error}}" class="alert alert-error" bindtap="refresh">{{error}}（点此重试）</view>
+
+  <view wx:if="{{loading}}" class="empty">正在读取…</view>
+  <view wx:elif="{{!rows.length && !error}}" class="empty">
+    <view>还没有考核单</view>
+    <view class="link center" bindtap="goFill">去填写第一张</view>
+  </view>
+
+  <view wx:for="{{rows}}" wx:key="id" class="card record" data-id="{{item.id}}" bindtap="open" hover-class="record-hover">
+    <view class="record-top">
+      <text class="record-no">{{item.no}}</text>
+      <text class="status {{item.statusClass}}">{{item.status}}</text>
+    </view>
+    <view class="record-unit">
+      <text>{{item.unit}}</text>
+      <text class="record-amount">{{item.amount}}</text>
+    </view>
+    <view class="hint">{{item.meta}}</view>
+  </view>
+
+  <view wx:if="{{rows.length && done}}" class="hint end">已显示全部</view>
+  <view class="bottom-safe"></view>
+</view>

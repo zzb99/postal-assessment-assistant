@@ -1,0 +1,54 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="empty">正在读取考核单…</view>
+
+  <view wx:elif="{{error}}" class="card">
+    <view class="alert alert-error">{{error}}</view>
+    <button class="btn btn-block" bindtap="next">返回填写</button>
+  </view>
+
+  <block wx:else>
+    <view class="result-hero {{effective ? '' : 'result-hero-muted'}}">
+      <view class="result-icon">{{effective ? '✓' : '!'}}</view>
+      <view class="result-title">{{effective ? (fresh ? '考核单已生成' : '正式考核单') : '考核单' + statusText}}</view>
+      <view class="result-no">{{record.assessment_no || '未生成编号'}}</view>
+      <view class="result-meta">{{record.team}} · {{record.inspector_name}} · {{record.incident_date}} {{record.shift}}</view>
+    </view>
+
+    <view wx:if="{{effective}}" class="card">
+      <view class="row">
+        <button class="btn btn-primary half" disabled="{{!imagePath}}" bindtap="shareImage">发到微信群</button>
+        <button class="btn half" disabled="{{!pdfPath}}" bindtap="shareFile">发送 PDF 文件</button>
+      </view>
+      <view wx:if="{{hint}}" class="note note-muted" aria-role="status">{{hint}}</view>
+      <button wx:if="{{!preparing && (!imagePath || !pdfPath)}}" class="btn btn-block reload" bindtap="prepare">重新加载文书</button>
+      <view class="document-frame" bindtap="previewImage">
+        <image wx:if="{{imagePath}}" class="document" src="{{imagePath}}" mode="widthFix" show-menu-by-longpress aria-label="{{record.assessment_no}}正式考核单图片" />
+        <view wx:else class="document-placeholder">{{preparing ? '正在生成文书图片…' : '文书图片暂不可用'}}</view>
+      </view>
+      <view class="hint center-text">点图片放大查看；长按图片可直接发送给朋友或保存到手机。</view>
+    </view>
+
+    <view wx:else class="card">
+      <view class="alert alert-warn">这张考核单{{statusText}}，不能分享正式文书。</view>
+      <view wx:if="{{record.void_reason}}" class="hint">作废原因：{{record.void_reason}}</view>
+    </view>
+
+    <view class="card">
+      <view class="card-head">
+        <text class="card-title">考核内容</text>
+      </view>
+      <view class="kv"><text class="k">被考核公司</text><text class="v">{{record.assessment_unit_name_snapshot}}</text></view>
+      <view class="kv"><text class="k">数量</text><text class="v">{{record.quantity}}</text></view>
+      <view class="kv"><text class="k">考核金额</text><text class="v">¥{{amountText}}（{{record.penalty_amount_cn}}）</text></view>
+      <view class="content-text">{{record.assessment_content}}</view>
+      <view wx:if="{{effective}}" class="row more-actions">
+        <button class="btn third" disabled="{{!pdfPath}}" bindtap="openPdf">打开PDF</button>
+        <button class="btn third" bindtap="openWord">打开Word</button>
+        <button class="btn third" bindtap="copyText">复制文字</button>
+      </view>
+    </view>
+
+    <button class="btn btn-primary btn-block next-btn" bindtap="next">再填一张</button>
+    <view class="bottom-safe"></view>
+  </block>
+</view>

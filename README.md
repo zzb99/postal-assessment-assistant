@@ -1,8 +1,16 @@
 # 邮件处理中心通信生产考核管理系统
 
-普通职工打开根路径即可填写，无需登录、设备登记或主管审批。班组和姓名由本人填写并在本机记住；草稿保存在浏览器，正式考核单及 Word/PDF 归档由服务端统一保存。后台 `#manage` 保留登录、台账、统计、账号管理、作废与审计权限。
+系统有三个入口，共用同一个后端：
 
-本版本唯一源码基础为用户提供的《考核系统-20261014-直接修改修复版.zip》。最新实测、未完成项及证据见 [验收报告](docs/RELEASE_ACCEPTANCE_20261014.md)，制度发布见 [操作说明](docs/POLICY_OPERATIONS_20261014.md)，上线与回退见 [部署回滚方案](docs/DEPLOY_ROLLBACK_20261014.md)。当前为候选交付，未部署生产。
+| 入口 | 地址 | 使用者 | 登录 |
+| --- | --- | --- | --- |
+| 微信小程序 | 微信内打开（源码 `miniprogram/`） | 普通职工 | 不需要 |
+| 职工网页版 | 根路径 `/` | 普通职工 | 不需要 |
+| 管理网站 | `/admin`（旧地址 `/#manage` 仍可用） | 管理员、主管、领导 | 需要 |
+
+普通职工无需登录、设备登记或主管审批。班组和姓名由本人填写并在本机记住；草稿保存在本机，正式考核单及 Word/PDF 归档由服务端统一保存。管理网站保留登录、台账、统计、账号管理、作废与审计权限。小程序与职工网页共用 `miniprogram/src/shared` 中的填报逻辑，开发、调试和上线步骤见 [小程序与职工网页说明](docs/MINIPROGRAM_GUIDE.md)。
+
+2026-11-23 起，本仓库分支以 10 月 15 日验收版（`951c46f`）为基础，在此之上新增微信小程序、重写职工网页、增加分享图片接口。10 月 15 日验收版的唯一源码基础为用户提供的《考核系统-20261014-直接修改修复版.zip》。最新实测、未完成项及证据见 [验收报告](docs/RELEASE_ACCEPTANCE_20261014.md)，制度发布见 [操作说明](docs/POLICY_OPERATIONS_20261014.md)，上线与回退见 [部署回滚方案](docs/DEPLOY_ROLLBACK_20261014.md)。当前为候选交付，未部署生产。
 
 ## 正式文书原则
 
@@ -72,9 +80,12 @@ docker compose --env-file /etc/postal-assessment.env logs --tail 50 backup
 ```powershell
 npm.cmd exec tsc -- -b
 npm.cmd test
+npm.cmd run typecheck:mp
 npm.cmd run build
 python -m pytest backend/tests -q
 ```
+
+`npm.cmd test` 同时运行网页测试和 `miniprogram/tests` 中的小程序测试；`typecheck:mp` 用微信官方类型包检查小程序代码。
 
 ## 权限
 

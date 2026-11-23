@@ -1,0 +1,26 @@
+{
+  "description": "邮件处理中心通信生产考核 · 职工免登录填报小程序。appid 先用游客号，正式发布前替换为单位小程序的 AppID。",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "src/",
+  "projectname": "postal-assessment-miniprogram",
+  "appid": "touristappid",
+  "setting": {
+    "useCompilerPlugins": ["typescript"],
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "urlCheck": true,
+    "ignoreUploadUnusedFiles": true,
+    "uploadWithSourceMap": true
+  },
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}

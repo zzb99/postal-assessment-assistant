@@ -1,0 +1,4 @@
+.btn-block-top { width: 100%; margin-top: 20rpx; }
+.row-center { align-items: center; margin-top: 12rpx; }
+.row-center .btn { margin-top: 0; }
+.question .row .btn { margin-top: 16rpx; }

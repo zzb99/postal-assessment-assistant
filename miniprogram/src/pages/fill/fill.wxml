@@ -1,0 +1,147 @@
+<view class="page">
+  <view class="hero">
+    <view class="hero-title">填写考核单</view>
+    <view class="hero-sub">描述现场问题，核对后生成，直接发到微信群</view>
+  </view>
+
+  <view wx:if="{{fatal}}" class="alert alert-error">{{fatal}}</view>
+
+  <block wx:elif="{{ready}}">
+    <view wx:if="{{state.error}}" class="alert alert-error" bindtap="retryConfig" aria-role="alert">{{state.error}}</view>
+    <view wx:if="{{!storageOk}}" class="alert alert-warn">本机无法保存草稿，离开前请先复制正文。</view>
+
+    <view class="card">
+      <view class="card-head">
+        <text class="step">1</text>
+        <text class="card-title">检查人</text>
+        <text class="card-tip">自动记住，下次不用再填</text>
+      </view>
+      <view class="row">
+        <view class="field half">
+          <text class="label">班组</text>
+          <input class="input" value="{{state.form.team}}" data-key="team" bindinput="onInput" maxlength="32" placeholder="例如 二班" placeholder-class="ph" disabled="{{locked}}" aria-label="班组" />
+        </view>
+        <view class="field half">
+          <text class="label">姓名</text>
+          <input class="input" value="{{state.form.inspector_name}}" data-key="inspector_name" bindinput="onInput" maxlength="100" placeholder="你的姓名" placeholder-class="ph" disabled="{{locked}}" aria-label="姓名" />
+        </view>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="card-head">
+        <text class="step">2</text>
+        <text class="card-title">检查信息</text>
+      </view>
+      <picker mode="date" value="{{state.form.incident_date}}" bindchange="onDate" disabled="{{locked}}">
+        <view class="select">
+          <text class="label">检查日期</text>
+          <text class="select-value">{{state.form.incident_date}}</text>
+          <text class="chevron">›</text>
+        </view>
+      </picker>
+      <view class="field">
+        <text class="label">班次</text>
+        <view class="segmented" aria-role="radiogroup">
+          <view wx:for="{{view.shifts}}" wx:key="*this" class="segment {{state.form.shift === item ? 'segment-on' : ''}}" data-value="{{item}}" bindtap="onShift" aria-role="radio" aria-checked="{{state.form.shift === item}}">{{item}}</view>
+        </view>
+      </view>
+      <picker range="{{units}}" range-key="name" value="{{view.unitIndex < 0 ? 0 : view.unitIndex}}" bindchange="onUnit" disabled="{{locked || !units.length}}">
+        <view class="select">
+          <text class="label">被考核公司</text>
+          <text class="select-value {{view.unitName ? '' : 'ph'}}">{{view.unitName || '请选择公司'}}</text>
+          <text class="chevron">›</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="card">
+      <view class="card-head">
+        <text class="step">3</text>
+        <text class="card-title">{{state.mode === 'ai' ? '描述现场问题' : '手动填写'}}</text>
+        <text wx:if="{{view.aiEnabled && !locked}}" class="link" bindtap="toggleMode">{{state.mode === 'ai' ? (state.form.assessment_content ? '手动调整' : '不用AI，手动填') : '返回AI整理'}}</text>
+      </view>
+
+      <block wx:if="{{state.mode === 'ai'}}">
+        <textarea class="textarea" value="{{state.form.facts}}" data-key="facts" bindinput="onInput" maxlength="1000" auto-height disabled="{{locked}}" placeholder="例如：现场抽烟；小件机发现遗留1件；卸车完毕后发现遗留邮件。只写事实，不用写条款。" placeholder-class="ph" aria-label="现场问题" />
+        <button class="btn btn-primary btn-block-top" disabled="{{!view.canCompose}}" loading="{{state.aiPending}}" bindtap="compose">{{state.aiPending ? '正在处理…' : 'AI 智能整理'}}</button>
+        <view wx:if="{{state.message}}" class="note" aria-role="status">{{state.message}}</view>
+        <view wx:if="{{view.notice}}" class="note note-muted">{{view.notice}}</view>
+
+        <view wx:if="{{view.question}}" class="question">
+          <view class="question-text">{{view.question.question}}</view>
+          <view wx:if="{{view.question.kind === 'boolean'}}" class="row">
+            <button class="btn btn-primary half" disabled="{{state.aiPending}}" data-value="yes" bindtap="answerBoolean">是，确认属实</button>
+            <button class="btn half" disabled="{{state.aiPending}}" data-value="no" bindtap="answerBoolean">否</button>
+          </view>
+          <view wx:else class="row row-center">
+            <input class="input half" type="number" value="{{quantityAnswer}}" bindinput="onQuantityAnswer" maxlength="6" placeholder="计费数量" placeholder-class="ph" aria-label="计费数量" />
+            <button class="btn btn-primary half" disabled="{{state.aiPending || !quantityAnswer}}" bindtap="answerQuantity">确认数量</button>
+          </view>
+          <view class="hint">请按现场实际情况选择，系统据此核算金额。</view>
+        </view>
+
+        <view wx:if="{{view.rulesVisible}}" class="rules">
+          <view class="rules-head" bindtap="toggleRulesOpen">
+            <text>{{view.rulesTitle}}</text>
+            <text class="chevron">{{rulesExpanded ? '收起' : '展开'}}</text>
+          </view>
+          <block wx:if="{{rulesExpanded}}">
+            <view wx:for="{{view.rules}}" wx:key="id" class="rule">
+              <view class="rule-clause">{{item.clause}}<text wx:if="{{item.current}}" class="tag">当前条款</text></view>
+              <view class="rule-text">{{item.original}}</view>
+              <view wx:for="{{item.options}}" wx:for-item="option" wx:key="id" class="option">
+                <view class="option-label">{{option.label}}</view>
+                <view class="hint">{{option.automatic ? '按实际情况补全条件后计算金额' : '复杂标准需手动核定金额'}}</view>
+                <button class="btn btn-small" data-rule="{{item.id}}" data-option="{{option.id}}" bindtap="choose" disabled="{{state.aiPending}}">选择此条款</button>
+              </view>
+            </view>
+            <view wx:if="{{view.hiddenRules > 0 || state.showAllRules}}" class="link center" bindtap="toggleRules">{{state.showAllRules ? '收起其他条款' : '查看其他相关条款（' + view.hiddenRules + '）'}}</view>
+          </block>
+        </view>
+
+        <view wx:if="{{!view.aiEnabled}}" class="hint">服务器尚未配置 AI，请点右上角改为手动填写。</view>
+      </block>
+      <view wx:else class="hint">直接填写下方正文、数量和金额；正文里写的金额必须与填写金额一致。</view>
+    </view>
+
+    <view wx:if="{{view.showReview}}" class="card">
+      <view class="card-head">
+        <text class="step">4</text>
+        <text class="card-title">核对考核单</text>
+      </view>
+      <view class="field">
+        <text class="label">{{view.contentLabel}}</text>
+        <textarea class="textarea {{view.contentEditable ? '' : 'readonly'}}" value="{{state.form.assessment_content}}" data-key="assessment_content" bindinput="onInput" maxlength="600" auto-height disabled="{{!view.contentEditable || locked}}" placeholder="填写现场事实、制度依据、考核金额及整改要求。" placeholder-class="ph" aria-label="考核正文" />
+        <text class="counter">{{view.contentCount}}</text>
+      </view>
+      <block wx:if="{{view.amountsVisible}}">
+        <view class="row">
+          <view class="field half">
+            <text class="label">数量</text>
+            <input class="input {{view.amountsEditable ? '' : 'readonly'}}" type="number" value="{{state.form.quantity}}" data-key="quantity" bindinput="onInput" maxlength="6" disabled="{{!view.amountsEditable || locked}}" aria-label="数量" />
+          </view>
+          <view class="field half">
+            <text class="label">考核金额（元）</text>
+            <input class="input {{view.amountsEditable ? '' : 'readonly'}}" type="number" value="{{state.form.penalty_amount}}" data-key="penalty_amount" bindinput="onInput" maxlength="9" disabled="{{!view.amountsEditable || locked}}" aria-label="考核金额" />
+          </view>
+        </view>
+        <view class="money">大写：{{view.amountCn}}</view>
+      </block>
+      <view wx:if="{{view.confirmVisible}}" class="confirm" bindtap="toggleConfirm" aria-role="checkbox" aria-checked="{{state.editConfirmed}}">
+        <view class="checkbox {{state.editConfirmed ? 'checkbox-on' : ''}}">{{state.editConfirmed ? '✓' : ''}}</view>
+        <text>{{view.confirmText}}</text>
+      </view>
+    </view>
+    <view wx:else class="card card-empty">整理完成后，正文和金额会显示在这里。</view>
+
+    <view class="bottom-space"></view>
+  </block>
+
+  <view wx:else class="empty">正在打开…</view>
+</view>
+
+<view wx:if="{{ready && !fatal}}" class="action-bar">
+  <view wx:if="{{view.blocker && !state.submitting}}" class="action-hint">{{view.blocker}}</view>
+  <button class="btn btn-primary btn-block" disabled="{{!!view.blocker || state.submitting}}" loading="{{state.submitting}}" bindtap="submit">{{view.submitLabel}}</button>
+</view>

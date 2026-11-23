@@ -22,6 +22,8 @@ const privateCatalog = () => ({
 
 export default defineConfig({
   plugins: [react(), privateCatalog()],
+  // 职工网页与微信小程序共用的填报逻辑（纯 TypeScript），源码放在小程序目录内，小程序可直接编译。
+  resolve: { alias: { '@shared': resolve('miniprogram/src/shared') } },
   server: { proxy: { '/api': process.env.API_PROXY_TARGET || 'http://127.0.0.1:8000' },
     watch: { ignored: ['**/output/**', '**/.tmp/**', '**/.pytest_cache/**', '**/.venv/**'] } },
   preview: { proxy: { '/api': process.env.API_PROXY_TARGET || 'http://127.0.0.1:8000' } },

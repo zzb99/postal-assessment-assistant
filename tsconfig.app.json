@@ -13,7 +13,8 @@
     "verbatimModuleSyntax": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "strict": true
+    "strict": true,
+    "paths": { "@shared/*": ["./miniprogram/src/shared/*"] }
   },
-  "include": ["src"]
+  "include": ["src", "miniprogram/src/shared"]
 }
