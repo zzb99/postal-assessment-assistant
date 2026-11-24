@@ -58,12 +58,13 @@ def test_invalid_doc_rejected():
         parse_word(b'not a word',version='NEW',effective_date='2026-10-14',filename='bad.docx')
 
 
-def test_published_version_persists_and_restores_without_ai(tmp_path, monkeypatch):
+def test_published_version_persists_and_restores_without_ai(tmp_path, monkeypatch, policy_today):
     from dataclasses import replace
     from backend.app import policy_store, rule_search
     from backend.app.config import settings
     original = next(Path(__file__).resolve().parents[2].glob('*20260819.docx'))
     monkeypatch.setattr(policy_store, 'settings', replace(settings, document_root=tmp_path))
+    policy_today(date(2026, 10, 14))
     first = policy_store.publish(original.read_bytes(), filename='现行通则.docx',version='TEST-ONE',
                                  effective_date='2026-08-19',user_id=1)
     assert first['inherited_verified_count'] == 8

@@ -85,7 +85,8 @@ def test_chinese_version_download_and_duplicate_rejected(policy_client):
     assert upload(client, headers['admin'], version='通则-新版').status_code == 422
 
 
-def test_restore_does_not_change_yesterdays_policy(policy_client):
+def test_restore_does_not_change_yesterdays_policy(policy_client, policy_today):
+    policy_today(date(2026, 10, 14))
     client, headers = policy_client
     assert upload(client, headers['admin']).status_code == 200
     first = policy_store.manifest()['current']
